@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Crimson_Text } from "next/font/google";
+import { Spectral } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Crimson_Text({
+const geistSans = Spectral({
   weight: "400",
   style: "normal",
 });
