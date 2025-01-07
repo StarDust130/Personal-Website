@@ -3,6 +3,7 @@ import { Spectral } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Spectral({
+  subsets: ["latin"],
   weight: "400",
   style: "normal",
 });
