@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const geistSans = Spectral({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className} antialiased`}>{children}</body>
+      <body className={`${geistSans.className} antialiased`}><Navbar />{children}</body>
     </html>
   );
 }
