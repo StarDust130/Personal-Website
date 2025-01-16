@@ -54,35 +54,31 @@ const Page = () => {
           fill="none"
         />
       </svg>
+
       {/* Content Section */}
       <div className="container mx-auto px-4 sm:px-8">
         {/* Header Section */}
         <div className="text-center space-y-6 md:max-w-3xl mx-3 md:mx-auto">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600">
-            Hey, I&apos;m Chandrashekhar
+            Hi, I&apos;m Chandrashekhar!
           </h1>
         </div>
 
         {/* About Me Section */}
         <div className="mt-6 md:mt-12 text-center md:max-w-3xl mx-3 md:mx-auto">
           <p className="text-base sm:text-lg lg:text-xl text-gray-400">
-            I code cool stuff 💻, play chess ♟️, and dive into geopolitics 🌍.
-            Always dreaming big and making things happen 🔥!
+            Passionate about tech 💻, reading 📚, anime, chess ♟️, geopolitics
+            🌍, and philosophy 🤔. Believes in constant learning and growth. 🔥
           </p>
         </div>
-      </div>
 
-      <div className="flex  items-center justify-center gap-6 mt-6 md:mt-12">
-        <button className="button mt-3">
-          <div>
-            <span>Talk Now</span>
-          </div>
-        </button>
-        <button className="button mt-3">
-          <div>
-            <span>Know More</span>
-          </div>
-        </button>
+        <div className="flex  items-center justify-center gap-6 mt-6">
+          <button className="button mt-3">
+            <div>
+              <span>Discover Now</span>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );
