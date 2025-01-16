@@ -15,7 +15,6 @@ const Page = () => {
           fill="none"
         />
       </svg>
-
       <svg
         className="absolute bottom-10 left-1/2 sm:left-60 w-24 h-24 opacity-15"
         viewBox="0 0 100 100"
@@ -29,7 +28,6 @@ const Page = () => {
           fill="none"
         />
       </svg>
-
       <svg
         className="absolute top-20 right-10 w-24 h-24 opacity-25"
         viewBox="0 0 100 100"
@@ -43,7 +41,6 @@ const Page = () => {
           fill="none"
         />
       </svg>
-
       <svg
         className="absolute bottom-60 right-1/4 sm:right-36 w-12 h-12 opacity-25"
         viewBox="0 0 100 100"
@@ -57,7 +54,6 @@ const Page = () => {
           fill="none"
         />
       </svg>
-
       {/* Content Section */}
       <div className="container mx-auto px-4 sm:px-8">
         {/* Header Section */}
@@ -74,6 +70,19 @@ const Page = () => {
             Always dreaming big and making things happen 🔥!
           </p>
         </div>
+      </div>
+
+      <div className="flex  items-center justify-center gap-6 mt-6 md:mt-12">
+        <button className="button mt-3">
+          <div>
+            <span>Talk Now</span>
+          </div>
+        </button>
+        <button className="button mt-3">
+          <div>
+            <span>Know More</span>
+          </div>
+        </button>
       </div>
     </div>
   );
