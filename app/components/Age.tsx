@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
-import type { Metadata } from "next";
+import Loading from "./Loading";
+
 const Age = () => {
   const birthDate = new Date(2005, 3, 13); // March 13th, 2005
-  const [loading , setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [timeSpend, setTimeSpend] = useState({
     years: 0,
     months: 0,
@@ -44,14 +45,17 @@ const Age = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if(loading) {
+  // Check if all values are 0
+  const allValuesAreZero = Object.values(timeSpend).every(
+    (value) => value === 0
+  );
+
+  if (loading || allValuesAreZero) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-3xl text-white">Loading...</p>
-      </div>
+      <Loading />
     );
   }
-  
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="text-center text-white p-8 rounded-2xl shadow-xl">
@@ -106,4 +110,5 @@ const Age = () => {
     </div>
   );
 };
+
 export default Age;
