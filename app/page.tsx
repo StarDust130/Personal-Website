@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Page = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white flex flex-col items-center justify-center font-inter relative">
@@ -73,11 +75,13 @@ const Page = () => {
         </div>
 
         <div className="flex  items-center justify-center gap-6 mt-6">
-          <button className="button mt-3">
-            <div>
-              <span>Discover Now</span>
-            </div>
-          </button>
+          <Link href="/about">
+            <button className="button mt-3">
+              <div>
+                <span>Discover Now</span>
+              </div>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
