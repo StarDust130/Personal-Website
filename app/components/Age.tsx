@@ -50,7 +50,7 @@ const Age = () => {
     (value) => value === 0
   );
 
-  if (!loading || allValuesAreZero) {
+  if (loading || allValuesAreZero) {
     return (
       <Loading />
     );
