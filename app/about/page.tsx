@@ -1,7 +1,8 @@
+import { AppleCardsCarousel } from "../components/AppleStyleCards"
 
 const About = () => {
   return (
-    <div>About ChandraShekhar the Great</div>
+    <div><AppleCardsCarousel /></div>
   )
 }
 export default About
