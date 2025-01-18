@@ -1,8 +1,12 @@
-import { AppleCardsCarousel } from "../components/AppleStyleCards"
+import { AppleCardsCarousel } from "../components/AppleStyleCards";
+import { TimelineUI } from "../components/Timeline";
 
 const About = () => {
   return (
-    <div><AppleCardsCarousel /></div>
-  )
-}
-export default About
+    <div className="flex flex-col w-full h-screen">
+      <AppleCardsCarousel />
+      <TimelineUI />
+    </div>
+  );
+};
+export default About;
