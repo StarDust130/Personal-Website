@@ -21,8 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.className} antialiased`}><Navbar />{children}</body>
+    <html lang="en" className="h-full">
+      <body className={`${geistSans.className} antialiased h-full`}>
+        <main className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen w-full flex flex-col font-inter relative">
+          <Navbar />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
