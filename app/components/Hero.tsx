@@ -24,11 +24,16 @@ const Hero = () => {
 
       {/* Buttons Section */}
       <div className="flex items-center justify-center gap-6 mt-6">
-        <button className="button mt-3">
-          <div>
-            <span>Let&apos;s Chat 💬</span>
-          </div>
-        </button>
+        <Link
+          href="mailto:csyadav0513@gmail.com"
+          target="_blank"
+        >
+          <button className="button mt-3">
+            <div>
+              <span>Let&apos;s Chat 💬</span>
+            </div>
+          </button>
+        </Link>
 
         <Link href="#explore">
           <button className="button mt-3">
