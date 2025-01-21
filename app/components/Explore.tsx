@@ -7,10 +7,10 @@ const Explore = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-white sm:text-5xl">
             Explore and Discover 🚀
           </h2>
-          <p className="mt-4 text-lg text-gray-400">
+          <p className="mt-4 text-xs md:text-lg text-gray-400">
             Dive into my timeline, hobbies, experiences, and more.
           </p>
         </div>
