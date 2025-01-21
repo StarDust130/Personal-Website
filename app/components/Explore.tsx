@@ -82,16 +82,6 @@ const Explore = () => {
 
                 {/* Description */}
                 <p className="mt-2 text-sm  text-gray-400">{item.desc}</p>
-
-                {/* Button */}
-                <div className="mt-auto pt-4">
-                  <Link
-                    href={item.url}
-                    className="block text-center text-sm font-bold uppercase text-yellow-400 hover:text-yellow-300"
-                  >
-                    Learn More →
-                  </Link>
-                </div>
               </div>
             </article>
           ))}
