@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Spectral({
   subsets: ["latin"],
@@ -23,9 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${geistSans.className} antialiased h-full`}>
-        <main className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen w-full flex flex-col font-inter relative">
+        <main
+          id="hero"
+          className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen w-full flex flex-col font-inter relative"
+        >
           <Navbar />
           {children}
+          <Footer />
         </main>
       </body>
     </html>
