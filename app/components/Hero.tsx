@@ -17,16 +17,22 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex  items-center justify-center gap-6 mt-6">
+      <div className="flex  items-center justify-center  gap-6 mt-6">
+        <button className="button mt-3">
+          <div>
+            <span>Let&apos;s Talk</span>
+          </div>
+        </button>
+
         <Link href="/about">
           <button className="button mt-3">
             <div>
-              <span>Discover Now</span>
+              <span>Explore</span>
             </div>
           </button>
         </Link>
       </div>
     </div>
   );
-}
-export default Hero
+};
+export default Hero;
