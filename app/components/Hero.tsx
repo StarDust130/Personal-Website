@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="w-full my-44 flex flex-col justify-center items-center">
+    <div className="w-full my-56 md:my-48 flex flex-col justify-center items-center">
       <div className="text-center space-y-6 md:max-w-3xl mx-3 md:mx-auto">
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600">
           Hi, I&apos;m Chandrashekhar!
