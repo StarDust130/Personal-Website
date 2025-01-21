@@ -1,12 +1,14 @@
 import Hero from "./components/Hero";
 import BgSvg from "./components/BgSvg";
+import Explore from "./components/Explore";
 
 const Page = () => {
   return (
-    <div className="w-full   md:h-screen  flex flex-col  font-inter relative">
+    <div className="w-full     flex flex-col  font-inter relative">
       <BgSvg />
 
       <Hero />
+      <Explore />
     </div>
   );
 };

@@ -24,7 +24,7 @@ const Hero = () => {
           </div>
         </button>
 
-        <Link href="/about">
+        <Link href="#explore">
           <button className="button mt-3">
             <div>
               <span>Explore</span>
