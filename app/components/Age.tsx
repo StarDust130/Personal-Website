@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
-import Loading from "./Loading";
+import Loading from "./Facts";
 
 const Age = () => {
   const birthDate = new Date(2005, 3, 13); // March 13th, 2005
@@ -57,52 +57,53 @@ const Age = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="text-center text-white p-8 rounded-2xl shadow-xl">
-        <p className="text-3xl font-bold mb-6">Age: {timeSpend.years} </p>
-        <p className="text-xl sm:text-2xl text-gray-200 mb-8">
-          Time spent on Earth:
-        </p>
+    <div className="flex flex-col items-center justify-center text-center w-full  py-10">
+      <h1 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
+        🎉 Time on Earth: {timeSpend.years} years 🌍
+      </h1>
+      <p className="text-sm md:text-xl text-gray-100 mb-6">
+        Every heartbeat is a miracle, every moment a treasure. Let’s celebrate
+        your journey: ⏳
+      </p>
 
-        <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl border border-gray-700">
-          <div className="grid grid-cols-3 gap-6 mb-6">
-            <div>
-              <span className="text-teal-400 text-3xl font-bold">
-                {timeSpend.years}{" "}
-              </span>{" "}
-              Years
+      <div className="flex justify-center items-center w-full py-3 px-4">
+        <div className="text-center text-white p-8 sm:p-10 md:p-12 bg-transparent border-gray-800 border-4 rounded-3xl shadow-xl w-full max-w-lg mx-auto">
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-3">
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-teal-500">
+                {timeSpend.years}
+              </span>
+              <p className="text-sm sm:text-base">Years</p>
             </div>
-            <div>
-              <span className="text-blue-400 text-3xl font-bold">
-                {timeSpend.months}{" "}
-              </span>{" "}
-              Months
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-blue-400">
+                {timeSpend.months}
+              </span>
+              <p className="text-sm sm:text-base">Months</p>
             </div>
-            <div>
-              <span className="text-green-400 text-3xl font-bold">
-                {timeSpend.days}{" "}
-              </span>{" "}
-              Days
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-green-400">
+                {timeSpend.days}
+              </span>
+              <p className="text-sm sm:text-base">Days</p>
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-6 mt-6">
-            <div>
-              <span className="text-purple-400 text-3xl font-bold">
-                {timeSpend.hours}{" "}
-              </span>{" "}
-              Hours
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-purple-400">
+                {timeSpend.hours}
+              </span>
+              <p className="text-sm sm:text-base">Hours</p>
             </div>
-            <div>
-              <span className="text-yellow-400 text-3xl font-bold">
-                {timeSpend.minutes}{" "}
-              </span>{" "}
-              Minutes
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-yellow-400">
+                {timeSpend.minutes}
+              </span>
+              <p className="text-sm sm:text-base">Minutes</p>
             </div>
-            <div>
-              <span className="text-pink-400 text-3xl font-bold">
-                {timeSpend.seconds}{" "}
-              </span>{" "}
-              Seconds
+            <div className="flex flex-col items-center">
+              <span className="text-5xl sm:text-6xl font-semibold text-pink-400">
+                {timeSpend.seconds}
+              </span>
+              <p className="text-sm sm:text-base">Seconds</p>
             </div>
           </div>
         </div>
