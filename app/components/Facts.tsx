@@ -7,11 +7,11 @@ const Facts = () => {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
 
   const tips = [
-    "Chandrashekhar loves reading books, especially the ones that make you think. 📚",
-    "When he's not reading, he's either watching anime or playing chess. ♟️",
-    "Chandrashekhar has a deep interest in geopolitics—he's always up-to-date on world events.",
-    "Philosophy? Chandrashekhar dives deep into the mysteries of life. 🤔",
-    "Chandrashekhar believes learning and growing is the key to success—and he's always chasing it.",
+    "Chandrashekhar has a passion for books, particularly those that challenge his thinking. 📚",
+    "When he's not lost in a book, he's either watching anime or mastering chess. ♟️",
+    "Geopolitics fascinates Chandrashekhar—he keeps himself informed on the latest world events.",
+    "Philosophy is a key interest—Chandrashekhar enjoys pondering life's big questions. 🤔",
+    "For him, success lies in continuous learning and growth, and he's always striving for both.",
   ];
 
   useEffect(() => {
@@ -23,9 +23,9 @@ const Facts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white relative">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-black/80 rounded-3xl text-white relative">
       {/* Cool Image */}
-      <div className=" inset-0 flex items-center justify-center">
+      <div className="inset-0 flex items-center justify-center">
         <Image
           src="/anime-girl.png"
           alt="Anime Girl"
@@ -36,20 +36,20 @@ const Facts = () => {
       </div>
 
       {/* Overlay and Text */}
-      <div className="z-10 text-center backdrop-blur-sm bg-black/50 p-6 rounded-xl shadow-md">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4  animate-pulse">
-          Facts...
+      <div className="z-10 text-center backdrop-blur-sm  p-6 rounded-xl shadow-md">
+        <h1 className="text-3xl md:text-6xl font-extrabold mb-4 animate-pulse">
+          Fun Facts About Me
         </h1>
         <div className="flex flex-col md:flex-row gap-3 justify-center items-center text-center">
           <p className="text-lg md:text-xl hidden md:block font-semibold">
-            Did You Know:
+            Did You Know?
           </p>
           <p
             className={`text-base md:text-lg font-semibold text-gray-400 ${
               !tips[currentTipIndex] && "hidden"
             }`}
           >
-            {tips[currentTipIndex] || "Facts..."}
+            {tips[currentTipIndex] || "Fun Facts Coming Soon..."}
           </p>
         </div>
       </div>
