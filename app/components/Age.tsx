@@ -58,7 +58,7 @@ const Age = () => {
 
   return (
     <div className="flex flex-col items-center justify-center text-center w-full  py-10">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+      <h1 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
         🎉 Time on Earth: {timeSpend.years} years 🌍
       </h1>
       <p className="text-sm md:text-xl text-gray-100 mb-6">
