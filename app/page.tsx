@@ -1,6 +1,8 @@
 import Hero from "./components/Hero";
 import BgSvg from "./components/BgSvg";
 import Explore from "./components/Explore";
+import Age from "./components/Age";
+import Facts from "./components/Facts";
 
 const Page = () => {
   return (
@@ -9,6 +11,8 @@ const Page = () => {
 
       <Hero />
       <Explore />
+      <Age />
+      <Facts />
     </div>
   );
 };
