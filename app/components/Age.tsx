@@ -62,11 +62,12 @@ const Age = () => {
         🎉 Time on Earth: {timeSpend.years} years 🌍
       </h1>
       <p className="text-sm md:text-xl text-gray-100 mb-6">
-        You&apos;ve been living for quite some time! Let&apos;s break it down:
+        Every heartbeat is a miracle, every moment a treasure. Let’s celebrate
+        your journey: ⏳
       </p>
 
       <div className="flex justify-center items-center w-full py-3 px-4">
-        <div className="text-center text-white p-8 sm:p-10 md:p-12 bg-transparent border-gray-500 border rounded-3xl shadow-xl w-full max-w-lg mx-auto">
+        <div className="text-center text-white p-8 sm:p-10 md:p-12 bg-transparent border-gray-800 border-4 rounded-3xl shadow-xl w-full max-w-lg mx-auto">
           <div className="grid grid-cols-3 gap-4 sm:grid-cols-3">
             <div className="flex flex-col items-center">
               <span className="text-5xl sm:text-6xl font-semibold text-teal-500">
