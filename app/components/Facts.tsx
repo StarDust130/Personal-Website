@@ -23,35 +23,26 @@ const Facts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-black/80 rounded-3xl text-white relative">
-      {/* Cool Image */}
-      <div className="inset-0 flex items-center justify-center">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto  px-6 py-16  text-white md:rounded-xl  relative gap-12">
+      {/* Image Section */}
+      <div className="flex justify-center items-center w-full md:w-1/2">
         <Image
           src="/anime-girl.png"
           alt="Anime Girl"
-          className="z-50 object-cover rounded-lg shadow-lg"
+          className="object-cover shadow-lg"
           width={300}
           height={300}
         />
       </div>
 
-      {/* Overlay and Text */}
-      <div className="z-10 text-center backdrop-blur-sm  p-6 rounded-xl shadow-md">
-        <h1 className="text-3xl md:text-6xl font-extrabold mb-4 animate-pulse">
-          Fun Facts About Me
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+        <h1 className="text-3xl md:text-5xl font-extrabold animate-pulse">
+          Fun Facts:
         </h1>
-        <div className="flex flex-col md:flex-row gap-3 justify-center items-center text-center">
-          <p className="text-lg md:text-xl hidden md:block font-semibold">
-            Did You Know?
-          </p>
-          <p
-            className={`text-base md:text-lg font-semibold text-gray-400 ${
-              !tips[currentTipIndex] && "hidden"
-            }`}
-          >
-            {tips[currentTipIndex] || "Fun Facts Coming Soon..."}
-          </p>
-        </div>
+        <p className="text-lg md:text-xl font-semibold text-gray-300">
+          {tips[currentTipIndex] || "Fun Facts Coming Soon..."}
+        </p>
       </div>
     </div>
   );
