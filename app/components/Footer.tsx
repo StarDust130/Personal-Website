@@ -11,13 +11,18 @@ const Footer = () => {
           <div className="flex justify-center sm:justify-start">
             <Link href={"#hero"}>
               <Image src={"/icon.png"} alt="logo" width={50} height={50} />
-            </Link> 
+            </Link>
           </div>
 
           <p className="mt-4 text-center text-sm sm:text-base lg:text-right lg:mt-0 text-gray-400">
             © {currentYear} Chandrashekhar. All rights reserved.
           </p>
         </div>
+        <p className="mt-4 text-center text-xs  sm:text-sm   text-gray-400">
+          This is Chandrashekhar’s personal website—just for fun and all about
+          me. If you don’t like it, go f* yourself and don’t waste your time
+          here.
+        </p>
       </div>
     </footer>
   );
