@@ -66,6 +66,8 @@ const Age = () => {
         your journey: ⏳
       </p>
 
+
+
       <div className="flex justify-center items-center w-full py-3 px-4">
         <div className="text-center text-white p-8 sm:p-10 md:p-12 bg-transparent border-gray-800 border-4 rounded-3xl shadow-xl w-full max-w-lg mx-auto">
           <div className="grid grid-cols-3 gap-4 sm:grid-cols-3">
