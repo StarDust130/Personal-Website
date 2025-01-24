@@ -1,6 +1,6 @@
 import { TimelineUI } from "../components/Timeline";
 
-const About = () => {
+const Timeline = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <TimelineUI />
@@ -8,4 +8,4 @@ const About = () => {
     </div>
   );
 };
-export default About;
+export default Timeline;
