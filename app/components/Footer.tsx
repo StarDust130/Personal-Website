@@ -5,11 +5,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-10 border-t border-gray-700 mt-10">
+    <footer className="py-10 bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white border-t border-gray-700">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex justify-center sm:justify-start">
-            <Link href={"#hero"}>
+            <Link href={"/#hero"}>
               <Image src={"/icon.png"} alt="logo" width={50} height={50} />
             </Link>
           </div>
