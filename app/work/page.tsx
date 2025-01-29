@@ -13,19 +13,19 @@ export default function WorkPage() {
       </div>
       {/* Header Section */}
       <div className="relative mb-16 md:mb-24">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Full-Stack Developer
+            Bug Slayer, Code Butcher
           </span>
           <br />
-          <span className="text-2xl md:text-3xl font-medium text-gray-300">
-            Turning Coffee ☕ into Code
+          <span className="hidden md:block text-3xl font-medium text-gray-300">
+            If it works, I take full credit—until it breaks 🔧💣
           </span>
         </h1>
-        <p className="text-base md:text-lg text-gray-400 max-w-2xl">
-          Building stuff that works (most of the time) ⚡
+        <p className="text-sm md:text-lg text-gray-400 max-w-2xl">
+          Writing code that *<b>usually</b>* works 🚀⚡
         </p>
-        <Sparkles className="absolute right-0 -top-4 md:-top-10 h-12 w-12 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
+        <Sparkles className="absolute right-0 -top-10 md:-top-10 h-10 w-10 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
       </div>
 
       {/* Experience Section */}
