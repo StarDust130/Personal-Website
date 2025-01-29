@@ -26,7 +26,7 @@ export default function WorkPage() {
           Building dope digital experiences with cutting-edge spells (read:
           tech)
         </p>
-        <Sparkles className="absolute opacity-35 right-0 md:-top-10  h-14 w-14 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
+        <Sparkles className="absolute opacity-35 md:opacity-100 right-0 md:-top-10  h-14 w-14 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
       </div>
       {/* Experience Section */}
       <section className="relative mb-28">
@@ -43,7 +43,7 @@ export default function WorkPage() {
           <div className="absolute w-4 h-4 bg-purple-500 rounded-full -left-[10px] top-0 shadow-glow-purple" />
 
           <div className="mb-16 group">
-            <div className="flex flex-col justify-center items-center md:flex-row gap-4 mb-4">
+            <div className="flex flex-col justify-center items-center md:justify-start md:flex-row gap-4 mb-4">
               <span className="font-mono text-sm text-cyan-300">
                 May - Aug &apos;24
               </span>
