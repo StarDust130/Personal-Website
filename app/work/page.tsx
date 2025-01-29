@@ -1,6 +1,17 @@
 // app/work/page.tsx
 
-import { Code, Server, Database, Cloud, Sparkles, Rocket, Bot, ServerCog } from "lucide-react";
+import {
+  Code,
+  Server,
+  Database,
+  Cloud,
+  Sparkles,
+  Rocket,
+  Bot,
+  ServerCog,
+} from "lucide-react";
+import { Puzzle, BotMessageSquare , Globe, Bug, Coffee, PartyPopper } from "lucide-react";
+
 import { cn } from "../lib/utils";
 import Link from "next/link";
 
@@ -12,7 +23,6 @@ export default function WorkPage() {
         <div className="absolute -top-32 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
         <div className="absolute -bottom-32 -right-48 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl" />
       </div>
-
       {/* Header Section */}
       <div className="relative mb-24">
         <h1 className="text-5xl md:text-7xl font-bold mb-4">
@@ -28,9 +38,8 @@ export default function WorkPage() {
           Building dope digital experiences with cutting-edge spells (read:
           tech)
         </p>
-        <Sparkles className="absolute -top-10 right-0 w-24 h-24 text-purple-400/30 animate-pulse" />
+        <Sparkles className="absolute opacity-35 right-0 md:-top-10  h-14 w-14 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
       </div>
-
       {/* Experience Section */}
       <section className="relative mb-28">
         <div className="flex items-center gap-4 mb-12">
@@ -72,6 +81,48 @@ export default function WorkPage() {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section className="relative mb-28">
+        <div className="flex items-center gap-4 mb-16">
+          <div className="h-px flex-1 bg-gradient-to-r from-pink-500 to-transparent" />
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
+            Crazy Creations
+          </h2>
+          <div className="h-px flex-1 bg-gradient-to-l from-pink-500 to-transparent" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={project.title}
+              className={cn(
+                "group relative p-6 rounded-xl border border-gray-800/50 bg-gradient-to-b from-gray-900/30 to-gray-900/10",
+                "hover:border-pink-400/30 hover:from-gray-900/50 hover:to-gray-900/30",
+                "transition-all duration-500 hover:-translate-y-2",
+                "animate-fade-in opacity-0"
+              )}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <project.icon className="w-8 h-8 text-pink-400" />
+                <h3 className="text-xl font-bold">{project.title}</h3>
+              </div>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1 text-sm bg-gray-800/50 rounded-full"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="absolute inset-0 -z-10 bg-[radial-gradient(200px_at_50%_120%,_#ec489920_0%,_transparent_80%)] opacity-0 group-hover:opacity-50 transition-opacity" />
+            </div>
+          ))}
+        </div>
+      </section>
       {/* Tech Stack Section */}
       <section className="relative">
         <div className="flex items-center gap-4 mb-16">
@@ -110,36 +161,76 @@ export default function WorkPage() {
   );
 }
 
+// Add this projects array above the techStack array
+const projects = [
+  {
+    title: "Meme Machine",
+    icon: PartyPopper,
+    description: "Because the internet needs more laughs 😂",
+    tech: ["React", "Canvas", "AWS Lambda"]
+  },
+  {
+    title: "AI Chef",
+    icon: Puzzle,
+    description: "Bot that creates recipes from fridge leftovers 🥦🤖",
+    tech: ["Python", "GPT-4", "Next.js"]
+  },
+  {
+    title: "Bug Zapper",
+    icon: Bug,
+    description: "Catching bugs faster than a frog's tongue 🐸",
+    tech: ["TypeScript", "Jest", "Cypress"]
+  },
+  {
+    title: "Cloud Commander",
+    icon: Globe,
+    description: "Managing cloud stuff without crying ☁️😭",
+    tech: ["AWS", "Terraform", "K8s"]
+  },
+  {
+    title: "Code Café",
+    icon: Coffee,
+    description: "Where code meets caffeine addiction ☕💻",
+    tech: ["Next.js", "Strapi", "Stripe"]
+  },
+  {
+    title: "AI DJ",
+    icon: Bot,
+    description: "Mixing beats worse than your uncle at weddings 🎧🤖",
+    tech: ["Python", "Spotify API", "ML"]
+  }
+];
+
+// Update the techStack descriptions to be more fun
 const techStack = [
   {
     name: "React & Next.js 15",
     icon: Code,
-    description: "Building fast, interactive, and modern web apps.",
+    description: "Where components come to party 🎉 (and sometimes crash)",
   },
   {
     name: "AI/ML & Python",
-    icon: Bot,
-    description:
-      "Creating smart applications using AI, ML, and data science tools.",
+    icon: BotMessageSquare,
+    description: "Teaching robots to be smarter than me 🤖🧠",
   },
   {
     name: "Django & FastAPI",
     icon: Server,
-    description: "Developing scalable and high-performance backend systems.",
+    description: "Backend magic that even Dumbledore would approve 🧙♂️",
   },
   {
     name: "Node.js & MongoDB",
     icon: Database,
-    description: "Building efficient APIs and handling NoSQL databases.",
+    description: "Crafting APIs that never sleep 🦉",
   },
   {
     name: "DevOps & Cloud",
     icon: ServerCog,
-    description: "Managing servers, Docker, Kubernetes, and cloud deployments.",
+    description: "Herding cloud cats ☁️🐈⬛",
   },
   {
     name: "Git & Vercel",
     icon: Cloud,
-    description: "Version control, CI/CD, and smooth deployments.",
+    description: "Time travel for code ⏳ & magic deployments ✨",
   },
 ];
