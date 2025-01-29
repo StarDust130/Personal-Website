@@ -166,3 +166,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.shadow-glow-purple {
+  filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.5));
+}
