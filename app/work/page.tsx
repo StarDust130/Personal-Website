@@ -1,6 +1,3 @@
-// app/work/page.tsx
-
-
 import { Rocket, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
 import Link from "next/link";
