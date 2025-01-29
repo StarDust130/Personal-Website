@@ -18,6 +18,7 @@ export default function WorkPage() {
             Bug Slayer, Code Butcher
           </span>
           🔪💀
+          
         </h1>
         <p className="text-base md:text-lg text-gray-400 max-w-2xl">
           Writing code that *<b>usually</b>* works... 🧨🔥🚀
