@@ -12,58 +12,62 @@ export default function WorkPage() {
         <div className="absolute -bottom-32 -right-48 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl" />
       </div>
       {/* Header Section */}
-      <div className="relative mb-24">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4">
+      <div className="relative mb-16 md:mb-24">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
           <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Code Wizardry
+            Full-Stack Developer
           </span>
           <br />
-          <span className="text-3xl md:text-4xl font-medium text-gray-300">
-            & Digital Alchemy
+          <span className="text-2xl md:text-3xl font-medium text-gray-300">
+            Turning Coffee ☕ into Code
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl">
-          Building dope digital experiences with cutting-edge spells (read:
-          tech)
+        <p className="text-base md:text-lg text-gray-400 max-w-2xl">
+          Building stuff that works (most of the time) ⚡
         </p>
-        <Sparkles className="absolute opacity-35 md:opacity-100 right-0 md:-top-10  h-14 w-14 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
+        <Sparkles className="absolute right-0 -top-4 md:-top-10 h-12 w-12 md:w-24 md:h-24 text-purple-400/30 animate-pulse" />
       </div>
+
       {/* Experience Section */}
-      <section className="relative mb-28">
-        <div className="flex items-center gap-4 mb-12">
+      <section className="relative mb-20 md:mb-28">
+        <div className="flex items-center gap-4 mb-8 md:mb-12">
           <div className="h-px flex-1 bg-gradient-to-r from-purple-500 to-transparent" />
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Journey So Far
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+            My Journey
           </h2>
           <div className="h-px flex-1 bg-gradient-to-l from-purple-500 to-transparent" />
         </div>
 
         {/* Timeline Item */}
-        <div className="relative pl-8 ml-4 border-l-2 border-gray-800/50">
-          <div className="absolute w-4 h-4 bg-purple-500 rounded-full -left-[10px] top-0 shadow-glow-purple" />
+        <div className="relative pl-6 md:pl-8 ml-3 md:ml-4 border-l-2 border-gray-800/50">
+          <div className="absolute w-3 h-3 md:w-4 md:h-4 bg-purple-500 rounded-full -left-[7px] md:-left-[10px] top-0 shadow-glow-purple" />
 
-          <div className="mb-16 group">
-            <div className="flex flex-col justify-center items-center md:justify-start md:flex-row gap-4 mb-4">
-              <span className="font-mono text-sm text-cyan-300">
-                May - Aug &apos;24
-              </span>
-              <div className="flex justify-center items-center  gap-3">
-                <Rocket className="w-6 h-6 text-purple-400" />
-                <h3 className="text-2xl font-bold flex">
-                  Frontend Intern @{" "}
-                  <Link href="http://themoondevs.com/" target="_blank">
-                    MoonDev
-                  </Link>
-                </h3>
+          <div className="mb-12 md:mb-16 group">
+            <div className="flex flex-col items-start gap-2 md:gap-4 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs md:text-sm text-cyan-300">
+                  May - Aug &apos;24
+                </span>
+                <Rocket className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
               </div>
+              <h3 className="text-xl md:text-2xl font-bold">
+                Frontend Intern @{" "}
+                <Link
+                  href="http://themoondevs.com/"
+                  target="_blank"
+                  className="hover:text-cyan-400 transition-colors"
+                >
+                  MoonDev
+                </Link>
+              </h3>
             </div>
-            <p className="text-gray-300 max-w-3xl leading-relaxed">
-              Transformed coffee ☕ into code, shipped features faster than my
-              WiFi drops, and mastered the art of{" "}
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-3xl">
+              Turned coffee ☕ into code • Shipped features faster than my WiFi
+              drops 📉 • Mastered the art of{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                &quot;Oh, it works now?&quot;
+                &quot;Wait, why is this working?&quot;
               </span>{" "}
-              moments. Leveled up in React-Fu and UI/UX dark arts.
+              🤔• Learned to fix bugs 🐛 like a pro
             </p>
           </div>
         </div>
