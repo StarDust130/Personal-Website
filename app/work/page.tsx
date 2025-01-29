@@ -1,15 +1,6 @@
 // app/work/page.tsx
 
-import {
-  Code2,
-  Rocket,
-  Palette,
-  BrainCircuit,
-  Cpu,
-  Database,
-  GitBranch,
-  Sparkles,
-} from "lucide-react";
+import { Code, Server, Database, Cloud, Sparkles, Rocket, Bot, ServerCog } from "lucide-react";
 import { cn } from "../lib/utils";
 import Link from "next/link";
 
@@ -121,35 +112,34 @@ export default function WorkPage() {
 
 const techStack = [
   {
-    name: "React Ecosystem",
-    icon: Code2,
-    description: "Crafting component symphonies and state management magic",
+    name: "React & Next.js 15",
+    icon: Code,
+    description: "Building fast, interactive, and modern web apps.",
   },
   {
-    name: "Next.js 15",
-    icon: BrainCircuit,
-    description: "Fullstack wizardry with server actions & app router mastery",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: Palette,
+    name: "AI/ML & Python",
+    icon: Bot,
     description:
-      "Pixel-perfect styling at warp speed with utility-first sorcery",
+      "Creating smart applications using AI, ML, and data science tools.",
   },
   {
-    name: "Node/Express",
-    icon: Cpu,
-    description:
-      "Building robust backend brains and API endpoints that never flinch",
+    name: "Django & FastAPI",
+    icon: Server,
+    description: "Developing scalable and high-performance backend systems.",
   },
   {
-    name: "MongoDB",
+    name: "Node.js & MongoDB",
     icon: Database,
-    description: "NoSQL ninjutsu for flexible data domination",
+    description: "Building efficient APIs and handling NoSQL databases.",
+  },
+  {
+    name: "DevOps & Cloud",
+    icon: ServerCog,
+    description: "Managing servers, Docker, Kubernetes, and cloud deployments.",
   },
   {
     name: "Git & Vercel",
-    icon: GitBranch,
-    description: "Version control dark arts and seamless deployment rituals",
+    icon: Cloud,
+    description: "Version control, CI/CD, and smooth deployments.",
   },
 ];
