@@ -51,9 +51,9 @@ const Explore = () => {
               key={idx}
               className="flex flex-col overflow-hidden rounded-lg shadow-lg border border-gray-700"
             >
-              {/* Image */}
-              <div className="relative h-48 sm:h-56">
-                <Link href={item.url}>
+              <Link href={item.url}>
+                {/* Image */}
+                <div className="relative h-48 sm:h-56">
                   <Image
                     alt={item.title}
                     src={item.image}
@@ -62,27 +62,27 @@ const Explore = () => {
                     quality={100}
                     priority
                   />
-                </Link>
-              </div>
+                </div>
 
-              {/* Content */}
-              <div className="flex flex-col flex-1 p-4 bg-gray-900">
-                {/* Date */}
-                <time
-                  dateTime={item.date}
-                  className="text-xs font-semibold uppercase text-gray-500"
-                >
-                  {item.date} - Now
-                </time>
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-4 bg-gray-900">
+                  {/* Date */}
+                  <time
+                    dateTime={item.date}
+                    className="text-xs font-semibold uppercase text-gray-500"
+                  >
+                    {item.date} - Now
+                  </time>
 
-                {/* Title */}
-                <h3 className="mt-2  text-lg font-bold text-white">
-                  {item.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="mt-2  text-lg font-bold text-white">
+                    {item.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="mt-2 text-sm  text-gray-400">{item.desc}</p>
-              </div>
+                  {/* Description */}
+                  <p className="mt-2 text-sm  text-gray-400">{item.desc}</p>
+                </div>
+              </Link>
             </article>
           ))}
         </div>
