@@ -1,4 +1,21 @@
 import Image from "next/image";
+import {
+  Code,
+  Server,
+  Database,
+  Cloud,
+  Bot,
+  ServerCog,
+} from "lucide-react";
+import {
+  Puzzle,
+  BotMessageSquare,
+  Globe,
+  Bug,
+  Coffee,
+  PartyPopper,
+} from "lucide-react";
+
 
 export const data = [
   {
@@ -144,3 +161,78 @@ export const data = [
     ),
   },
 ];
+
+
+export const projects = [
+  {
+    title: "Meme Machine",
+    icon: PartyPopper,
+    description: "Because the internet needs more laughs 😂",
+    tech: ["React", "Canvas", "AWS Lambda"],
+  },
+  {
+    title: "AI Chef",
+    icon: Puzzle,
+    description: "Bot that creates recipes from fridge leftovers 🥦🤖",
+    tech: ["Python", "GPT-4", "Next.js"],
+  },
+  {
+    title: "Bug Zapper",
+    icon: Bug,
+    description: "Catching bugs faster than a frog's tongue 🐸",
+    tech: ["TypeScript", "Jest", "Cypress"],
+  },
+  {
+    title: "Cloud Commander",
+    icon: Globe,
+    description: "Managing cloud stuff without crying ☁️😭",
+    tech: ["AWS", "Terraform", "K8s"],
+  },
+  {
+    title: "Code Café",
+    icon: Coffee,
+    description: "Where code meets caffeine addiction ☕💻",
+    tech: ["Next.js", "Strapi", "Stripe"],
+  },
+  {
+    title: "AI DJ",
+    icon: Bot,
+    description: "Mixing beats worse than your uncle at weddings 🎧🤖",
+    tech: ["Python", "Spotify API", "ML"],
+  },
+];
+
+// Update the techStack descriptions to be more fun
+export const techStack = [
+  {
+    name: "React & Next.js 15",
+    icon: Code,
+    description: "Where components come to party 🎉 (and sometimes crash)",
+  },
+  {
+    name: "AI/ML & Python",
+    icon: BotMessageSquare,
+    description: "Teaching robots to be smarter than me 🤖🧠",
+  },
+  {
+    name: "Django & FastAPI",
+    icon: Server,
+    description: "Backend magic that even Dumbledore would approve 🧙♂️",
+  },
+  {
+    name: "Node.js & MongoDB",
+    icon: Database,
+    description: "Crafting APIs that never sleep 🦉",
+  },
+  {
+    name: "DevOps & Cloud",
+    icon: ServerCog,
+    description: "Herding cloud cats ☁️🐈⬛",
+  },
+  {
+    name: "Git & Vercel",
+    icon: Cloud,
+    description: "Time travel for code ⏳ & magic deployments ✨",
+  },
+];
+
