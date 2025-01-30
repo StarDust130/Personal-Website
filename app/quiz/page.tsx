@@ -1,11 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-  PartyPopper,
-  HeartCrack,
-  BadgeCheck,
-  Flame,
-} from "lucide-react";
+import { PartyPopper, HeartCrack, BadgeCheck, Flame } from "lucide-react";
 import Image from "next/image";
 import { questions } from "../lib/data";
 
@@ -130,9 +125,12 @@ const QuizPage = () => {
           </div>
 
           {/* Animated Question Text */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent animate-text-shine">
-            <span className="inline-block mr-3">❓</span>
-            {questions[currentQuestion].question}
+          <h2 className="text-3xl flex justify-start items-center  sm:text-4xl font-bold mb-10 ">
+            <span className="bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent animate-text-shine">
+              {questions[currentQuestion].question}{" "}
+            </span>
+            {" "}
+            {questions[currentQuestion].emoji}
           </h2>
 
           {/* Enhanced Answer Options */}
