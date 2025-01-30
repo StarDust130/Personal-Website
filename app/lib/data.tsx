@@ -230,7 +230,8 @@ export const techStack = [
 // Quiz
 export const questions = [
   {
-    question: "My go-to snack? 🍿",
+    question: "My go-to snack?",
+    emoji: "🍕🍟",
     options: [
       "Takis (Spicy AF 🌶️)",
       "Pocky (Weeb vibes 🎌)",
@@ -240,7 +241,8 @@ export const questions = [
     correct: 0,
   },
   {
-    question: "Netflix &...? 📺",
+    question: "Netflix &...? ",
+    emoji: "📺🍿",
     options: [
       "Chill (Obviously 😏)",
       "Cry (Drama queen 👑)",
