@@ -119,7 +119,7 @@ export default function WorkPage() {
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px flex-1 bg-gradient-to-r from-cyan-500 to-transparent" />
           <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-500 bg-clip-text text-transparent">
-            Arsenal of Awesomeness
+          Tech Stack
           </h2>
           <div className="h-px flex-1 bg-gradient-to-l from-cyan-500 to-transparent" />
         </div>
