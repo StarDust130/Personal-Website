@@ -1,8 +1,6 @@
 "use client";
-// app/quiz/page.tsx
 import { useState } from "react";
 import {
-  Rocket,
   PartyPopper,
   HeartCrack,
   BadgeCheck,
@@ -16,8 +14,6 @@ const QuizPage = () => {
   const [score, setScore] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-
-
 
   const handleAnswer = (index: number) => {
     setSelectedAnswer(index);
@@ -45,9 +41,12 @@ const QuizPage = () => {
             <div className="absolute top-60 right-20 w-96 h-96 bg-pink-500/10 rounded-full mix-blend-screen blur-3xl animate-blob animation-delay-2000"></div>
           </div>
 
-          <h1 className="text-2xl sm:text-5xl font-bold mb-6 relative">
-            <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-300% animate-gradient-flow">
-              How Well Ya Know Me? 👾
+          <h1 className="text-2xl sm:text-5xl font-bold mb-6 relative flex justify-center items-center">
+            <span className=" bg-300% animate-gradient-flow">
+              <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                How Well Ya Know Me?{" "}
+              </span>
+              👀
             </span>
           </h1>
 
@@ -68,8 +67,12 @@ const QuizPage = () => {
                 <p className="text-sm text-pink-200/80 font-mono">
                   #VibeCheck2025
                 </p>
-                <p className="text-xl font-bold bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
-                  Ready 4 the Challenge? 😈
+                <p className="text-xl font-bold  ">
+                  <span className="bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
+                    {" "}
+                    Ready 4 the Challenge?
+                  </span>{" "}
+                  🌟
                 </p>
               </div>
             </div>
@@ -80,7 +83,10 @@ const QuizPage = () => {
             className="mt-8 relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 rounded-2xl text-xl font-semibold hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 mx-auto group/button"
           >
             <span className="relative z-10">Start the Vibe Check</span>
-            <Rocket className="w-6 h-6 relative z-10 group-hover/button:translate-x-1 transition-transform" />
+            <span className="w-6 h-6 relative z-10 group-hover/button:translate-x-1 transition-transform">
+              🚀
+            </span>
+
             <div className="absolute inset-0 -z-0 opacity-0 group-hover/button:opacity-100 transition-opacity">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-pink-600 to-purple-700" />
               <div className="absolute inset-0 animate-shine">
