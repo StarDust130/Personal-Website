@@ -63,10 +63,22 @@ const QuizPage = () => {
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 text-left">
-                <p className="text-sm text-pink-200/80 font-mono">
-                  #VibeCheck2025
-                </p>
+              <div className="absolute bottom-4 left-4 text-left ">
+                <div className="flex gap-2 justify-start items-center ">
+                  {/* Start NOW */}
+                  <span className="inline-flex items-center gap-1 px-2 py-1 border border-pink-500/20 bg-pink-500/20 text-pink-300 rounded-full text-sm">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full  bg-pink-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500 " />
+                    </span>
+                    Start Now
+                  </span>
+                  {/* Vibe Check */}
+                  <p className="text-sm text-pink-200/80 font-mono">
+                    #VibeCheck2025
+                  </p>
+                </div>
+                {/* Ready */}
                 <p className="text-xl font-bold  ">
                   <span className="bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
                     {" "}
