@@ -1,12 +1,5 @@
 import Image from "next/image";
-import {
-  Code,
-  Server,
-  Database,
-  Cloud,
-  Bot,
-  ServerCog,
-} from "lucide-react";
+import { Code, Server, Database, Cloud, Bot, ServerCog } from "lucide-react";
 import {
   Puzzle,
   BotMessageSquare,
@@ -15,7 +8,6 @@ import {
   Coffee,
   PartyPopper,
 } from "lucide-react";
-
 
 export const data = [
   {
@@ -162,7 +154,6 @@ export const data = [
   },
 ];
 
-
 export const projects = [
   {
     title: "Meme Machine",
@@ -236,3 +227,27 @@ export const techStack = [
   },
 ];
 
+// Quiz
+export const questions = [
+  {
+    question: "My go-to snack? 🍿",
+    options: [
+      "Takis (Spicy AF 🌶️)",
+      "Pocky (Weeb vibes 🎌)",
+      "Trail Mix (Basic 😴)",
+      "Air (Sad times 🥲)",
+    ],
+    correct: 0,
+  },
+  {
+    question: "Netflix &...? 📺",
+    options: [
+      "Chill (Obviously 😏)",
+      "Cry (Drama queen 👑)",
+      "Meme review 🐸",
+      "Sleep (Zzz 💤)",
+    ],
+    correct: 2,
+  },
+  // Add 3 more questions
+];
