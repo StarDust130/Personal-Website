@@ -32,6 +32,11 @@ const QuizPage = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-['Inter'] p-4 sm:p-8">
+      {/* Glowing Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 -left-48 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-48 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+      </div>
       {!quizStarted ? (
         <div className="max-w-2xl mx-auto text-center relative overflow-hidden">
           {/* Animated background elements */}
@@ -40,7 +45,7 @@ const QuizPage = () => {
             <div className="absolute top-60 right-20 w-96 h-96 bg-pink-500/10 rounded-full mix-blend-screen blur-3xl animate-blob animation-delay-2000"></div>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6 relative">
+          <h1 className="text-2xl sm:text-5xl font-bold mb-6 relative">
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-300% animate-gradient-flow">
               How Well Ya Know Me? 👾
             </span>
@@ -61,7 +66,7 @@ const QuizPage = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 text-left">
                 <p className="text-sm text-pink-200/80 font-mono">
-                  #VibeCheck2024
+                  #VibeCheck2025
                 </p>
                 <p className="text-xl font-bold bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
                   Ready 4 the Challenge? 😈
