@@ -193,27 +193,49 @@ const QuizPage = () => {
           </div>
         </div>
       ) : (
-        <div className="max-w-2xl mx-auto text-center">
-          <PartyPopper className="w-16 h-16 mx-auto mb-6 text-yellow-400 animate-bounce" />
-          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-            Quiz Complete! 🎉
+        <div className="max-w-2xl md:w-full   mx-auto text-center px-4">
+          <div className="animate-pop-in">
+            <PartyPopper className="w-16 h-16 mx-auto mb-6 mt-12 text-yellow-400 animate-bounce" />
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl font-bold mb-6">
+            <span className=" bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+              {" "}
+              Quiz Complete!
+            </span>{" "}
+            🎉
           </h1>
-          <p className="text-xl mb-8">
-            You scored {score}/{questions.length}
-            <span className="text-2xl ml-2">
-              {score === questions.length ? "🔥 Perfect Score!" : "Not Bad! 😎"}
-            </span>
-          </p>
-          <button
-            onClick={() => {
-              setCurrentQuestion(0);
-              setScore(0);
-              setQuizStarted(false);
-            }}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 rounded-2xl text-xl font-semibold hover:scale-105 transition-transform"
-          >
-            Play Again 🔄
-          </button>
+
+          <div className="animate-fade-up">
+            <p className="text-lg sm:text-xl mb-8">
+              You scored {score}/{questions.length}
+              <span className="block sm:inline-block sm:ml-2 mt-2 sm:mt-0 text-2xl text-cyan-300">
+                {score === questions.length
+                  ? "🔥 Perfect Score!"
+                  : "Nice Try! 😎"}
+              </span>
+            </p>
+
+            <button
+              onClick={() => {
+                setCurrentQuestion(0);
+                setScore(0);
+                setQuizStarted(false);
+              }}
+              className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-lg sm:text-xl font-semibold hover:scale-105 active:scale-95 transition-transform duration-200 shadow-lg shadow-cyan-500/20 hover:shadow-blue-500/30"
+            >
+              {/* Hover effect layer */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-700 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Button content */}
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Play Again
+                <span className="inline-block transition-transform hover:rotate-180">
+                  🔄
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
       )}
     </div>
