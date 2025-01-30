@@ -9,7 +9,10 @@ const BackButton = () => {
   if (pathname === "/") return null;
 
   return (
-    <ChevronLeft className="top-3 z-50 left-3 w-6 h-6 text-gray-300  md:w-8 md:h-8 cursor-pointer" onClick={router.back} />
+    <ChevronLeft
+      className="top-3 z-50 left-3 w-6 h-6 text-gray-300  md:w-8 md:h-8 cursor-pointer"
+      onClick={() => router.push("/#explore")}
+    />
   );
 };
 export default BackButton;
