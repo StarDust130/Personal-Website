@@ -60,7 +60,7 @@ const QuizHero = ({ setQuizStarted }: { setQuizStarted: React.Dispatch<React.Set
 
       <button
         onClick={() => setQuizStarted(true)}
-        className="mt-8 relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 rounded-2xl text-xl font-semibold hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 mx-auto group/button"
+        className="mt-8 relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 rounded-full text-xl font-semibold hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 mx-auto group/button"
       >
         <span className="relative z-10">Start the Vibe Check</span>
         <span className="w-6 h-6 relative z-10 group-hover/button:translate-x-1 transition-transform">
