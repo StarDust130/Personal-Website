@@ -230,7 +230,7 @@ const QuizPage = () => {
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Play Again
                 <span className="inline-block transition-transform hover:rotate-180">
-                  🔄
+                  👀
                 </span>
               </span>
             </button>
@@ -245,7 +245,7 @@ const QuizPage = () => {
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Exit
                 <span className="inline-block transition-transform duration-300 hover:rotate-180">
-                  🔚
+                  💥
                 </span>
               </span>
             </button>
