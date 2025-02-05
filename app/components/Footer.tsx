@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="py-10 bg-gradient-to-br from-gray-900 via-black to-gray-800  rounded-t-3xl
+      className="py-10   rounded-t-3xl
       text-white border-t border-gray-700"
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
