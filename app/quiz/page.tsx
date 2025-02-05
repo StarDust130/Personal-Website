@@ -22,7 +22,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-['Inter'] p-4 sm:p-8">
+    <div id="top" className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-['Inter'] p-4 sm:p-8">
       {/* Glowing Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-48 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl" />

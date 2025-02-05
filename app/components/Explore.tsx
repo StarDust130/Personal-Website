@@ -30,7 +30,7 @@ const Explore = () => {
               desc: "Think you know me? Take the challenge! 🤔",
               date: "2022",
               image: "/anime-girl-3.jpg",
-              url: "/quiz",
+              url: "/quiz#top",
             },
             {
               title: "💼 Work",
