@@ -5,7 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-10 bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white border-t border-gray-700">
+    <footer
+      className="py-10   rounded-t-3xl
+      text-white border-t border-gray-700"
+    >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex justify-center sm:justify-start">
@@ -20,7 +23,7 @@ const Footer = () => {
         </div>
         <p className="mt-4 text-center text-xs  sm:text-sm   text-gray-400">
           This is Chandrashekhar’s personal website—just for fun and all about
-          me. If you don’t like it, go f* yourself and don’t waste your time
+          me. If you don’t like it, go fuck yourself and don’t waste your time
           here.
         </p>
       </div>

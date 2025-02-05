@@ -5,11 +5,11 @@ import { projects, techStack } from "../lib/data";
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-black text-white px-6 md:px-12 lg:px-24 py-20">
+    <main className="min-h-screen  text-white px-6 md:px-12 lg:px-24 py-20">
       {/* Glowing Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -right-48 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl" />
+        <div className="absolute -top-32 -left-48 w-96 h-96 bg-sky-600/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-48 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl" />
       </div>
       {/* Header Section */}
       <div className="relative mb-16 md:mb-24">

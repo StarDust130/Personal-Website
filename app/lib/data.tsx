@@ -227,29 +227,82 @@ export const techStack = [
   },
 ];
 
-// Quiz
 export const questions = [
   {
     question: "My go-to snack?",
     emoji: "🍕🍟",
     options: [
-      "Takis (Spicy AF 🌶️)",
-      "Pocky (Weeb vibes 🎌)",
-      "Trail Mix (Basic 😴)",
-      "Air (Sad times 🥲)",
+      "Spicy stuff (Sweet inside 🌶️)",
+      "Pocky (Anime hero vibes 🎌)",
+      "Trail Mix (Pretending to be healthy 😴)",
+      "Eat air because I'm just that dramatic 🥲",
     ],
     correct: 0,
   },
   {
-    question: "Netflix &...? ",
+    question: "Netflix &...?",
     emoji: "📺🍿",
     options: [
-      "Chill (Obviously 😏)",
-      "Cry (Drama queen 👑)",
-      "Meme review 🐸",
-      "Sleep (Zzz 💤)",
+      "Chill (😵‍💫)",
+      "Start a fight over movie choices 🍿👊",
+      "Meme (Laugh 'til it hurts 🐸)",
+      "Sleep (Next episode? Who cares 💤)",
     ],
     correct: 2,
   },
-  // Add 3 more questions
+  {
+    question: "Perfect date idea?",
+    emoji: "💗🐼",
+    options: [
+      "Roast each other until therapy 🖤🛋️",
+      "Movie , Travel , Time Spend (Sunsets 🌅💫🌸)",
+      "Argue over pizza toppings 🍕👊",
+      "Go to OYO (Don't Waste time in Build up 🏨)",
+    ],
+    correct: 1,
+  },
+  {
+    question: "What’s my superpower?",
+    emoji: "🦸‍♂️💥",
+    options: [
+      "Binge-watching pro 👀",
+      "Making awkward silences a comedy show 😂",
+      "Food delivery arrives in 10 minutes, always 🍔",
+      "Ignoring texts like a pro 💌",
+    ],
+    correct: 0,
+  },
+  {
+    question: "If I were an animal...?",
+    emoji: "🐒🐯",
+    options: [
+      "Sloth (Laziness on another level 😌)",
+      "Cheetah (Fast but constantly lost 🏃‍♂️)",
+      "Penguin (Cute & clumsy 🐧)",
+      "Elephant (Big heart, forgetful brain 🐘)",
+    ],
+    correct: 4,
+  },
+  {
+    question: "Dream vacation?",
+    emoji: "✈️🏖️",
+    options: [
+      "Beach with Wi-Fi (Work & tan 🤯)",
+      "Anywhere with my loved ones 🏞️",
+      "Space travel (Beam me up, Elon 🚀)",
+      "Anime theme parks in Japan (Shut up, take my money 🎢)",
+    ],
+    correct: 1,
+  },
+  {
+    question: "How do I deal with stress?",
+    emoji: "💆‍♂️🧘‍♂️",
+    options: [
+      "Eat ALL the snacks (Yes, even the weird ones 🍫)",
+      "Watch anime & cry (Embrace the feels 📺😭)",
+      "Channel zen monk vibes (Peaceful vibes only 🧘‍♂️)",
+      "Nap like the world is ending (Goodnight, world 😴)",
+    ],
+    correct: 3,
+  },
 ];

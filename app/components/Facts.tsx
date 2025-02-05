@@ -7,11 +7,20 @@ const Facts = () => {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
 
   const tips = [
-    "Chandrashekhar has a passion for books, particularly those that challenge his thinking. 📚",
-    "When he's not lost in a book, he's either watching anime or mastering chess. ♟️",
-    "Geopolitics fascinates Chandrashekhar—he keeps himself informed on the latest world events.",
-    "Philosophy is a key interest—Chandrashekhar enjoys pondering life's big questions. 🤔",
-    "For him, success lies in continuous learning and growth, and he's always striving for both.",
+    "He’s always curious about world events and loves geopolitics. 🌍",
+    "He sleeps with a yellow elephant plushie—his lifelong buddy. 🐘",
+    "He likes smart, thick-thighed, and fun-loving girls who truly get him. 😉",
+    "He’s a foodie who loves to eat and enjoy tasty meals—cook with love, and he’ll never leave! 🍽️😂",
+    "He dreams of traveling the world one day. ✈️🌎",
+    "He once tried growing a beard, but all he got was 3.5 stray hairs. 🧔❌",
+    "He gets distracted by thick thighs like a Windows update at 99%. 🔥💀",
+    "He believes anime waifus are superior and will fight you over it. 😤📺",
+    "He thought about hitting the gym, but his bed was more seductive. 🛏️💘",
+    "He flirts like a pro in his head but stutters like a broken printer in real life. 🖨️😳",
+    "He gets excited when a girl texts first, then forgets how to reply. 📱🤯",
+    "He can debug complex code but can’t figure out if a girl is flirting. 🤔💀",
+    "He’s the CEO of saying 'one last episode' and then finishing the whole season. 📺🍿",
+    "Late-night coding feels romantic until the code breaks. 💻💔",
   ];
 
   useEffect(() => {
@@ -40,7 +49,7 @@ const Facts = () => {
         <h1 className="text-3xl md:text-5xl font-extrabold animate-pulse">
           Fun Facts:
         </h1>
-        <p className="text-lg md:text-xl font-semibold text-gray-300">
+        <p className="text-lg md:text-xl  font-semibold text-gray-300">
           {tips[currentTipIndex] || "Fun Facts Coming Soon..."}
         </p>
       </div>

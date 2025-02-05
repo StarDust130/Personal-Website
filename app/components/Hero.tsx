@@ -15,7 +15,7 @@ const Hero = () => {
         <p className="text-base sm:text-lg lg:text-xl text-gray-400">
           I love coding 💻, movies 🍿, anime 🌸, chess ♟️, and more!
           I&apos;m into <b>geopolitics</b> 🌍, cool ideas 💡, and feeding my
-          curiosity 📚. Sometimes I wonder, “Why is everyone so weird?” 🤔...
+          curiosity 📚. Sometimes I wonder, Why is everyone so weird? 🤔...
           but then I realize, it&apos;s probably me. 😅 Or maybe we’re just
           characters in a game, and I&apos;m the glitch? 🎮
         </p>
