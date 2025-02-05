@@ -22,7 +22,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-['Inter'] p-4 sm:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-['Inter'] p-4 sm:p-8">
       {/* Glowing Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-48 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl" />
@@ -128,8 +128,7 @@ const QuizPage = () => {
           <h2 className="text-3xl flex justify-start items-center  sm:text-4xl font-bold mb-10 ">
             <span className="bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent animate-text-shine">
               {questions[currentQuestion].question}{" "}
-            </span>
-            {" "}
+            </span>{" "}
             {questions[currentQuestion].emoji}
           </h2>
 

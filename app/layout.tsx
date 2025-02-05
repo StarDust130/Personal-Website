@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${geistSans.className} antialiased h-full`}>
         <main
           id="hero"
-          className="bg-gradient-to-br from-gray-900 via-black to-gray-800  border-t shadow-glow-purple text-white min-h-screen w-full flex flex-col font-inter relative"
+          className="bg-gradient-to-br from-gray-900 via-black to-gray-800   shadow-glow-purple text-white min-h-screen w-full flex flex-col font-inter relative"
         >
           <Navbar />
           {children}
