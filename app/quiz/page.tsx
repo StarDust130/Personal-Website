@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PartyPopper, HeartCrack, BadgeCheck, Flame } from "lucide-react";
 import Image from "next/image";
 import { questions } from "../lib/data";
+import Link from "next/link";
 
 const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -236,19 +237,18 @@ const QuizPage = () => {
             </button>
 
             {/* Exit Button */}
-            <button
-              onClick={() => setQuizStarted(false)}
-              className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-600 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-lg sm:text-xl font-semibold text-white hover:scale-105 active:scale-95 transition-transform duration-200 shadow-lg shadow-red-500/20 hover:shadow-pink-500/30 ml-4"
-            >
-              {/* Hover effect layer */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-700 opacity-0 hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Exit
-                <span className="inline-block transition-transform duration-300 hover:rotate-180">
-                  💥
+            <Link href={"/#explore"}>
+              <button className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-600 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-lg sm:text-xl font-semibold text-white hover:scale-105 active:scale-95 transition-transform duration-200 shadow-lg shadow-red-500/20 hover:shadow-pink-500/30 ml-4">
+                {/* Hover effect layer */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-700 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Exit
+                  <span className="inline-block transition-transform duration-300 hover:rotate-180">
+                    💥
+                  </span>
                 </span>
-              </span>
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
       )}
