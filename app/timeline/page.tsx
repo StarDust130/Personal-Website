@@ -1,10 +1,10 @@
-import { TimelineUI } from "../components/Timeline";
+import TimelinePage from "../components/Timeline";
+
 
 const Timeline = () => {
   return (
     <div className="flex flex-col w-full h-screen">
-      <TimelineUI />
-      
+      <TimelinePage />
     </div>
   );
 };
