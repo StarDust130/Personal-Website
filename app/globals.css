@@ -169,11 +169,18 @@ body {
 
 /* globals.css */
 ::-webkit-scrollbar {
-  width: 8px;
-  background: #0f172a;
+  width: 6px; /* Thinner scrollbar */
+  background: #000; /* Blends with black background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#06b6d4, #ec4899);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #4fd1c5, #7c3aed); /* Soft cyan to soft purple */
+  border-radius: 10px;
+  box-shadow: 0 0 4px #4fd1c5, 0 0 6px #7c3aed;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #81e6d9, #a78bfa); /* Lighter on hover */
+  box-shadow: 0 0 6px #81e6d9, 0 0 8px #a78bfa;
 }
