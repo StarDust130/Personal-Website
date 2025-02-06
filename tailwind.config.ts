@@ -14,6 +14,9 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'glow-purple': 'glow 2s ease-in-out infinite'
       },
+	    backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
