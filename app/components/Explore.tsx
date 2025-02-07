@@ -11,7 +11,7 @@ const Explore = () => {
             Explore and Discover 🚀
           </h2>
           <p className="mt-4 text-xs md:text-lg text-gray-400">
-            Dive into my timeline, hobbies, experiences, and more.
+            Dive into my Memories, hobbies, experiences, and more.
           </p>
         </div>
 
@@ -19,11 +19,11 @@ const Explore = () => {
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           {[
             {
-              title: "⏳ Timeline",
-              desc: "My journey from noob to pro—don’t judge! 😉",
+              title: "🌟 Memories  ",
+              desc: "Good times, big smiles, and zero regrets! ✨",
               date: "2023",
               image: "/anime-girl-2.jpg",
-              url: "/timeline",
+              url: "/memories",
             },
             {
               title: "❓ Quiz",
