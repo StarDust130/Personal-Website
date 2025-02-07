@@ -16,6 +16,15 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 const MemoriesData = [
   {
     year: "2024",
@@ -199,13 +208,41 @@ const MemoriesPage = () => {
                             }}
                             className="relative aspect-square rounded-2xl overflow-hidden group perspective"
                           >
-                            <Image
-                              src={img}
-                              alt={`Moment ${imgIndex + 1}`}
-                              layout="fill"
-                              objectFit="cover"
-                              className="rounded-2xl"
-                            />
+                            <Dialog>
+                              <DialogTrigger
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Image
+                                  src={img}
+                                  alt={`Moment ${imgIndex + 1}`}
+                                  layout="fill"
+                                  objectFit="cover"
+                                  className="rounded-2xl z-30"
+                                />
+                              </DialogTrigger>
+                              <DialogContent
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <DialogHeader className="flex flex-col gap-4 items-center text-center">
+                                  <Image
+                                    src={img}
+                                    alt={`Moment ${imgIndex + 1}`}
+                                    width={300} // Adjust size as needed
+                                    height={200} // Adjust size as needed
+                                    className="rounded-xl"
+                                  />
+                                  <DialogTitle className="text-lg font-bold">
+                                    Are you absolutely sure?
+                                  </DialogTitle>
+                                  <DialogDescription className="text-sm text-gray-600">
+                                    This action cannot be undone. This will
+                                    permanently delete your account and remove
+                                    your data from our servers.
+                                  </DialogDescription>
+                                </DialogHeader>
+                              </DialogContent>
+                            </Dialog>
+
                             <motion.div
                               initial={{ opacity: 0 }}
                               whileHover={{ opacity: 1 }}
