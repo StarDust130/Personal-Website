@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const timelineData = [
   {
@@ -48,7 +47,7 @@ export default function TimelinePage() {
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-5 md:py-8 sm:px-8 lg:px-12 max-w-6xl">
+      <div className="relative z-10 container mx-auto px-6 py-5 md:py-8 sm:px-8 lg:px-12 max-w-5xl">
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
