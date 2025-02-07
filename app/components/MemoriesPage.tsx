@@ -1,317 +1,314 @@
+
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import {
-  Sparkles,
-  ChevronDown,
-  Rocket,
-  Share2,
-  ExternalLink,
-} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
-const MemoriesData = [
-  {
-    year: "2024",
-    title: "Present Day",
-    description:
-      "Currently pushing boundaries and exploring new horizons in technology and design. Every day brings exciting challenges and opportunities for growth.",
-    emoji: "🚀",
-    tags: ["Technology", "Innovation", "Growth"],
-    metrics: {
-      projects: 12,
-      achievements: 8,
-      collaborations: 5,
-    },
-    images: ["/3.jpg", "/4.jpg"],
-  },
-  {
-    year: "2023",
-    title: "Year of Growth",
-    description:
-      "A transformative year filled with learning and significant milestones. Expanded skills across multiple domains while taking on new challenges.",
-    emoji: "⭐",
-    tags: ["Learning", "Achievement", "Milestone"],
-    metrics: {
-      projects: 8,
-      achievements: 6,
-      collaborations: 3,
-    },
-    images: ["/5.jpg", "/anime-girl-2.jpg", "/anime-girl-2.jpg"],
-  },
-  {
-    year: "2022",
-    title: "New Beginnings",
-    description:
-      "Started an exciting journey of discovery and innovation. Built the foundation for future success through dedication and continuous learning.",
-    emoji: "✨",
-    tags: ["Starting", "Foundation", "Discovery"],
-    metrics: {
-      projects: 5,
-      achievements: 3,
-      collaborations: 2,
-    },
-    images: ["/anime-girl-2.jpg"],
-  },
-];
+interface Memory {
+  id: number;
+  src: string;
+  caption: string;
+  shortTitle: string;
+  category: string;
+  year: string;
+  color: string;
+}
 
 const MemoriesPage = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const { scrollY } = useScroll();
+  const [selectedImage, setSelectedImage] = useState<Memory | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const headerY = useTransform(scrollY, [0, 300], [0, -50]);
-  const headerOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const memories: Memory[] = [
+    {
+      id: 1,
+      src: "/3.jpg",
+      caption: "Summer vibes in California 🌴",
+      shortTitle: "Summer '23",
+      category: "adventures",
+      year: "2023",
+      color: "from-orange-400 to-pink-500",
+    },
+    {
+      id: 2,
+      src: "/4.jpg",
+      caption: "Midnight coding sessions ☕",
+      shortTitle: "Code Night",
+      category: "lifestyle",
+      year: "2023",
+      color: "from-blue-400 to-purple-500",
+    },
+    {
+      id: 3,
+      src: "/5.jpg",
+      caption: "Mountain adventures 🏔️",
+      shortTitle: "Peak Views",
+      category: "adventures",
+      year: "2023",
+      color: "from-green-400 to-teal-500",
+    },
+    {
+      id: 4,
+      src: "/6.jpg",
+      caption: "Mount Fuji Reflection 🌊",
+      shortTitle: "Japan Dreams",
+      category: "travel",
+      year: "2023",
+      color: "from-purple-400 to-pink-500",
+    },
+  ];
+
+  const categories = [
+    { id: "all", emoji: "✨", label: "All Vibes" },
+    { id: "adventures", emoji: "🏔️", label: "Adventures" },
+    { id: "lifestyle", emoji: "🌟", label: "Lifestyle" },
+    { id: "travel", emoji: "✈️", label: "Travel" },
+  ];
+
+  const filteredMemories =
+    activeFilter === "all"
+      ? memories
+      : memories.filter((m) => m.category === activeFilter);
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) =>
+    setTouchStart(e.touches[0].clientX);
+  const handleTouchMove = (e: React.TouchEvent) =>
+    setTouchEnd(e.touches[0].clientX);
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) handleNext();
+    if (distance < -50) handlePrev();
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  const handleNext = () => {
+    setSelectedIndex((prev) => (prev + 1) % memories.length);
+    setSelectedImage(memories[(selectedIndex + 1) % memories.length]);
+  };
+
+  const handlePrev = () => {
+    setSelectedIndex((prev) => (prev - 1 + memories.length) % memories.length);
+    setSelectedImage(
+      memories[(selectedIndex - 1 + memories.length) % memories.length]
+    );
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white ">
-      {/* Animated background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#0f172a_0%,#000_70%)]" />
-      </div>
-
-      <div className="relative container mx-auto px-4 py-8 pb-10 md:py-12 max-w-5xl">
-        {/* Parallax Header */}
+    <div className="min-h-screen bg-black text-white max-w-7xl md:mx-auto">
+      {/* Hero Section with 3D Parallax */}
+      <div className="relative w-[95%] md:w-full h-[60vh] md:mx-auto rounded-xl overflow-hidden perspective-1000">
         <motion.div
-          style={{ y: headerY, opacity: headerOpacity }}
-          className="sticky top-0 text-center mb-16 md:pt-8"
+          initial={{ scale: 1.2, y: 50 }}
+          animate={{ scale: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 transform-style-3d"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-6 md:py-3 rounded-full bg-white/5 backdrop-blur-md mb-6 border border-white/10"
-          >
-            <Sparkles className="w-5 h-5 text-purple-400" />
-            <span className="text-sm font-medium">Explore the Journey ✨</span>
-          </motion.div>
-
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight">
-            <motion.span
-              className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-            >
-              My Evolution
-            </motion.span>
-          </h1>
+          <div className="absolute inset-0  bg-gradient-to-b from-purple-900/30 via-black/50 to-black" />
+          <img
+            src="/6.jpg"
+            alt="Hero"
+            className="w-full h-full object-cover opacity-40 transform translate-z-0"
+          />
         </motion.div>
 
-        {/* Memories */}
-        <div className="space-y-12">
-          {MemoriesData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative"
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-center space-y-6"
+          >
+            <motion.h1
+              className="text-7xl md:text-8xl font-bold"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.div
-                className={`
-                  relative mx-auto rounded-3xl p-8
-                  transition-all duration-500 ease-out cursor-pointer
-                  ${
-                    expandedIndex === index
-                      ? "bg-white/10 backdrop-blur-lg shadow-xl shadow-purple-500/10"
-                      : "bg-white/5 hover:bg-white/10 hover:backdrop-blur-sm"
-                  }
-                  border border-white/10
-                `}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() =>
-                  setExpandedIndex(expandedIndex === index ? null : index)
-                }
-              >
-                {/* Year */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="px-4 py-1.5 rounded-full bg-purple-400/10 text-purple-400 text-sm font-mono">
-                    {item.year}
-                  </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-purple-400/50 to-transparent" />
-                </div>
+              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                Memories
+              </span>
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="relative inline-block"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl" />
+              <p className="relative text-sm md:text-2xl text-gray-300 font-light px-6 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                capturing life&apos;s aesthetic moments ✨ 💙
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
 
-                {/* Title */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-2xl md:text-3xl font-bold">
-                    <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-                      {item.title}
-                    </span>
-                    <span className="ml-2">{item.emoji}</span>
-                  </h3>
-                  <motion.div
-                    animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown className="w-6 h-6 text-gray-400" />
-                  </motion.div>
-                </div>
+        {/* Decorative elements */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        />
+      </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.map((tag, tagIndex) => (
-                    <motion.span
-                      key={tagIndex}
-                      whileHover={{ scale: 1.1 }}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10"
-                    >
-                      {tag}
-                    </motion.span>
-                  ))}
-                </div>
+      {/* Modern Filter Section */}
+      <div className="container mx-auto  -mt-5 md:-mt-10 relative z-20">
+        <motion.div
+          className="flex gap-3 overflow-x-auto pb-6 px-2 md:px-0 hide-scrollbar"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {categories.map((category) => (
+            <motion.button
+              key={category.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveFilter(category.id)}
+              className={`relative group px-2 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm  whitespace-nowrap snap-start transition-all 
+          ${
+            activeFilter === category.id
+              ? "bg-gradient-to-r from-[#4F46E5] to-[#0EA5E9]   text-white font-bold"
+              : "bg-white/10 text-gray-200 hover:bg-white/20 backdrop-blur-md transition-all"
+          }`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-lg">{category.emoji}</span>
+                <span>{category.label}</span>
+              </div>
+            </motion.button>
+          ))}
+        </motion.div>
 
-                {/* Expandable content */}
-                <AnimatePresence>
-                  {expandedIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      {/* Images with hover effect */}
-                      <div
-                        className={`
-                        grid gap-4 my-6
-                        ${
-                          item.images.length === 1
-                            ? "grid-cols-1"
-                            : item.images.length === 2
-                            ? "grid-cols-2"
-                            : "grid-cols-2 md:grid-cols-3"
-                        }
-                      `}
-                      >
-                        {item.images.map((img, imgIndex) => (
-                          <motion.div
-                            key={imgIndex}
-                            whileHover={{
-                              scale: 1.05,
-                              rotateY: 10,
-                            }}
-                            className="relative aspect-square rounded-2xl overflow-hidden group perspective"
-                          >
-                            <Dialog>
-                              <DialogTrigger
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <Image
-                                  src={img}
-                                  alt={`Moment ${imgIndex + 1}`}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  className="rounded-2xl z-30"
-                                />
-                              </DialogTrigger>
-                              <DialogContent
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <DialogHeader className="flex flex-col gap-4 items-center text-center">
-                                  <Image
-                                    src={img}
-                                    alt={`Moment ${imgIndex + 1}`}
-                                    width={300} // Adjust size as needed
-                                    height={200} // Adjust size as needed
-                                    className="rounded-xl"
-                                  />
-                                  <DialogTitle className="text-lg font-bold">
-                                    Are you absolutely sure?
-                                  </DialogTitle>
-                                  <DialogDescription className="text-sm text-gray-600">
-                                    This action cannot be undone. This will
-                                    permanently delete your account and remove
-                                    your data from our servers.
-                                  </DialogDescription>
-                                </DialogHeader>
-                              </DialogContent>
-                            </Dialog>
-
-                            <motion.div
-                              initial={{ opacity: 0 }}
-                              whileHover={{ opacity: 1 }}
-                              className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-purple-900/30 to-transparent"
-                            />
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileHover={{ opacity: 1, scale: 1 }}
-                              className="absolute inset-0 flex items-center justify-center"
-                            >
-                              <ExternalLink className="w-6 h-6 text-white/80" />
-                            </motion.div>
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* Description with animated reveal */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="space-y-4"
-                      >
-                        <p className="text-lg text-gray-300 leading-relaxed">
-                          {item.description}
-                        </p>
-
-                        {/* Interactive buttons */}
-                        <div className="flex gap-4 mt-6">
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 border border-purple-500/20"
-                          >
-                            <Share2 className="w-4 h-4" />
-                            <span>Share</span>
-                          </motion.button>
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10"
-                          >
-                            <Rocket className="w-4 h-4" />
-                            <span>Learn More</span>
-                          </motion.button>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-
-              {/* Animated connector */}
-              {index !== MemoriesData.length - 1 && (
-                <motion.div
-                  className="absolute -bottom-12 left-1/2 h-12 w-px bg-gradient-to-b from-purple-400/30 to-transparent"
-                  animate={{
-                    height: [48, 52, 48],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
+        {/* Gallery Grid with Masonry-like Layout */}
+        <motion.div
+          layout
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 my-8"
+        >
+          {filteredMemories.map((memory, index) => (
+            <motion.div
+              key={memory.id}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              onClick={() => {
+                setSelectedImage(memory);
+                setSelectedIndex(index);
+              }}
+            >
+              <div className="relative aspect-square  md:aspect-auto md:h-full rounded-2xl overflow-hidden">
+                <img
+                  src={memory.src}
+                  alt={memory.caption}
+                  className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
-              )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+
+                <div className="absolute inset-0 flex flex-col justify-between p-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <motion.div
+                    className={`bg-gradient-to-r ${memory.color} px-3 py-1.5 rounded-full self-start`}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <span className="text-sm font-medium">
+                      {memory.shortTitle}
+                    </span>
+                  </motion.div>
+
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium leading-tight">
+                      {memory.caption}
+                    </p>
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="bg-white/20 px-2 py-1 rounded-full backdrop-blur-sm">
+                        {memory.category}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
+
+      {/* Modal with advanced animations */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
+            onClick={() => setSelectedImage(null)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full h-full flex items-center justify-center p-4"
+            >
+              <div className="relative max-w-5xl w-full">
+                <motion.div
+                  className="relative aspect-video rounded-3xl overflow-hidden"
+                  layoutId={`image-${selectedIndex}`}
+                >
+                  <img
+                    src={selectedImage.src}
+                    alt={selectedImage.caption}
+                    className="w-full h-full object-contain"
+                  />
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent"
+                  >
+                    <h3 className="text-2xl font-bold mb-2">
+                      {selectedImage.shortTitle}
+                    </h3>
+                    <p className="text-gray-300">{selectedImage.caption}</p>
+                  </motion.div>
+                </motion.div>
+
+                {/* Navigation buttons with hover effects */}
+                <motion.button
+                  whileHover={{ scale: 1.1, x: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/10 p-3 rounded-full backdrop-blur-sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrev();
+                  }}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.1, x: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/10 p-3 rounded-full backdrop-blur-sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

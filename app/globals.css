@@ -184,3 +184,47 @@ body {
   background: linear-gradient(135deg, #81e6d9, #a78bfa); /* Lighter on hover */
   box-shadow: 0 0 6px #81e6d9, 0 0 8px #a78bfa;
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@keyframes text-glitch {
+  0% { 
+    clip-path: inset(10% 0 30% 0);
+    transform: skew(0deg);
+  }
+  25% {
+    clip-path: inset(15% 0 15% 0);
+    transform: skew(5deg);
+  }
+  50% {
+    clip-path: inset(20% 0 10% 0);
+    transform: skew(-3deg);
+  }
+  75% {
+    clip-path: inset(10% 0 20% 0); 
+    transform: skew(2deg);
+  }
+  100% {
+    clip-path: inset(10% 0 30% 0);
+    transform: skew(0deg);
+  }
+}
+
+.animate-text-glitch {
+  animation: text-glitch 2s infinite linear alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
