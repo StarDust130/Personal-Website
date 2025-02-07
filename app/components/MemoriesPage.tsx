@@ -75,22 +75,22 @@ const MemoriesPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#0f172a_0%,#000_70%)]" />
       </div>
 
-      <div className="relative container mx-auto px-4 py-12 max-w-5xl">
+      <div className="relative container mx-auto px-4 py-8 pb-10 md:py-12 max-w-5xl">
         {/* Parallax Header */}
         <motion.div
           style={{ y: headerY, opacity: headerOpacity }}
-          className="sticky top-0 text-center mb-16 pt-8"
+          className="sticky top-0 text-center mb-16 md:pt-8"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md mb-6 border border-white/10"
+            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-6 md:py-3 rounded-full bg-white/5 backdrop-blur-md mb-6 border border-white/10"
           >
             <Sparkles className="w-5 h-5 text-purple-400" />
             <span className="text-sm font-medium">Explore the Journey ✨</span>
           </motion.div>
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight">
+          <h1 className="text-5xl md:text-8xl font-black tracking-tight">
             <motion.span
               className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent"
               whileHover={{
