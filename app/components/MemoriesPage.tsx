@@ -102,7 +102,7 @@ const ModernMemoriesPage = () => {
     },
     {
       id: 9,
-      src: "/27.jpg",
+      src: "/24.jpg",
       caption: "Mount Fuji Reflection 🌊",
       shortTitle: "Japan Dreams",
       category: "travel",
@@ -139,7 +139,7 @@ const ModernMemoriesPage = () => {
     {
       id: 13,
       src: "/me-18.jpg",
-      caption: "Mount Fuji Reflection 🌊",
+      caption: "babu Birthday 🌊",
       shortTitle: "Japan Dreams",
       category: "travel",
       year: "2023",
@@ -174,10 +174,13 @@ const ModernMemoriesPage = () => {
   const handleTouchMove = (e: React.TouchEvent) =>
     setTouchEnd(e.touches[0].clientX);
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (touchStart === null || touchEnd === null) return;
     const distance = touchStart - touchEnd;
-    if (distance > 50) handleNext();
-    if (distance < -50) handlePrev();
+    if (distance > 50) {
+      handleNext();
+    } else if (distance < -50) {
+      handlePrev();
+    }
     setTouchStart(null);
     setTouchEnd(null);
   };
@@ -387,18 +390,20 @@ const ModernMemoriesPage = () => {
                 <X className="w-4 h-4 md:w-6 md:h-6" />
               </button>
 
-              <div className="relative max-w-4xl w-full rounded-3xl shadow-lg">
+              <div className="relative max-w-4xl w-full rounded-3xl shadow-lg border border-black/40">
                 {/* Image Container */}
                 <motion.div
-                  className="relative aspect-[4/3] md:aspect-[16/9] rounded-3xl overflow-hidden"
-                  whileHover={{ scale: 1.005 }}
-                  transition={{ duration: 0.2 }}
+                  className="relative aspect-[4/3] md:aspect-[16/9] rounded-t-[2.5rem] overflow-hidden"
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.3 }}
                 >
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent" />
                   <Image
                     src={selectedImage.src}
                     alt={selectedImage.caption}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transform transition-transform duration-300 hover:scale-102"
                     layout="fill"
+                    priority
                   />
                 </motion.div>
 
