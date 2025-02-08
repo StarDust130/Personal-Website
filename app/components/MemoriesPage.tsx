@@ -7,10 +7,8 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  Heart,
-  Share2,
-  Download,
 } from "lucide-react";
+import Image from "next/image";
 
 interface Memory {
   id: number;
@@ -136,7 +134,7 @@ const ModernMemoriesPage = () => {
                   scale: 1.05,
                   textShadow: "0px 0px 20px rgba(255, 255, 255, 0.8)",
                 }}
-                className="relative text-7xl   md:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 drop-shadow-lg"
+                className="relative text-7xl   md:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 drop-shadow-lg animate-pulse"
               >
                 Memories
               </motion.h1>
@@ -172,23 +170,32 @@ const ModernMemoriesPage = () => {
 
       {/* Filter Section */}
       <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-20">
+        {/* Categories with Smooth Entrance */}
         <motion.div
           className="flex gap-2 overflow-x-auto pb-4 hide-scrollbar"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <motion.button
               key={category.id}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.07 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => setActiveFilter(category.id)}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                delay: index * 0.08,
+                ease: "easeOut",
+                duration: 0.8,
+              }}
               className={`relative group px-3 py-1.5 rounded-3xl text-xs md:text-sm font-medium whitespace-nowrap transition-all 
-          ${
-            activeFilter === category.id
-              ? "bg-gradient-to-r from-[#007bff] to-[#00a6ff] text-white shadow-lg"
-              : "bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-md"
-          }`}
+        ${
+          activeFilter === category.id
+            ? "bg-gradient-to-r from-[#007bff] to-[#00a6ff] text-white shadow-lg"
+            : "bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-md"
+        }`}
             >
               <div className="flex items-center gap-1 md:gap-2">
                 <span className="text-base md:text-lg">{category.emoji}</span>
@@ -198,32 +205,44 @@ const ModernMemoriesPage = () => {
           ))}
         </motion.div>
 
-        {/* Gallery Grid */}
+        {/* Gallery Grid with Smooth Transitions */}
         <motion.div
           layout
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 my-6"
         >
           {filteredMemories.map((memory, index) => (
             <motion.div
               key={memory.id}
               layout
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
+              transition={{
+                delay: index * 0.08,
+                duration: 0.8,
+                ease: "easeOut",
+              }}
               className="group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 setSelectedImage(memory);
                 setSelectedIndex(index);
               }}
             >
               <div className="relative aspect-square rounded-lg overflow-hidden">
-                <img
+                <motion.img
                   src={memory.src}
                   alt={memory.caption}
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                <div className="absolute inset-0 p-3 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute inset-0 p-3 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-500">
                   <motion.div
                     className="bg-white/10 backdrop-blur-md px-2 py-1 rounded-lg text-xs self-start"
                     whileHover={{ scale: 1.05 }}
@@ -247,70 +266,75 @@ const ModernMemoriesPage = () => {
         </motion.div>
       </div>
 
-      {/* Enhanced Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl"
+            className="fixed inset-0 z-50 backdrop-blur-lg bg-black/60"
             onClick={() => setSelectedImage(null)}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
+            {/* Instruction for Mobile */}
+            <p className="text-xs md:hidden absolute bottom-4 left-0 right-0 text-center text-white/80">
+              Scroll left or right to see more images
+            </p>
+
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative w-full h-full flex items-center justify-center p-4"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              className="relative w-full h-full flex flex-col items-center justify-center p-4"
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-6 right-6 z-50 bg-white/10 p-2 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+                className="absolute top-6 right-6 z-50 bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
               >
-                <X className="w-6 h-6" />
+                <X className="w-4 h-4 md:w-6 md:h-6" />
               </button>
 
-              <div className="relative max-w-5xl w-full">
-                <motion.div className="relative aspect-[4/3] md:aspect-[16/9] rounded-3xl overflow-hidden">
-                  <img
+              <div className="relative max-w-4xl w-full rounded-3xl shadow-lg">
+                {/* Image Container */}
+                <motion.div
+                  className="relative aspect-[4/3] md:aspect-[16/9] rounded-3xl overflow-hidden"
+                  whileHover={{ scale: 1.005 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Image
                     src={selectedImage.src}
                     alt={selectedImage.caption}
                     className="w-full h-full object-contain"
+                    layout="fill"
                   />
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-2xl font-bold">
-                        {selectedImage.shortTitle}
-                      </h3>
-                      <div className="flex gap-3">
-                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
-                          <Heart className="w-5 h-5" />
-                        </button>
-                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
-                          <Share2 className="w-5 h-5" />
-                        </button>
-                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
-                          <Download className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{selectedImage.caption}</p>
-                  </motion.div>
                 </motion.div>
 
-                <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 -translate-y-1/2">
+                {/* Caption & Details */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.3, ease: "easeOut" }}
+                  className="p-6 rounded-b-3xl bg-gradient-to-t from-black/90 to-transparent"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-white">
+                      {selectedImage.shortTitle}
+                    </h3>
+                  </div>
+                  <p className="text-gray-300 text-sm md:text-base overflow-hidden text-ellipsis whitespace-nowrap">
+                    {selectedImage.caption}
+                  </p>
+                </motion.div>
+
+                {/* Desktop Navigation Buttons (Overlaid on Image) */}
+                <div className="absolute top-1/2  left-0 right-0 hidden md:flex justify-between px-4 -translate-y-1/2">
                   <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-transform"
                     onClick={(e) => {
                       e.stopPropagation();
                       handlePrev();
@@ -320,9 +344,9 @@ const ModernMemoriesPage = () => {
                   </motion.button>
 
                   <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-transform"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleNext();
@@ -331,6 +355,32 @@ const ModernMemoriesPage = () => {
                     <ChevronRight className="w-6 h-6" />
                   </motion.button>
                 </div>
+              </div>
+
+              {/* Mobile Navigation Buttons (Placed below content) */}
+              <div className="max-w-4xl w-full mt-4 flex justify-end gap-3 px-4 md:hidden">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-transform"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrev();
+                  }}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-transform"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </motion.button>
               </div>
             </motion.div>
           </motion.div>
