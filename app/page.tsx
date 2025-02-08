@@ -3,7 +3,6 @@ import BgSvg from "./components/BgSvg";
 import Explore from "./components/Explore";
 import Age from "./components/Age";
 import Facts from "./components/Facts";
-import Footer from "./components/Footer";
 
 const Page = () => {
   return (
@@ -14,7 +13,6 @@ const Page = () => {
       <Explore />
       <Age />
       <Facts />
-      <Footer />
     </div>
   );
 };

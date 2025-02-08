@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import FloatingDots from "./components/FloatingDots";
 import { ShootingStars } from "@/components/ui/shooting-stars";
+import Footer from "./components/Footer";
 
 const geistSans = Spectral({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Analytics />
           <FloatingDots />
           <ShootingStars />
+          <Footer />
         </main>
       </body>
     </html>
