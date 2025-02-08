@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 const Page = () => {
   return (
-    <div className="w-full     flex flex-col  font-inter relative">
+    <div className="w-full z-10    flex flex-col  font-inter relative">
       <BgSvg />
 
       <Hero />
