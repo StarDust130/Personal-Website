@@ -9,8 +9,9 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import { memories } from "../lib/data";
 
-interface Memory {
+export interface Memory {
   id: number;
   src: string;
   caption: string;
@@ -27,134 +28,7 @@ const ModernMemoriesPage = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const memories: Memory[] = [
-    {
-      id: 1,
-      src: "/3.jpg",
-      caption: "Summer vibes in California 🌴",
-      shortTitle: "Summer '23",
-      category: "adventures",
-      year: "2023",
-      color: "from-orange-400 to-pink-500",
-    },
-    {
-      id: 2,
-      src: "/4.jpg",
-      caption: "Midnight coding sessions ☕",
-      shortTitle: "Code Night",
-      category: "lifestyle",
-      year: "2023",
-      color: "from-blue-400 to-purple-500",
-    },
-    {
-      id: 3,
-      src: "/5.jpg",
-      caption: "Mountain adventures 🏔️",
-      shortTitle: "Peak Views",
-      category: "adventures",
-      year: "2023",
-      color: "from-green-400 to-teal-500",
-    },
-    {
-      id: 4,
-      src: "/9.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 5,
-      src: "/14.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 6,
-      src: "/15.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 7,
-      src: "/19.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 8,
-      src: "/26.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 9,
-      src: "/24.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 10,
-      src: "/me-16.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 11,
-      src: "/me-17.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 12,
-      src: "/me-17.2.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 13,
-      src: "/me-18.jpg",
-      caption: "babu Birthday 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-    {
-      id: 14,
-      src: "/me-19.jpg",
-      caption: "Mount Fuji Reflection 🌊",
-      shortTitle: "Japan Dreams",
-      category: "travel",
-      year: "2023",
-      color: "from-purple-400 to-pink-500",
-    },
-  ];
+ 
 
   const categories = [
     { id: "all", emoji: "✨", label: "All Vibes" },
