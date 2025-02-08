@@ -308,7 +308,7 @@ export const questions = [
   },
 ];
 
-export  const memories: Memory[] = [
+export const memories: Memory[] = [
   {
     id: 1,
     src: "/3.jpg",
@@ -526,3 +526,17 @@ export  const memories: Memory[] = [
     color: "from-purple-400 to-pink-500",
   },
 ];
+
+export const j = [
+  { src: "/j-1.PNG" },
+  { src: "/j-2.PNG" },
+  { src: "/j-3.PNG" },
+  { src: "/j-4.PNG" },
+];
+
+export const categories = [
+    { id: "all", emoji: "✨", label: "All Vibes" },
+    { id: "adventures", emoji: "🏔️", label: "Adventures" },
+    { id: "lifestyle", emoji: "🌟", label: "Lifestyle" },
+    { id: "travel", emoji: "✈️", label: "Travel" },
+  ];

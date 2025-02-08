@@ -3,13 +3,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import {
-  ChevronLeft,
-  ChevronRight,
-  X,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
-import { memories } from "../lib/data";
+import { categories, j, memories } from "../lib/data";
 
 export interface Memory {
   id: number;
@@ -27,15 +23,6 @@ const ModernMemoriesPage = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
- 
-
-  const categories = [
-    { id: "all", emoji: "✨", label: "All Vibes" },
-    { id: "adventures", emoji: "🏔️", label: "Adventures" },
-    { id: "lifestyle", emoji: "🌟", label: "Lifestyle" },
-    { id: "travel", emoji: "✈️", label: "Travel" },
-  ];
 
   const filteredMemories =
     activeFilter === "all"
@@ -355,6 +342,27 @@ const ModernMemoriesPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="bg-transparent p-4 hide-scrollbar md:hidden ">
+        {/* Container for horizontal scrolling if needed */}
+        <div className="flex flex-row gap-4 justify-center items-center hide-scrollbar  overflow-x-auto">
+          {j.map((item, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 rounded-lg shadow-md transform hover:scale-105 transition duration-300"
+            >
+              <Image
+                src={item.src}
+                alt={`Image ${index + 1}`}
+                className="w-20 h-20   object-contain"
+                width={40}
+                height={40}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      
     </div>
   );
 };
