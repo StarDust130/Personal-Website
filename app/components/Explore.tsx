@@ -23,7 +23,7 @@ const Explore = () => {
               desc: "Good times, big smiles, and zero regrets! ✨",
               date: "2023",
               image: "/anime-girl-2.jpg",
-              url: "/memories",
+              url: "/memories#hero",
             },
             {
               title: "❓ Quiz",
