@@ -193,32 +193,7 @@ body {
   display: none; /* Chrome, Safari */
 }
 
-@keyframes text-glitch {
-  0% { 
-    clip-path: inset(10% 0 30% 0);
-    transform: skew(0deg);
-  }
-  25% {
-    clip-path: inset(15% 0 15% 0);
-    transform: skew(5deg);
-  }
-  50% {
-    clip-path: inset(20% 0 10% 0);
-    transform: skew(-3deg);
-  }
-  75% {
-    clip-path: inset(10% 0 20% 0); 
-    transform: skew(2deg);
-  }
-  100% {
-    clip-path: inset(10% 0 30% 0);
-    transform: skew(0deg);
-  }
-}
 
-.animate-text-glitch {
-  animation: text-glitch 2s infinite linear alternate;
-}
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
