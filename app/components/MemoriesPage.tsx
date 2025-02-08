@@ -1,9 +1,16 @@
-
 "use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Typewriter } from "react-simple-typewriter";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Heart,
+  Share2,
+  Download,
+} from "lucide-react";
 
 interface Memory {
   id: number;
@@ -15,7 +22,7 @@ interface Memory {
   color: string;
 }
 
-const MemoriesPage = () => {
+const ModernMemoriesPage = () => {
   const [selectedImage, setSelectedImage] = useState<Memory | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -100,70 +107,75 @@ const MemoriesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white max-w-7xl md:mx-auto">
-      {/* Hero Section with 3D Parallax */}
-      <div className="relative w-[95%] md:w-full h-[60vh] md:mx-auto rounded-xl overflow-hidden perspective-1000">
+    <div className="min-h-screen  bg-black text-white  max-w-6xl md:mx-auto ">
+      {/* Hero Section */}
+      <div className=" h-[40vh] relative  w-auto overflow-hidden md:h-[60vh] items-center ">
         <motion.div
-          initial={{ scale: 1.2, y: 50 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 transform-style-3d"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0"
         >
-          <div className="absolute inset-0  bg-gradient-to-b from-purple-900/30 via-black/50 to-black" />
-          <img
-            src="/6.jpg"
-            alt="Hero"
-            className="w-full h-full object-cover opacity-40 transform translate-z-0"
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_100%)] opacity-60" />
         </motion.div>
 
-        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-center space-y-6"
+            className="text-center space-y-8"
           >
-            <motion.h1
-              className="text-7xl md:text-8xl font-bold"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                whileHover={{
+                  scale: 1.05,
+                  textShadow: "0px 0px 20px rgba(255, 255, 255, 0.8)",
+                }}
+                className="relative text-7xl   md:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 drop-shadow-lg"
+              >
                 Memories
-              </span>
-            </motion.h1>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="relative inline-block"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl" />
-              <p className="relative text-sm md:text-2xl text-gray-300 font-light px-6 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                capturing life&apos;s aesthetic moments ✨ 💙
-              </p>
-            </motion.div>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="text-sm md:text-xl font-light text-white/80"
+              >
+                <Typewriter
+                  words={[
+                    "A collection of great memories… none of them taken by me! 📸",
+                    "Proof I was there… or just really good at stealing pics! 🤷‍♂️",
+                    "I found all these in my album… or someone else’s! 📂",
+                    "If others didn’t take my photos, I might not exist! 🤷‍♂️",
+                    "My camera roll? Just screenshots and regrets! 📂",
+                    "My phone has 0 photos, but my friends’ phones have my whole life! 📷",
+                    "Fun fact: If I had to show my own photos, I’d have nothing! 😭",
+                    "These aren’t mine, but I’ll pretend they are for the clout! 😎",
+                  ]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={50}
+                  deleteSpeed={30}
+                />
+              </motion.p>
+            </div>
           </motion.div>
         </div>
-
-        {/* Decorative elements */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        />
       </div>
 
-      {/* Modern Filter Section */}
-      <div className="container mx-auto  -mt-5 md:-mt-10 relative z-20">
+      {/* Filter Section */}
+      <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-20">
         <motion.div
-          className="flex gap-3 overflow-x-auto pb-6 px-2 md:px-0 hide-scrollbar"
+          className="flex gap-2 overflow-x-auto pb-4 hide-scrollbar"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
         >
           {categories.map((category) => (
             <motion.button
@@ -171,25 +183,25 @@ const MemoriesPage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(category.id)}
-              className={`relative group px-2 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm  whitespace-nowrap snap-start transition-all 
+              className={`relative group px-3 py-1.5 rounded-3xl text-xs md:text-sm font-medium whitespace-nowrap transition-all 
           ${
             activeFilter === category.id
-              ? "bg-gradient-to-r from-[#4F46E5] to-[#0EA5E9]   text-white font-bold"
-              : "bg-white/10 text-gray-200 hover:bg-white/20 backdrop-blur-md transition-all"
+              ? "bg-gradient-to-r from-[#007bff] to-[#00a6ff] text-white shadow-lg"
+              : "bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-md"
           }`}
             >
-              <div className="flex items-center gap-2">
-                <span className="text-lg">{category.emoji}</span>
+              <div className="flex items-center gap-1 md:gap-2">
+                <span className="text-base md:text-lg">{category.emoji}</span>
                 <span>{category.label}</span>
               </div>
             </motion.button>
           ))}
         </motion.div>
 
-        {/* Gallery Grid with Masonry-like Layout */}
+        {/* Gallery Grid */}
         <motion.div
           layout
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 my-8"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 my-6"
         >
           {filteredMemories.map((memory, index) => (
             <motion.div
@@ -197,36 +209,33 @@ const MemoriesPage = () => {
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
+              className="group cursor-pointer"
               onClick={() => {
                 setSelectedImage(memory);
                 setSelectedIndex(index);
               }}
             >
-              <div className="relative aspect-square  md:aspect-auto md:h-full rounded-2xl overflow-hidden">
+              <div className="relative aspect-square rounded-lg overflow-hidden">
                 <img
                   src={memory.src}
                   alt={memory.caption}
-                  className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-
-                <div className="absolute inset-0 flex flex-col justify-between p-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                <div className="absolute inset-0 p-3 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <motion.div
-                    className={`bg-gradient-to-r ${memory.color} px-3 py-1.5 rounded-full self-start`}
+                    className="bg-white/10 backdrop-blur-md px-2 py-1 rounded-lg text-xs self-start"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <span className="text-sm font-medium">
-                      {memory.shortTitle}
-                    </span>
+                    <span className="font-medium">{memory.shortTitle}</span>
                   </motion.div>
-
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium leading-tight">
+                  <div className="space-y-1">
+                    <p className="text-xs font-medium text-white/90 line-clamp-2">
                       {memory.caption}
                     </p>
-                    <div className="flex items-center gap-2 text-xs">
-                      <span className="bg-white/20 px-2 py-1 rounded-full backdrop-blur-sm">
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-md backdrop-blur-sm">
                         {memory.category}
                       </span>
                     </div>
@@ -238,14 +247,14 @@ const MemoriesPage = () => {
         </motion.div>
       </div>
 
-      {/* Modal with advanced animations */}
+      {/* Enhanced Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl"
             onClick={() => setSelectedImage(null)}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -257,11 +266,15 @@ const MemoriesPage = () => {
               exit={{ scale: 0.9, opacity: 0 }}
               className="relative w-full h-full flex items-center justify-center p-4"
             >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-6 right-6 z-50 bg-white/10 p-2 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
               <div className="relative max-w-5xl w-full">
-                <motion.div
-                  className="relative aspect-video rounded-3xl overflow-hidden"
-                  layoutId={`image-${selectedIndex}`}
-                >
+                <motion.div className="relative aspect-[4/3] md:aspect-[16/9] rounded-3xl overflow-hidden">
                   <img
                     src={selectedImage.src}
                     alt={selectedImage.caption}
@@ -271,39 +284,53 @@ const MemoriesPage = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent"
+                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent"
                   >
-                    <h3 className="text-2xl font-bold mb-2">
-                      {selectedImage.shortTitle}
-                    </h3>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-bold">
+                        {selectedImage.shortTitle}
+                      </h3>
+                      <div className="flex gap-3">
+                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                          <Heart className="w-5 h-5" />
+                        </button>
+                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                          <Share2 className="w-5 h-5" />
+                        </button>
+                        <button className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                          <Download className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
                     <p className="text-gray-300">{selectedImage.caption}</p>
                   </motion.div>
                 </motion.div>
 
-                {/* Navigation buttons with hover effects */}
-                <motion.button
-                  whileHover={{ scale: 1.1, x: -5 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/10 p-3 rounded-full backdrop-blur-sm"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePrev();
-                  }}
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </motion.button>
+                <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 -translate-y-1/2">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrev();
+                    }}
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </motion.button>
 
-                <motion.button
-                  whileHover={{ scale: 1.1, x: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/10 p-3 rounded-full backdrop-blur-sm"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNext();
-                  }}
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNext();
+                    }}
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -313,4 +340,4 @@ const MemoriesPage = () => {
   );
 };
 
-export default MemoriesPage;
+export default ModernMemoriesPage;
