@@ -480,4 +480,22 @@ export  const memories: Memory[] = [
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
+  {
+    id: 20,
+    src: "/25.jpg",
+    caption: "Mount Fuji Reflection 🌊",
+    shortTitle: "Japan Dreams",
+    category: "travel",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 21,
+    src: "/28.jpg",
+    caption: "Mount Fuji Reflection 🌊",
+    shortTitle: "Japan Dreams",
+    category: "travel",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
 ];
