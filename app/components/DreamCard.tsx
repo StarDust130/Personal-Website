@@ -24,9 +24,15 @@ const DreamCard = () => {
   const [showSecret, setShowSecret] = useState(false);
   const [showPerfect, setShowPerfect] = useState(false);
   const [funnyMessage, setFunnyMessage] = useState("");
+  const [showEasterEgg, setShowEasterEgg] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
+    // Show Easter Egg for 3 seconds
+    setTimeout(() => {
+      setShowEasterEgg(false);
+    }, 3000);
+
     if (attempts >= 3) {
       setTimeout(() => {
         router.push("https://c.tenor.com/7fzWR4STioAAAAAC/tenor.gif");
@@ -42,7 +48,7 @@ const DreamCard = () => {
       );
 
       setTimeout(() => {
-        setShowQuestions(() => false); // Hide questions 
+        setShowQuestions(false); // Hide questions
         setShowPerfect(true); // Show perfect message
       }, 3000);
     } else {
@@ -61,40 +67,66 @@ const DreamCard = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-6 text-white font-bold text-center space-y-4">
-      {showQuestions && (
+      {/* Easter Egg Message */}
+      {showEasterEgg && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="p-6 border-2 border-dashed  border-pink-600 rounded-3xl shadow-xl"
+          transition={{ duration: 0.5 }}
+          className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl"
         >
-          <h2 className="text-xl mb-4 ">
+          <h2 className="text-xl font-semibold text-center mb-6 tracking-tight text-gradient">
+            🎉
+            <span className="bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text">
+              You found the Easter Egg!
+            </span>
+            😎
+          </h2>
+          <p className="text-sm text-gray-300 mb-6 text-center font-medium tracking-wide">
+            Enjoy the hidden surprise. 💥
+          </p>
+        </motion.div>
+      )}
+
+      {/* Main UI */}
+      {!showEasterEgg && showQuestions && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl"
+        >
+          <h2 className="text-2xl font-semibold text-center mb-6 tracking-tight text-gradient">
             😳
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
-              {" "}
               Are You The One?
             </span>{" "}
             <motion.span
-              animate={{ rotate: [0, 20, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="ml-2 inline-block"
+              animate={{ rotate: [0, 15, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 1.3 }}
+              className="inline-block"
             >
               💘
             </motion.span>
           </h2>
-          <p className="text-sm text-red-400 mb-4">{funnyMessage}</p>
+
+          <p className="text-sm text-red-500 mb-6 text-center font-medium tracking-wide">
+            {funnyMessage}
+          </p>
+
           {showQuestions && (
             <input
               type="text"
-              className="p-2 w-full rounded-lg text-black  focus:outline-none"
-              placeholder="Enter your name"
+              className="p-4 w-full rounded-xl bg-white/10 text-white border-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-60 transition-all placeholder:text-gray-500 text-center"
+              placeholder="Your Name, maybe? 👀"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           )}
+
           {showQuestions && (
             <button
-              className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg  transition-all"
+              className="mt-6 w-full px-8 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium tracking-wide transform hover:opacity-90 active:scale-95 transition-all"
               onClick={handleSubmit}
             >
               Submit 😨
@@ -119,7 +151,7 @@ const DreamCard = () => {
       )}
       {showPerfect && (
         <motion.button
-          className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg  transition"
+          className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg transition"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
