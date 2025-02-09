@@ -16,6 +16,17 @@ body {
   padding: 0;
 }
 
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  pointer-events: none;
+}
+
 /* Button know more */
 .button {
   --stone-50: #fafaf9;
