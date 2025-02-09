@@ -69,17 +69,17 @@ const MemoriesImageGrid = ({
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
               <div className="absolute inset-0 p-3 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <motion.div
-                  className="bg-white/10 backdrop-blur-md px-2 py-1 rounded-lg text-xs self-start"
+                  className="bg-white/30 backdrop-blur-md px-2 py-1 rounded-lg text-xs self-start"
                   whileHover={{ scale: 1.05 }}
                 >
                   <span className="font-medium">{memory.shortTitle}</span>
                 </motion.div>
                 <div className="space-y-1">
-                  <p className="text-xs font-medium text-white/90 line-clamp-2">
+                  <p className="text-xs font-medium text-gray-100 line-clamp-2">
                     {memory.caption}
                   </p>
                   <div className="flex items-center gap-1">
-                    <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-md backdrop-blur-sm">
+                    <span className="text-[10px] bg-white/30 px-2 py-0.5 rounded-md backdrop-blur-sm">
                       {memory.category}
                     </span>
                   </div>
