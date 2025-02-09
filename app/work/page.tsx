@@ -18,7 +18,6 @@ export default function WorkPage() {
             Bug Slayer, Code Butcher
           </span>
           🔪💀
-          
         </h1>
         <p className="text-base md:text-lg text-gray-400 max-w-2xl">
           Writing code that *<b>usually</b>* works... 🧨🔥🚀
@@ -61,12 +60,9 @@ export default function WorkPage() {
               </h3>
             </div>
             <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-3xl">
-              Turned coffee ☕ into code • Shipped features faster than my WiFi
-              drops 📉 • Mastered the art of{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                &quot;Wait, why is this working?&quot;
-              </span>{" "}
-              🤔• Learned to fix bugs 🐛 like a pro
+              Worked in a real team 🚀 • Built & shipped features fast ⚡ • Got
+              great feedback & improved my code 🛠️ • Learned best practices &
+              debugging like a pro 🐛✅
             </p>
           </div>
         </div>
@@ -119,7 +115,7 @@ export default function WorkPage() {
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px flex-1 bg-gradient-to-r from-cyan-500 to-transparent" />
           <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-500 bg-clip-text text-transparent">
-          Tech Stack
+            Tech Stack
           </h2>
           <div className="h-px flex-1 bg-gradient-to-l from-cyan-500 to-transparent" />
         </div>
