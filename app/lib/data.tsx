@@ -8,7 +8,8 @@ import {
   Coffee,
   PartyPopper,
 } from "lucide-react";
-import { Memory } from "../components/MemoriesPage";
+import { Memory } from "@/types";
+
 
 export const data = [
   {
