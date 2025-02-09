@@ -21,28 +21,25 @@ const Explore = () => {
             {
               title: "🌟 Memories  ",
               desc: "Good times, big smiles, and zero regrets! ✨",
-              date: "2023",
               image: "/anime-girl-2.jpg",
               url: "/memories#hero",
             },
             {
               title: "❓ Quiz",
               desc: "Think you know me? Take the challenge! 🤔",
-              date: "2022",
               image: "/anime-girl-3.jpg",
               url: "/quiz#hero",
             },
             {
               title: "💼 Work",
               desc: "Where I hustle (fueled by snacks and dreams). 🍿✨",
-              date: "2021",
+
               image: "/anime-girl-4.jpg",
               url: "/work",
             },
             {
               title: "🌶️ What I Like",
               desc: "Movies, anime, geopolitics... and maybe you? 😏",
-              date: "2021",
               image: "/anime-girl-5.jpg",
               url: "/likes",
             },
@@ -66,14 +63,6 @@ const Explore = () => {
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-4 bg-gray-900">
-                  {/* Date */}
-                  <time
-                    dateTime={item.date}
-                    className="text-xs font-semibold uppercase text-gray-500"
-                  >
-                    {item.date} - Now
-                  </time>
-
                   {/* Title */}
                   <h3 className="mt-2  text-lg font-bold text-white">
                     {item.title}
