@@ -5,7 +5,7 @@ import {
   Music,
   BookOpen,
   Film,
-  VideoIcon, // replace with another icon if needed for anime
+  VideoIcon, 
 } from "lucide-react";
 import { anime, books, movies } from "../lib/data";
 import Link from "next/link";
@@ -31,7 +31,7 @@ const hoverEffect = {
 
 export default function LikesPage() {
   return (
-    <div className="min-h-screen  p-6 md:p-12 max-w-7xl md:mx-auto">
+    <div className="min-h-screen  p-6 md:p-12 max-w-8xl md:mx-auto">
       {/* Glowing Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-48 w-96 h-96 bg-yellow-600/20 rounded-full blur-3xl" />
