@@ -467,7 +467,7 @@ export const memories: Memory[] = [
     src: "/me-17.2.jpg",
     caption: "Smiling through the awkwardness.",
     shortTitle: "17th Birthday",
-    category: "fun",
+    category: "birthday",
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
