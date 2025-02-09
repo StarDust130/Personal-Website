@@ -2,7 +2,7 @@
 
 
 import { motion } from "framer-motion";
-import { ChevronRight, Heart, Sparkles } from "lucide-react";
+import { ChevronRight, Heart, Music, Sparkles } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -161,6 +161,36 @@ export default function LikesPage() {
                 <span className="text-zinc-300">{movie.genre}</span>
               </div>
             ))}
+          </div>
+        </motion.div>
+        {/* Spotify Playlist Section */}
+        <motion.div
+          variants={itemVariants}
+          whileHover={hoverEffect}
+          className="bg-zinc-900/50 z-30 mt-3 cursor-pointer backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative overflow-hidden"
+        >
+          <div className="absolute top-2 right-2 ">
+            <Music className="text-green-400" size={24} />
+          </div>
+          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text">
+            My Playlist 🎶
+          </h2>
+          <p className="mt-2 text-zinc-300 text-sm">
+            Vibes that keep me going 🚀
+          </p>
+
+          {/* Spotify Embed */}
+          <div className="mt-4 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform duration-300 ">
+            <iframe
+              style={{ borderRadius: "12px" }}
+              src="https://open.spotify.com/embed/playlist/5oG3V9b5n5oseaQ5aGimBN?utm_source=generator"
+              width="100%"
+              height="380"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="w-full h-[380px]"
+            />
           </div>
         </motion.div>
       </motion.div>
