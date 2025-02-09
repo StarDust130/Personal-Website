@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { categories, memories } from "../lib/data";
 import MemoriesHero from "./memories/MemoriesHero";
 import MemoriesFilter from "./memories/MemoriesFilter";
@@ -10,58 +12,67 @@ import { Memory } from "@/types";
 import MiniPics from "./memories/MiniPics";
 
 const ModernMemoriesPage = () => {
-  const [selectedImage, setSelectedImage] = useState<Memory | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+ const [selectedImage, setSelectedImage] = useState<Memory | null>(null);
+ const [selectedIndex, setSelectedIndex] = useState(0);
+ const [activeFilter, setActiveFilter] = useState("all");
+ const [touchStart, setTouchStart] = useState<number | null>(null);
+ const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const filteredMemories =
-    activeFilter === "all"
-      ? memories
-      : memories.filter((m) => m.category === activeFilter);
+ const filteredMemories =
+   activeFilter === "all"
+     ? memories
+     : memories.filter((m) => m.category === activeFilter);
 
-  // Touch handlers
-  const handleTouchStart = (e: React.TouchEvent) =>
-    setTouchStart(e.touches[0].clientX);
-  const handleTouchMove = (e: React.TouchEvent) =>
-    setTouchEnd(e.touches[0].clientX);
-  const handleTouchEnd = () => {
-    if (touchStart === null || touchEnd === null) return;
-    const distance = touchStart - touchEnd;
-    if (distance > 50) {
-      handleNext();
-    } else if (distance < -50) {
-      handlePrev();
-    }
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
+ // Find the index of the selected image in the **filtered** list
+ const selectedFilteredIndex = filteredMemories.findIndex(
+   (m) => m.id === selectedImage?.id
+ );
 
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev + 1) % memories.length);
-    setSelectedImage(memories[(selectedIndex + 1) % memories.length]);
-  };
+ const handleNext = () => {
+   if (selectedFilteredIndex === -1) return;
+   const nextIndex = (selectedFilteredIndex + 1) % filteredMemories.length;
+   setSelectedImage(filteredMemories[nextIndex]);
+ };
 
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev - 1 + memories.length) % memories.length);
-    setSelectedImage(
-      memories[(selectedIndex - 1 + memories.length) % memories.length]
-    );
-  };
+ const handlePrev = () => {
+   if (selectedFilteredIndex === -1) return;
+   const prevIndex =
+     (selectedFilteredIndex - 1 + filteredMemories.length) %
+     filteredMemories.length;
+   setSelectedImage(filteredMemories[prevIndex]);
+ };
 
-    // useEffect(() => {
-    // const handleKeyDown = (e: KeyboardEvent) => {
-    //   if (selectedImage) {
-    //     if (e.key === 'ArrowRight') handleNext();
-    //     if (e.key === 'ArrowLeft') handlePrev();
-    //     if (e.key === 'Escape') setSelectedImage(null);
-    //   }
-    // };
+ // Handle touch gestures
+ const handleTouchStart = (e: React.TouchEvent) =>
+   setTouchStart(e.touches[0].clientX);
 
-  //   window.addEventListener('keydown', handleKeyDown);
-  //   return () => window.removeEventListener('keydown', handleKeyDown);
-  // }, [selectedImage, handleNext, handlePrev]);
+ const handleTouchMove = (e: React.TouchEvent) =>
+   setTouchEnd(e.touches[0].clientX);
+
+ const handleTouchEnd = () => {
+   if (touchStart === null || touchEnd === null) return;
+   const distance = touchStart - touchEnd;
+   if (distance > 50) handleNext();
+   else if (distance < -50) handlePrev();
+   setTouchStart(null);
+   setTouchEnd(null);
+ };
+
+ // Handle keyboard navigation
+ useEffect(() => {
+   const handleKeyDown = (e: KeyboardEvent) => {
+     if (selectedImage) {
+       if (e.key === "ArrowRight") handleNext();
+       if (e.key === "ArrowLeft") handlePrev();
+       if (e.key === "Escape") setSelectedImage(null);
+     }
+   };
+
+   window.addEventListener("keydown", handleKeyDown);
+   return () => window.removeEventListener("keydown", handleKeyDown);
+ }, [selectedImage, selectedFilteredIndex, filteredMemories]);
+
+
 
   return (
     <div className="min-h-screen  bg-black text-white  max-w-6xl md:mx-auto ">
