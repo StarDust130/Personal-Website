@@ -1,17 +1,20 @@
 "use client";
 
-
 import { motion } from "framer-motion";
-import { ChevronRight, Heart, Music, Sparkles } from "lucide-react";
+import {
+  Music,
+  BookOpen,
+  Film,
+  VideoIcon, // replace with another icon if needed for anime
+} from "lucide-react";
+import { anime, books, movies } from "../lib/data";
+import Link from "next/link";
+import Image from "next/image";
 
+// Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
 const itemVariants = {
@@ -23,6 +26,8 @@ const hoverEffect = {
   scale: 1.02,
   transition: { type: "spring", stiffness: 300 },
 };
+
+
 
 export default function LikesPage() {
   return (
@@ -43,133 +48,125 @@ export default function LikesPage() {
         <p className="mt-4 text-zinc-200">Stuff that makes my heart go 💫</p>
       </motion.div>
 
+      {/* Interests Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 md:grid-cols-2  gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
       >
-        {/* Books Card */}
+        {/* Movies Card */}
         <motion.div
           variants={itemVariants}
           whileHover={hoverEffect}
-          className="bg-zinc-900/50 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative overflow-hidden"
+          className="bg-zinc-900/50 cursor-pointer relative backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden"
         >
           <div className="absolute top-2 right-2">
-            <Sparkles className="text-yellow-400" size={24} />
+            <Film className="text-yellow-400" size={24} />
           </div>
-          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text">
-            Book Picks
+          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text">
+            Movies I Love
           </h2>
-          <ul className="mt-4 space-y-3 text-zinc-300">
-            {[
-              "Sci-Fi Adventures",
-              "Philosophy Deep Dives",
-              "Mind-bending Thrillers",
-              "Biographies",
-            ].map((book) => (
-              <li
-                key={book}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+          <p className="mt-2 text-zinc-300 text-sm">
+            Click a poster for details
+          </p>
+          <div className="mt-4 grid grid-cols-3 gap-4">
+            {movies.map((movie) => (
+              <Link
+                key={movie.id}
+                href={movie.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-105"
               >
-                <ChevronRight className="text-pink-400" size={16} />
-                {book}
-              </li>
+                <Image
+                  src={movie.poster}
+                  alt={movie.title}
+                  className="rounded-md"
+                  width={100}
+                  height={150}
+                />
+              </Link>
             ))}
-          </ul>
-          <div className="mt-6 bg-gradient-to-r from-green-400/20 to-blue-400/20 h-[2px] w-full" />
+          </div>
         </motion.div>
 
         {/* Anime Card */}
         <motion.div
           variants={itemVariants}
           whileHover={hoverEffect}
-          className="bg-zinc-900/50 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative"
+          className="bg-zinc-900/50 cursor-pointer relative backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden"
         >
-          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text">
-            Anime Obsessions
-          </h2>
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            {[
-              "Attack on Titan",
-              "Death Note",
-              "Studio Ghibli",
-              "Neon Genesis",
-            ].map((anime) => (
-              <div
-                key={anime}
-                className="p-3 bg-zinc-800/50 rounded-lg flex items-center justify-center text-center hover:bg-zinc-700/50 transition-colors"
-              >
-                <span className="text-zinc-300 text-sm">{anime}</span>
-              </div>
-            ))}
+          <div className="absolute top-2 right-2">
+            <VideoIcon className="text-purple-400" size={24} />
           </div>
-          <div className="absolute bottom-4 right-4 animate-pulse">🎌</div>
-        </motion.div>
-
-        {/* Type of Girl Card */}
-        <motion.div
-          variants={itemVariants}
-          whileHover={hoverEffect}
-          className="bg-zinc-900/50 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative group"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text">
-            Ideal Partner Vibes
+          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-red-400 bg-clip-text">
+            Anime Faves
           </h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {[
-              "Creative Soul",
-              "Dark Humor 😈",
-              "Ambitious AF",
-              "Curious Mind",
-              "Empathetic 💞",
-              "Loves Dogs",
-            ].map((trait) => (
-              <motion.div
-                key={trait}
-                whileHover={{ scale: 1.1 }}
-                className="px-3 py-1.5 bg-pink-500/20 rounded-full text-pink-200 text-sm flex items-center gap-1"
+          <p className="mt-2 text-zinc-300 text-sm">Tap a cover to see more</p>
+          <div className="mt-4 grid grid-cols-3 gap-4">
+            {anime.map((item) => (
+              <Link
+                key={item.id}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-105"
               >
-                <Heart className="h-4 w-4" />
-                {trait}
-              </motion.div>
+                <Image
+                  src={item.cover}
+                  alt={item.title}
+                  className="rounded-md"
+                  width={100}
+                  height={100}
+                />
+              </Link>
             ))}
           </div>
         </motion.div>
 
-        {/* Movies Card */}
+        {/* Books Card */}
         <motion.div
           variants={itemVariants}
           whileHover={hoverEffect}
-          className="bg-zinc-900/50 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative"
+          className="bg-zinc-900/50 cursor-pointer relative backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden"
         >
-          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text">
-            Movie Moods
+          <div className="absolute top-2 right-2">
+            <BookOpen className="text-blue-400" size={24} />
+          </div>
+          <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text">
+            Books I Love
           </h2>
-          <div className="mt-4 space-y-4">
-            {[
-              { genre: "Psychological Thrillers", emoji: "🧠" },
-              { genre: "Surreal Arthouse", emoji: "🎭" },
-              { genre: "90s Classics", emoji: "📼" },
-            ].map((movie) => (
-              <div
-                key={movie.genre}
-                className="flex items-center gap-4 p-3 bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 transition-colors"
+          <p className="mt-2 text-zinc-300 text-sm">
+            Explore these great reads
+          </p>
+          <div className="mt-4 grid grid-cols-3 gap-4">
+            {books.map((book) => (
+              <Link
+                key={book.id}
+                href={book.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-105"
               >
-                <span className="text-2xl">{movie.emoji}</span>
-                <span className="text-zinc-300">{movie.genre}</span>
-              </div>
+                <Image
+                  src={book.cover}
+                  alt={book.title}
+                  className="rounded-md"
+                  width={100}
+                  height={100}
+                />
+              </Link>
             ))}
           </div>
         </motion.div>
-        {/* Spotify Playlist Section */}
+        {/* Spotify Playlist Card (Music) */}
         <motion.div
           variants={itemVariants}
           whileHover={hoverEffect}
-          className="bg-zinc-900/50 z-30 mt-3 cursor-pointer backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 relative overflow-hidden"
+          className="bg-zinc-900/50 cursor-pointer relative z-10 mt-6 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden col-span-1 md:col-span-2"
         >
-          <div className="absolute top-2 right-2 ">
+          <div className="absolute top-2 right-2">
             <Music className="text-green-400" size={24} />
           </div>
           <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text">
@@ -178,9 +175,7 @@ export default function LikesPage() {
           <p className="mt-2 text-zinc-300 text-sm">
             Vibes that keep me going 🚀
           </p>
-
-          {/* Spotify Embed */}
-          <div className="mt-4 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform duration-300 ">
+          <div className="mt-4 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform duration-300 hover:scale-105">
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/5oG3V9b5n5oseaQ5aGimBN?utm_source=generator"

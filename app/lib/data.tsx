@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { Memory } from "@/types";
 
-
 export const data = [
   {
     title: "2024",
@@ -456,7 +455,6 @@ export const memories: Memory[] = [
   },
 ];
 
-
 export const j = [
   { src: "/j-1.PNG" },
   { src: "/j-2.PNG" },
@@ -470,4 +468,116 @@ export const categories = [
   { id: "birthday", emoji: "🌟", label: "Birthday" },
   { id: "baby", emoji: "🐤", label: "Baby Days" },
   { id: "fun", emoji: "😎", label: "Fun" },
+];
+
+// Likes 🍒
+
+export const movies = [
+  {
+    id: 1,
+    title: "Dead Poets Society",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMDYwNGVlY2ItMWYxMS00YjZiLWE5MTAtYWM5NWQ2ZWJjY2Q3XkEyXkFqcGc@._V1_FMjpg_UX1016_.jpg",
+    link: "https://www.imdb.com/title/tt0097165/",
+  },
+  {
+    id: 2,
+    title: "The Shawshank Redemption",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
+    link: "https://www.imdb.com/title/tt0111161/?ref_=nv_sr_srsg_0_tt_7_nm_0_in_0_q_The%2520Shawshank%2520Redemption",
+  },
+  {
+    id: 3,
+    title: "Tamasha",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMjA1MTc0Mjc4Ml5BMl5BanBnXkFtZTgwNjU5Nzk4NjE@._V1_QL75_UX226.5_.jpg",
+    link: "https://www.imdb.com/title/tt3148502/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_Tamasha",
+  },
+  {
+    id: 4,
+    title: "The Lunchbox",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BODkyM2FkZmQtYTQyNC00MGVlLTgxNjctNWRjMjQ5ZDZjZDQ3XkEyXkFqcGc@._V1_FMjpg_UY720_.jpg",
+    link: "https://www.imdb.com/title/tt2350496/?ref_=nv_sr_srsg_1_tt_7_nm_0_in_0_q_The%2520Lunchbox",
+  },
+  {
+    id: 5,
+    title: "Rang De Basanti",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMTJhZTdmODctZWY3Zi00MGI3LThiZDMtZWQ5ZjNkYzQyMTI3XkEyXkFqcGc@._V1_FMjpg_UX414_.jpg",
+    link: "https://www.imdb.com/title/tt0405508/?ref_=nv_sr_srsg_0_tt_2_nm_1_in_0_q_Rang%2520De%2520Basanti",
+  },
+  {
+    id: 6,
+    title: "The Perfect Days",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BNGVmODFkM2MtOTEzMy00MjFjLThjZmYtODMxZmI1MzcyNDkyXkEyXkFqcGc@._V1_FMjpg_UY728_.jpg",
+    link: "https://www.imdb.com/title/tt27503384/?ref_=fn_all_ttl_1",
+  },
+];
+
+// Anime: Existing items + new additions (Naruto, Spy x Family)
+export const anime = [
+  {
+    id: 1,
+    title: "Grave of the Fireflies",
+    cover: "https://cdn.myanimelist.net/images/anime/1485/141208.jpg",
+    link: "https://myanimelist.net/anime/578/Hotaru_no_Haka/pics",
+  },
+  {
+    id: 2,
+    title: "Attack on Titan",
+    cover: "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+    link: "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
+  },
+  {
+    id: 3,
+    title: "Death Note",
+    cover: "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+    link: "https://myanimelist.net/anime/1535/Death_Note",
+  },
+  {
+    id: 4,
+    title: "Deomon Slayer",
+    cover: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+    link: "https://myanimelist.net/anime/38000/Kimetsu_no_Yaiba?q=demon%20slayer&cat=anime",
+  },
+  {
+    id: 5,
+    title: "Naruto",
+    cover: "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+    link: "https://myanimelist.net/anime/20/Naruto",
+  },
+  {
+    id: 6,
+    title: "Spy x Family",
+    cover: "https://cdn.myanimelist.net/images/anime/1441/122795.jpg",
+    link: "https://myanimelist.net/anime/50265/Spy_x_Family?q=spy%20x&cat=anime",
+  },
+];
+
+// Books: Existing items + new additions
+export const books = [
+  {
+    id: 1,
+    title: "Sapiens: A Brief History of Humankind",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1703329310i/23692271.jpg",
+    link: "https://www.goodreads.com/book/show/23692271-sapiens?from_search=true&from_srp=true&qid=pD0OpndGhS&rank=1",
+  },
+  {
+    id: 5,
+    title: "The Almanack of Naval Ravikant",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
+    link: "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant?ref=nav_sb_ss_1_30",
+  },
+  {
+    id: 6,
+    title: "The Courage to be Disliked",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
+    link: "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked?from_search=true&from_srp=true&qid=ZKwBVTxDnV&rank=1",
+  },
 ];
