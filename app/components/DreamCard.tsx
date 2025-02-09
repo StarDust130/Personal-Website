@@ -41,7 +41,14 @@ const DreamCard = () => {
 
   //! Function to Submit
   const handleSubmit = () => {
-    if (name.toLowerCase() === "xyz" || name.toLowerCase() === "abc") {
+    if (
+      name
+        .toLowerCase()
+        .includes(process.env.NEXT_PUBLIC_NAME_1?.toLowerCase() || "") ||
+      name
+        .toLowerCase()
+        .includes(process.env.NEXT_PUBLIC_NAME_2?.toLowerCase() || "") // Added second variable
+    ) {
       setFunnyMessage(
         funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
       );
@@ -107,10 +114,10 @@ const DreamCard = () => {
             >
               💘
             </motion.span>
-          <p className="text-sm ">Let&apos;s see... 😏</p>
+            <p className="text-sm ">Let&apos;s see... 😏</p>
           </h2>
 
-          <p className="text-sm text-red-500 mb-6 text-center font-medium tracking-wide">
+          <p className="text-xs text-red-500 mb-6 text-center font-medium tracking-wide">
             {funnyMessage}
           </p>
 
