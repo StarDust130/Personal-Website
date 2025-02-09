@@ -46,7 +46,7 @@ const Explore = () => {
           ].map((item, idx) => (
             <article
               key={idx}
-              className="flex flex-col overflow-hidden rounded-lg shadow-lg border border-gray-700"
+              className="flex flex-col overflow-hidden hover:scale-105 rounded-lg shadow-lg border border-gray-700"
             >
               <Link href={item.url}>
                 {/* Image */}

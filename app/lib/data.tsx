@@ -228,6 +228,7 @@ export const techStack = [
   },
 ];
 
+// Quiz
 export const questions = [
   {
     question: "My go-to snack?",
