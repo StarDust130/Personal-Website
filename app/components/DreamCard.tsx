@@ -170,7 +170,7 @@ const handleSubmit = () => {
             }
             target="_blank"
           >
-            <button className="relative px-4 py-1.5 mt-4 mx-auto text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-red-500 rounded-full shadow-lg transition-all flex items-center gap-3 border-2 border-transparent hover:scale-110 hover:shadow-2xl hover:border-white backdrop-blur-md before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:rounded-full before:opacity-0 before:transition-opacity before:hover:opacity-100">
+            <button className="relative px-4 py-1.5 mt-4 mx-auto text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-red-500 rounded-full shadow-lg transition-all flex items-center gap-3 border-2 border-transparent     before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:rounded-full before:opacity-0 before:transition-opacity before:hover:opacity-100">
               🚀 Thanks, ME! 💖
             </button>
           </Link>
