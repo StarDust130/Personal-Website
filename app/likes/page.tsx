@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Music,
-  BookOpen,
-  Film,
-  VideoIcon, 
-} from "lucide-react";
+import { Music, BookOpen, Film, VideoIcon, Heart } from "lucide-react";
 import { anime, books, movies } from "../lib/data";
 import Link from "next/link";
 import Image from "next/image";
+import LoveCard from "../components/LoveCard";
+import DreamGirlCard from "../components/LoveCard";
 
 // Animation Variants
 const containerVariants = {
@@ -27,11 +24,9 @@ const hoverEffect = {
   transition: { type: "spring", stiffness: 300 },
 };
 
-
-
 export default function LikesPage() {
   return (
-    <div className="min-h-screen  p-6 md:p-12 max-w-8xl md:mx-auto">
+    <div className="min-h-screen  p-6 md:p-12 md:mx-60">
       {/* Glowing Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-48 w-96 h-96 bg-yellow-600/20 rounded-full blur-3xl" />
@@ -160,11 +155,12 @@ export default function LikesPage() {
             ))}
           </div>
         </motion.div>
+
         {/* Spotify Playlist Card (Music) */}
         <motion.div
           variants={itemVariants}
           whileHover={hoverEffect}
-          className="bg-zinc-900/50 cursor-pointer relative z-10 mt-6 backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden col-span-1 md:col-span-2"
+          className="bg-zinc-900/50 cursor-pointer relative backdrop-blur-lg rounded-2xl p-6 border border-zinc-700 overflow-hidden"
         >
           <div className="absolute top-2 right-2">
             <Music className="text-green-400" size={24} />
@@ -175,7 +171,7 @@ export default function LikesPage() {
           <p className="mt-2 text-zinc-300 text-sm">
             Vibes that keep me going 🚀
           </p>
-          <div className="mt-4 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform duration-300 hover:scale-105">
+          <div className="mt-4 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform duration-300">
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/5oG3V9b5n5oseaQ5aGimBN?utm_source=generator"
@@ -188,6 +184,8 @@ export default function LikesPage() {
             />
           </div>
         </motion.div>
+
+        <DreamGirlCard />
       </motion.div>
     </div>
   );
