@@ -59,8 +59,12 @@ const DreamCard = () => {
         transition={{ duration: 1 }}
         className="p-6 border-2 border-purple-500 rounded-xl shadow-xl"
       >
-        <h2 className="text-3xl mb-4 bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
-          🔮 Are You The One? 🔮
+        <h2 className="text-3xl mb-4 ">
+          <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
+            {" "}
+            Are You The One?
+          </span>{" "}
+          😳
         </h2>
         <p className="text-lg text-red-400 mb-4">{funnyMessage}</p>
         {!showPerfect && (
@@ -130,3 +134,12 @@ const DreamCard = () => {
 };
 
 export default DreamCard;
+
+
+<h2 className="text-3xl mb-4 ">
+  <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
+    {" "}
+    Are You The One?
+  </span>{" "}
+  😳
+</h2>;
