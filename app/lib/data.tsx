@@ -453,6 +453,24 @@ export const memories: Memory[] = [
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
+  {
+    id: 17,
+    src: "/40.jpg",
+    caption: "Enjoy every movements.",
+    shortTitle: "Thagda Dam",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 18,
+    src: "/me-17.2.jpg",
+    caption: "Smiling through the awkwardness.",
+    shortTitle: "17th Birthday",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
 ];
 
 export const j = [
