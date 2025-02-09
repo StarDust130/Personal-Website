@@ -124,7 +124,7 @@ const DreamCard = () => {
           {showQuestions && (
             <input
               type="text"
-              className="p-4 w-full rounded-xl bg-white/10 text-white border-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-60 transition-all placeholder:text-gray-500 text-center"
+              className="p-2 w-full rounded-xl bg-white/10 text-white border-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-60 transition-all placeholder:text-gray-500 text-center"
               placeholder="Your Name, maybe? 👀"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -133,7 +133,7 @@ const DreamCard = () => {
 
           {showQuestions && (
             <button
-              className="mt-6 w-full px-8 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium tracking-wide transform hover:opacity-90 active:scale-95 transition-all"
+              className="mt-6 w-full px-4 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium tracking-wide transform hover:opacity-90 active:scale-95 transition-all"
               onClick={handleSubmit}
             >
               Submit 😨
