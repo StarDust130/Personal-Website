@@ -5,10 +5,10 @@ import {
   Star,
   Zap,
   Crown,
-  Camera,
   Book,
-  Palette,
   Eye,
+  BookHeart,
+  Ghost,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import DreamCard from "./DreamCard";
@@ -104,27 +104,38 @@ const DatingPrefsCard = () => {
   const devilTraits = [
     {
       icon: Crown,
-      text: "That Confidence 👑",
-      subtext: "main character energy",
-      details: "• Self-assured\n• Natural swag\n• Magnetic personality",
+      text: "Hot Vibes 🔥",
+      subtext: "Loves cosplaying and keeping it spicy",
+      details:
+        "• Obsessed with cosplay\n• Always in character, always extra\n• Likes to keep things *extra* hot and unpredictable",
     },
     {
       icon: Zap,
-      text: "Fitness Goals 💪",
-      subtext: "gym lifestyle",
-      details: "• Athletic build\n• Active lifestyle\n• Health conscious",
+      text: "Thick & Tempting 🍑",
+      subtext: "Big curves, bigger energy",
+      details:
+        "• Big thighs, big energy\n• Loves attention but knows how to handle it\n• Curves for days, but it's what's inside that truly gets you going",
     },
     {
-      icon: Camera,
-      text: "Style & Grace 📸",
-      subtext: "always camera ready",
-      details: "• Fashion sense\n• Natural beauty\n• Effortless style",
+      icon: BookHeart,
+      text: "Naughty that ME 😈",
+      subtext: "Not just a pretty face",
+      details:
+        "• Keeps you on your toes\n• Knows how to push your buttons\n• Plays hard to get, but not too hard",
     },
     {
-      icon: Palette,
-      text: "Creative Flair 🎨",
-      subtext: "artistic vibes",
-      details: "• Unique perspective\n• Creative expression\n• Artistic soul",
+      icon: Ghost,
+      text: "Wickedly Playful 👻",
+      subtext: "She’s the one that haunts your mind",
+      details:
+        "• Vanishes when you think you’ve got her\n• Leaves you with more questions than answers\n• She’ll keep you wondering if it's real or all just a delicious illusion",
+    },
+    {
+      icon: Heart,
+      text: "Tempting Trouble 💋",
+      subtext: "She knows exactly how to drive you wild",
+      details:
+        "• A little bit of bad never hurt anyone\n• Plays with fire, loves the burn\n• Keeps things spicy, even when the room is cold",
     },
   ];
 
@@ -162,7 +173,7 @@ const DatingPrefsCard = () => {
   };
 
   return (
-    <div className="bg-black/90  relative  rounded-2xl border border-zinc-700   overflow-hidden md:hidden">
+    <div className="bg-black/90 relative rounded-2xl border border-zinc-700 overflow-hidden md:hidden">
       <motion.div
         className="relative max-w-md w-full"
         initial={{ opacity: 0, y: 20 }}
@@ -174,13 +185,11 @@ const DatingPrefsCard = () => {
           style={{
             background: `radial-gradient(circle at ${hoverPos.x}px ${
               hoverPos.y
-            }px, 
-              ${
-                mode === "angel"
-                  ? "rgba(167, 243, 208, 0.15)"
-                  : "rgba(253, 164, 175, 0.15)"
-              } 0%, 
-              transparent 50%)`,
+            }px, ${
+              mode === "angel"
+                ? "rgba(167, 243, 208, 0.15)"
+                : "rgba(253, 164, 175, 0.15)"
+            } 0%, transparent 50%)`,
           }}
         >
           <div
@@ -190,24 +199,31 @@ const DatingPrefsCard = () => {
                 : "from-red-500/10 to-pink-500/10"
             } backdrop-blur-xl`}
           />
-
           <div className="relative border border-white/10 p-6">
             {/* Mode Toggle */}
             <motion.button
               onClick={handleModeSwitch}
-              className="absolute top-4 right-4 text-4xl cursor-pointer"
+              className="absolute top-4 right-4 text-5xl cursor-pointer transform transition-all hover:scale-125 hover:rotate-12"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.9 }}
             >
               {mode === "angel" ? "😇" : "😈"}
             </motion.button>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 transition-all duration-300 ease-in-out"
+              onClick={triggerSpecialEasterEgg}
+            >
+              My Kind of Girl
+            </motion.h1>
 
             {/* Title */}
             <motion.h2
-              className={`text-3xl font-bold mb-6 ${
+              className={`text-xl font-bold mb-6 ${
                 mode === "angel" ? "text-green-300" : "text-pink-300"
               }`}
-              onClick={triggerSpecialEasterEgg}
               whileHover={{ scale: 1.05 }}
             >
               {mode === "angel" ? "Sweet & Pure ✨" : "Spicy & Bold 🔥"}
@@ -230,11 +246,10 @@ const DatingPrefsCard = () => {
                         mode === "angel"
                           ? "hover:bg-green-500/10"
                           : "hover:bg-pink-500/10"
-                      } bg-white/5 p-4 transition-colors cursor-pointer`}
+                      } bg-white/5 p-4 transition-colors cursor-pointer transform hover:scale-105`}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      whileHover={{ scale: 1.02 }}
                       onClick={() =>
                         setShowDetails((prev) =>
                           prev === index ? null : index
