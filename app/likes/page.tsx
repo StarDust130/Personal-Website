@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Music, BookOpen, Film, VideoIcon, Heart } from "lucide-react";
+import { Music, BookOpen, Film, VideoIcon } from "lucide-react";
 import { anime, books, movies } from "../lib/data";
 import Link from "next/link";
 import Image from "next/image";
-import LoveCard from "../components/LoveCard";
-import DreamGirlCard from "../components/LoveCard";
+import DatingPrefsCard from "../components/LoveCard";
 
 // Animation Variants
 const containerVariants = {
@@ -185,7 +184,7 @@ export default function LikesPage() {
           </div>
         </motion.div>
 
-        <DreamGirlCard />
+        <DatingPrefsCard />
       </motion.div>
     </div>
   );
