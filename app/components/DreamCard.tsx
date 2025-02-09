@@ -14,7 +14,7 @@ const funnyRejections = [
   "You're not the one. 😂🚫",
   "Are you really thinking that? 😂🤦‍♂️",
   "Don't make me laugh. 😂🤣",
-  "I don't know you. 🤷‍♂️",
+  "Have you ever heard of self-respect? 😂🤦‍♂️",
 ];
 
 const DreamCard = () => {
@@ -35,28 +35,23 @@ const DreamCard = () => {
   }, [attempts, router]);
 
   //! Function to Submit
-const handleSubmit = () => {
-  if (name.toLowerCase() === "xyz" || name.toLowerCase() === "abc") {
-    setFunnyMessage(
-      funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
-    );
+  const handleSubmit = () => {
+    if (name.toLowerCase() === "xyz" || name.toLowerCase() === "abc") {
+      setFunnyMessage(
+        funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
+      );
 
-    // Immediately hide after setting the message
-    setShowQuestions(true); // Ensure it starts as true
-    setShowPerfect(false); // Ensure this is hidden first
-
-    setTimeout(() => {
-      setShowQuestions(false); // Hide input & button after 3 sec
-      setShowPerfect(true); // Show perfect message
-    }, 3000);
-  } else {
-    setFunnyMessage(
-      funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
-    );
-    setAttempts((prev) => prev + 1);
-  }
-};
-
+      setTimeout(() => {
+        setShowQuestions(() => false); // Hide questions 
+        setShowPerfect(true); // Show perfect message
+      }, 3000);
+    } else {
+      setFunnyMessage(
+        funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
+      );
+      setAttempts((prev) => prev + 1);
+    }
+  };
 
   const revealSecret = () => {
     setShowSecret(true);
@@ -66,12 +61,12 @@ const handleSubmit = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-6 text-white font-bold text-center space-y-4">
-      {!showSecret && (
+      {showQuestions && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="p-6 border-2 border-pink-500 rounded-xl shadow-xl"
+          className="p-6 border-2 border-dashed  border-pink-600 rounded-3xl shadow-xl"
         >
           <h2 className="text-xl mb-4 ">
             😳
@@ -79,13 +74,19 @@ const handleSubmit = () => {
               {" "}
               Are You The One?
             </span>{" "}
-            <span>💖</span>
+            <motion.span
+              animate={{ rotate: [0, 20, -20, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="ml-2 inline-block"
+            >
+              💘
+            </motion.span>
           </h2>
-          <p className="text-lg text-red-400 mb-4">{funnyMessage}</p>
+          <p className="text-sm text-red-400 mb-4">{funnyMessage}</p>
           {showQuestions && (
             <input
               type="text"
-              className="p-3 rounded-lg text-black  focus:outline-none"
+              className="p-2 w-full rounded-lg text-black  focus:outline-none"
               placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -96,7 +97,7 @@ const handleSubmit = () => {
               className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg  transition-all"
               onClick={handleSubmit}
             >
-              Submit
+              Submit 😨
             </button>
           )}
         </motion.div>
@@ -118,7 +119,7 @@ const handleSubmit = () => {
       )}
       {showPerfect && (
         <motion.button
-          className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:bg-blue-700 transition"
+          className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg  transition"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
@@ -170,7 +171,7 @@ const handleSubmit = () => {
             }
             target="_blank"
           >
-            <button className="relative px-4 py-1.5 mt-4 mx-auto text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-red-500 rounded-full shadow-lg transition-all flex items-center gap-3 border-2 border-transparent     before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:rounded-full before:opacity-0 before:transition-opacity before:hover:opacity-100">
+            <button className="relative px-4 py-1.5 mt-4 mx-auto text-sm font-bold text-white bg-gradient-to-r from-sky-500 to-blue-500 rounded-full shadow-lg transition-all flex items-center gap-3 border-2 border-transparent     before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:rounded-full before:opacity-0 before:transition-opacity before:hover:opacity-100">
               🚀 Thanks, ME! 💖
             </button>
           </Link>
