@@ -1,5 +1,6 @@
+import { Memory } from "@/types";
 import { motion } from "framer-motion";
-import { Memory } from "../MemoriesPage";
+
 
 interface MemoriesImageGridProps {
   filteredMemories: {
@@ -26,7 +27,7 @@ const MemoriesImageGrid = ({
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 my-6"
+      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 my-6 hide-scrollbar"
     >
       {filteredMemories.map((memory, index) => (
         <motion.div

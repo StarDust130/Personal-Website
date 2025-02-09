@@ -50,6 +50,19 @@ const ModernMemoriesPage = () => {
     );
   };
 
+    // useEffect(() => {
+    // const handleKeyDown = (e: KeyboardEvent) => {
+    //   if (selectedImage) {
+    //     if (e.key === 'ArrowRight') handleNext();
+    //     if (e.key === 'ArrowLeft') handlePrev();
+    //     if (e.key === 'Escape') setSelectedImage(null);
+    //   }
+    // };
+
+  //   window.addEventListener('keydown', handleKeyDown);
+  //   return () => window.removeEventListener('keydown', handleKeyDown);
+  // }, [selectedImage, handleNext, handlePrev]);
+
   return (
     <div className="min-h-screen  bg-black text-white  max-w-6xl md:mx-auto ">
       {/* Hero Section 😘*/}
