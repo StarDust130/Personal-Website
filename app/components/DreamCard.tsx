@@ -13,7 +13,6 @@ const funnyRejections = [
   "My code is laughing at you. 💻🤣",
   "You're not the one. 😂🚫",
   "Are you really thinking that? 😂🤦‍♂️",
-  "Don't make me laugh. 😂🤣",
   "Have you ever heard of self-respect? 😂🤦‍♂️",
 ];
 
@@ -108,6 +107,7 @@ const DreamCard = () => {
             >
               💘
             </motion.span>
+          <p className="text-sm ">Let&apos;s see... 😏</p>
           </h2>
 
           <p className="text-sm text-red-500 mb-6 text-center font-medium tracking-wide">

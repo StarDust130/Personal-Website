@@ -21,6 +21,7 @@ const DatingPrefsCard = () => {
   const [showDreamCard, setShowDreamCard] = useState(false);
 
   const triggerSpecialEasterEgg = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "auto" });
     setSecretUnlocked(true);
     // First confetti burst
     confetti({
