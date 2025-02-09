@@ -43,7 +43,7 @@ const PlayQuiz = ({
       </h2>
 
       {/* Enhanced Answer Options */}
-      <div className="grid gap-3">
+      <div className="grid gap-3 text-sm md:text-lg">
         {questions[currentQuestion].options.map((option, index) => {
           const isCorrect = index === questions[currentQuestion].correct;
           const isSelected = selectedAnswer === index;
@@ -54,7 +54,7 @@ const PlayQuiz = ({
               key={index}
               onClick={() => handleAnswer(index)}
               disabled={selectedAnswer !== null}
-              className={`relative p-5 text-left rounded-xl transition-all duration-300 ${
+              className={`relative p-4 text-left rounded-xl transition-all duration-300 ${
                 showResult
                   ? isCorrect
                     ? "border-2 border-green-400/80 bg-green-500/20"

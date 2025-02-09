@@ -231,6 +231,28 @@ export const techStack = [
 // Quiz
 export const questions = [
   {
+    question: "What’s my biggest talent?",
+    emoji: "😎🔥",
+    options: [
+      "Ignoring messages but being active online 📱👀",
+      "Sleeping for 12 hours like it’s a job 😴💼",
+      "Ordering food perfectly without regrets 🍕🤌",
+      "Finding memes that describe my entire life 😂📸",
+    ],
+    correct: 3,
+  },
+  {
+    question: "If I could eat one thing forever, what would it be?",
+    emoji: "🍕🍔",
+    options: [
+      "Biryani (My true soulmate 🍛❤️)",
+      "Maa ke haath ka khana (Meri aur mera bacho ki) 🍲👩‍🍳",
+      "Pizza, because why not? 🍕🔥",
+      "Air, because I'm broke sometimes 💸😭",
+    ],
+    correct: 1,
+  },
+  {
     question: "Perfect date idea?",
     emoji: "💗🐼",
     options: [
@@ -240,28 +262,6 @@ export const questions = [
       "Go to OYO (Don't Waste time in Build up 🏨)",
     ],
     correct: 1,
-  },
-  {
-    question: "What’s my biggest talent?",
-    emoji: "😎🔥",
-    options: [
-      "Ignoring messages but being active online 📱👀",
-      "Sleeping for 12 hours like it’s a job 😴💼",
-      "Ordering food perfectly without regrets 🍕🤌",
-      "Finding memes that describe my entire life 😂📸",
-    ],
-    correct: 0,
-  },
-  {
-    question: "If I could eat one thing forever, what would it be?",
-    emoji: "🍕🍔",
-    options: [
-      "Biryani (My true soulmate 🍛❤️)",
-      "Maa ke haath ka khana (Sentimental moment 🥹👩‍🍳)",
-      "Pizza, because why not? 🍕🔥",
-      "Air, because I'm broke sometimes 💸😭",
-    ],
-    correct: 0,
   },
   {
     question: "How do I react when my crush texts first?",
