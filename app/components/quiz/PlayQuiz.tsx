@@ -31,7 +31,7 @@ const PlayQuiz = ({ currentQuestion, selectedAnswer, handleAnswer }: PlayQuizPro
       </div>
 
       {/* Animated Question Text */}
-      <h2 className="text-3xl flex justify-start items-center  sm:text-4xl font-bold mb-10 ">
+      <h2 className=" text-2xl md:text-3xl flex justify-start items-center  sm:text-4xl font-bold mb-10 ">
         <span className="bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent animate-text-shine">
           {questions[currentQuestion].question}{" "}
         </span>{" "}
