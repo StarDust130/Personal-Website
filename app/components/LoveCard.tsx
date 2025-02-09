@@ -204,7 +204,7 @@ const DatingPrefsCard = () => {
             {/* Mode Toggle */}
             <motion.button
               onClick={handleModeSwitch}
-              className="absolute top-4 right-4 text-5xl cursor-pointer transform transition-all hover:scale-125 hover:rotate-12"
+              className="absolute top-4 right-4 text-5xl cursor-pointer transform transition-all hover:scale-125 hover:rotate-12 animate-bounce"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.9 }}
             >
