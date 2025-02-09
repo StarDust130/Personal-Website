@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Heart,
   Star,
-  Music,
   Zap,
   Crown,
   Camera,
   Book,
   Palette,
+  Eye,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import DreamCard from "./DreamCard";
@@ -66,29 +66,38 @@ const DatingPrefsCard = () => {
   const angelTraits = [
     {
       icon: Heart,
-      text: "Emotionally Mature 💝",
-      subtext: "understands the vibe",
+      text: "Emotionally Smart 💖",
+      subtext: "understands me perfectly",
       details:
-        "• Great listener\n• Shows empathy\n• Emotional intelligence 100%",
+        "• Always knows what to say\n• Makes me feel heard\n• Balances love and space",
     },
     {
       icon: Star,
-      text: "Goals & Dreams ⭐",
-      subtext: "that ambition tho",
-      details: "• Career focused\n• Future planning\n• Growth mindset",
+      text: "No Pressure ✨",
+      subtext: "doesn’t follow the crowd",
+      details:
+        "• Focused on her goals\n• Chooses happiness over expectations\n• Not prep for a gov job, not bowing to parental pressure",
     },
     {
       icon: Book,
-      text: "Smart Talks 📚",
-      subtext: "deep convos hit different",
+      text: "Intellectually Hot 📚",
+      subtext: "brains + beauty = perfect combo",
       details:
-        "• Intellectual curiosity\n• Loves learning\n• Engaging discussions",
+        "• Loves deep talks\n• Challenges me to think\n• Sexy and clever at the same time",
     },
     {
-      icon: Music,
-      text: "Matching Energy 🎵",
-      subtext: "same wavelength fr fr",
-      details: "• Similar interests\n• Compatible humor\n• Shared values",
+      icon: Heart,
+      text: "Loyal & Respectful 🤝",
+      subtext: "treats me like I treat her",
+      details:
+        "• Always has my back\n• Respect comes first\n• Best friend and partner in one",
+    },
+    {
+      icon: Eye,
+      text: "Certified Stalker 👀",
+      subtext: "always keeping an eye on me",
+      details:
+        "• Knows every detail about me... even the ones I forgot\n• Can find me anywhere, even when I’m hiding\n• Has been stalking since high school, no big deal 😎",
     },
   ];
 
