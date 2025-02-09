@@ -4,18 +4,23 @@ import { Typewriter } from "react-simple-typewriter";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import confetti from "canvas-confetti";
+import Link from "next/link";
 
 const funnyRejections = [
-  "Nah, try again! 😂",
-  "Close, but no cookie! 🍪",
-  "You wish! 😜",
-  "Maybe in another universe! 🌌",
-  "Oops, not today! 😆",
+  "Even AI knows this ain't it. 🤡😂",
+  "Bro, reality check? ❌💀",
+  "You're not the one. 😂🚫",
+  "My code is laughing at you. 💻🤣",
+  "You're not the one. 😂🚫",
+  "Are you really thinking that? 😂🤦‍♂️",
+  "Don't make me laugh. 😂🤣",
+  "I don't know you. 🤷‍♂️",
 ];
 
 const DreamCard = () => {
   const [name, setName] = useState("");
   const [attempts, setAttempts] = useState(0);
+  const [showQuestions, setShowQuestions] = useState(true);
   const [showSecret, setShowSecret] = useState(false);
   const [showPerfect, setShowPerfect] = useState(false);
   const [funnyMessage, setFunnyMessage] = useState("");
@@ -29,21 +34,29 @@ const DreamCard = () => {
     }
   }, [attempts, router]);
 
-  const handleSubmit = () => {
-    if (name.toLowerCase() === "xyz" || name.toLowerCase() === "abc") {
-      setFunnyMessage(
-        funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
-      );
-      setTimeout(() => {
-        setShowPerfect(true);
-      }, 3000);
-    } else {
-      setFunnyMessage(
-        funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
-      );
-      setAttempts(attempts + 1);
-    }
-  };
+  //! Function to Submit
+const handleSubmit = () => {
+  if (name.toLowerCase() === "xyz" || name.toLowerCase() === "abc") {
+    setFunnyMessage(
+      funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
+    );
+
+    // Immediately hide after setting the message
+    setShowQuestions(true); // Ensure it starts as true
+    setShowPerfect(false); // Ensure this is hidden first
+
+    setTimeout(() => {
+      setShowQuestions(false); // Hide input & button after 3 sec
+      setShowPerfect(true); // Show perfect message
+    }, 3000);
+  } else {
+    setFunnyMessage(
+      funnyRejections[Math.floor(Math.random() * funnyRejections.length)]
+    );
+    setAttempts((prev) => prev + 1);
+  }
+};
+
 
   const revealSecret = () => {
     setShowSecret(true);
@@ -53,44 +66,48 @@ const DreamCard = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-6 text-white font-bold text-center space-y-4">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="p-6 border-2 border-purple-500 rounded-xl shadow-xl"
-      >
-        <h2 className="text-3xl mb-4 ">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
-            {" "}
-            Are You The One?
-          </span>{" "}
-          😳
-        </h2>
-        <p className="text-lg text-red-400 mb-4">{funnyMessage}</p>
-        {!showPerfect && (
-          <input
-            type="text"
-            className="p-3 rounded-lg text-black border-2 border-purple-500 focus:outline-none"
-            placeholder="Enter your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        )}
-        {!showPerfect && (
-          <button
-            className="mt-4 px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-700 transition-all"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        )}
-      </motion.div>
+      {!showSecret && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="p-6 border-2 border-pink-500 rounded-xl shadow-xl"
+        >
+          <h2 className="text-xl mb-4 ">
+            😳
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
+              {" "}
+              Are You The One?
+            </span>{" "}
+            <span>💖</span>
+          </h2>
+          <p className="text-lg text-red-400 mb-4">{funnyMessage}</p>
+          {showQuestions && (
+            <input
+              type="text"
+              className="p-3 rounded-lg text-black  focus:outline-none"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          )}
+          {showQuestions && (
+            <button
+              className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg  transition-all"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          )}
+        </motion.div>
+      )}
+
       {showPerfect && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="mt-4 text-3xl font-bold text-pink-500"
+          className="mt-4 text-xl font-bold text-pink-500"
         >
           <Typewriter
             words={["Just kidding! You're perfect! ❤️"]}
@@ -101,13 +118,13 @@ const DreamCard = () => {
       )}
       {showPerfect && (
         <motion.button
-          className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
+          className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:bg-blue-700 transition"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
           onClick={revealSecret}
         >
-          Reveal Secret
+          Reveal Secret 🤫
         </motion.button>
       )}
       {showSecret && (
@@ -117,9 +134,21 @@ const DreamCard = () => {
           transition={{ duration: 1 }}
           className="mt-6 text-center"
         >
-          <h3 className="text-4xl bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text">
-            🌟 Soulmate Unlocked! 🌟
+          <h3 className="text-xl font-semibold text-center">
+            <span className=" text-pink-500 bg-clip-text font-extrabold drop-shadow-lg">
+              <Typewriter
+                words={["Alert! Naughty girl detected..."]}
+                loop={1}
+                typeSpeed={50}
+              />
+            </span>
+            😉
+            <br />
+            <span className="text-xs text-gray-300 italic">
+              Relax, Gorgeous. Great things take time 😏🔥
+            </span>
           </h3>
+
           <Image
             src="https://c.tenor.com/7fzWR4STioAAAAAC/tenor.gif"
             alt="Love GIF"
@@ -127,6 +156,24 @@ const DreamCard = () => {
             width={256}
             height={256}
           />
+          <h1 className="mt-3 text-xl font-semibold text-center text-gray-200">
+            But for now,{" "}
+            <span className="underline decoration-wavy decoration-pink-500">
+              focus here
+            </span>
+            . ☝🏻
+          </h1>
+
+          <Link
+            href={
+              "https://wa.me/919302903537?text=I%20love%20your%20website%20as%20much%20as%20I%20love%20you...%20and%20that’s%20A%20LOT!%20😂💖"
+            }
+            target="_blank"
+          >
+            <button className="relative px-4 py-1.5 mt-4 mx-auto text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-red-500 rounded-full shadow-lg transition-all flex items-center gap-3 border-2 border-transparent hover:scale-110 hover:shadow-2xl hover:border-white backdrop-blur-md before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:rounded-full before:opacity-0 before:transition-opacity before:hover:opacity-100">
+              🚀 Thanks, ME! 💖
+            </button>
+          </Link>
         </motion.div>
       )}
     </div>
@@ -134,12 +181,3 @@ const DreamCard = () => {
 };
 
 export default DreamCard;
-
-
-<h2 className="text-3xl mb-4 ">
-  <span className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
-    {" "}
-    Are You The One?
-  </span>{" "}
-  😳
-</h2>;
