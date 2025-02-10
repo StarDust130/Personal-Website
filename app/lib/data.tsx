@@ -104,7 +104,7 @@ export const questions = [
       "Ice cubes, because AC is expensive 🧊💸",
       "Air, because I'm broke sometimes 💸😭",
     ],
-    correct: 2,
+    correct: 1,
   },
   {
     question: "Perfect date idea?",
