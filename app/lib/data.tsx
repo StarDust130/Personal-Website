@@ -387,9 +387,9 @@ export const memories: Memory[] = [
 ];
 
 export const j = [
-  { src: "/j-1.png" },
-  { src: "/j-2.png" },
-  { src: "/j-3.png" },
+  { src: "/j-1.PNG" },
+  { src: "/j-2.PNG" },
+  { src: "/j-3.PNG" },
   { src: "/j-4.png" },
 ];
 
