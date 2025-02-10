@@ -380,7 +380,7 @@ export const memories: Memory[] = [
     src: "/school.jpg",
     caption: "Classmates thought I was on mute IRL. 🎤❌🤣",
     shortTitle: "School Days",
-    category: "baby",
+    category: "fun",
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
