@@ -1,5 +1,5 @@
 import { questions } from "@/app/lib/data";
-import { PartyPopper } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface QuizResultProps {
@@ -17,10 +17,6 @@ const QuizResult = ({
 }: QuizResultProps) => {
   return (
     <div className="max-w-2xl md:w-full   mx-auto text-center px-4">
-      <div className="animate-pop-in">
-        <PartyPopper className="w-16 h-16 mx-auto mb-6 mt-12 text-yellow-400 animate-bounce" />
-      </div>
-
       <h1 className="text-3xl sm:text-4xl font-bold mb-6">
         <span className=" bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
           {" "}
@@ -29,11 +25,28 @@ const QuizResult = ({
         🎉
       </h1>
 
+      <div className="relative w-full h-full mx-auto mb-8 group">
+        <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
+        <Image
+          src={"/anime-girl-10.png"}
+          alt="anime-girl"
+          width={300}
+          height={300}
+          className="mx-auto rounded-full w-80   animate-float transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
+        />
+      </div>
+
       <div className="animate-fade-up">
         <p className="text-lg sm:text-xl mb-8">
           You scored {score}/{questions.length}
-          <span className="block sm:inline-block sm:ml-2 mt-2 sm:mt-0 text-2xl text-cyan-300">
-            {score === questions.length ? "🔥 Perfect Score!" : "Nice Try! 😎"}
+          <span className="block sm:inline-block sm:ml-2 mt-2 sm:mt-0 md:text-2xl text-cyan-300">
+            {score === questions.length &&
+              "🔥 Perfect Score! Are you the chosen one? 😈"}
+            {score === 0 && "💀 RIP... your brain just rage quit. 🪦"}
+            {score <= 2 && "🧠 Brain not found. Try again later. 🤡"}
+            {score <= 5 && "😵‍💫 You survived… barely. 💀"}
+            {score >= 5 &&
+              "🔥 Almost there! But close only counts in horror movies. 😈"}
           </span>
         </p>
 
@@ -73,4 +86,4 @@ const QuizResult = ({
     </div>
   );
 };
-export default QuizResult
+export default QuizResult;
