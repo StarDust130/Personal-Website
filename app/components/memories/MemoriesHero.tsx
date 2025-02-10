@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 
 const MemoriesHero = () => {
@@ -14,6 +15,17 @@ const MemoriesHero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_100%)] opacity-60" />
         </motion.div>
+
+           <div className="relative h-24 w-24  mx-auto mt-1 mb-8 group">
+                <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
+                <Image
+                  src={"/duck.gif"}
+                  alt="anime-girl"
+                  width={300}
+                  height={300}
+                  className="mx-auto rounded-full w-80   animate-float transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
+                />
+              </div>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           <motion.div
