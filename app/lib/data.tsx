@@ -104,7 +104,7 @@ export const questions = [
       "Ice cubes, because AC is expensive 🧊💸",
       "Air, because I'm broke sometimes 💸😭",
     ],
-    correct: 3,
+    correct: 2,
   },
   {
     question: "Perfect date idea?",
@@ -126,18 +126,18 @@ export const questions = [
       "Reply in 0.2 seconds like a government job form ⚡😂",
       "Throw phone away, then pick it up like nothing happened 🎉📲",
     ],
-    correct: 0,
+    correct: 1,
   },
   {
     question: "What’s my biggest fear?",
     emoji: "😨💀",
     options: [
       "Opening Google Meet and realizing the camera is ON 😱🎥",
-      "Sending a risky text and getting ‘Seen’ but no reply 👀💔",
       "Going to a function and getting ‘Shaadi kab karega?’ questions 💍🙄",
       "Getting a call instead of a text—who even does that? 📞😨",
+      "Sending a risky text and getting ‘Seen’ but no reply 👀💔",
     ],
-    correct: 1,
+    correct: 3,
   },
   {
     question: "If I was a millionaire, what’s the first thing I’d do?",
