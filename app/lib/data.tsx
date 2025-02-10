@@ -233,7 +233,7 @@ export const memories: Memory[] = [
   {
     id: 7,
     src: "/24.jpg",
-    caption: "First post, already famous in my family.",
+    caption: "My first Insta pic. I shot it, then I deleted my a/c.",
     shortTitle: "First Click",
     category: "fun",
     year: "2023",
