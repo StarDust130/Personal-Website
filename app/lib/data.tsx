@@ -279,11 +279,22 @@ export const questions = [
     emoji: "😨💀",
     options: [
       "Opening Google Meet and realizing the camera is ON 😱🎥",
+      "Sending a risky text and getting ‘Seen’ but no reply 👀💔",
       "Going to a function and getting ‘Shaadi kab karega?’ questions 💍🙄",
       "Getting a call instead of a text—who even does that? 📞😨",
-      "Sending a risky text and getting ‘Seen’ but no reply 👀💔",
     ],
-    correct: 3,
+    correct: 1,
+  },
+  {
+    question: "If I was a millionaire, what’s the first thing I’d do?",
+    emoji: "💰😎",
+    options: [
+      "Listen to ‘I am a millionaire’ song (Yo Yo Honey Singh) 🎵😂",
+      "Buy  Bitcoin 😆🔥 ",
+      "Still ask my sister ‘Please paisa de do’ 💸🤣",
+      "Plan a Goa trip that will never happen 🏖️😂",
+    ],
+    correct: 2,
   },
   {
     question: "What’s my bad habit?",
@@ -293,17 +304,6 @@ export const questions = [
       "Not bathing for weeks and calling it ‘natural fragrance’ 🚿❌🤢",
       "Eating at midnight like a secret agent in the fridge 🍕🌙",
       "All of the above, and proud of it 💀🔥",
-    ],
-    correct: 3,
-  },
-  {
-    question: "If I was a millionaire, what’s the first thing I’d do?",
-    emoji: "💰😎",
-    options: [
-      "Listen to ‘I am a millionaire’ song (Yo Yo Honey Singh) 🎵😂",
-      "Buy  Bitcoin 😆🔥 ",
-      "Plan a Goa trip that will never happen 🏖️😂",
-      "Still ask my sister ‘Please paisa de do’ 💸🤣",
     ],
     correct: 3,
   },
