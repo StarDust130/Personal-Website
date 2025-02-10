@@ -115,7 +115,7 @@ export const questions = [
       "Go to OYO (Don't Waste time in Build up 🏨)",
       "Argue over pizza toppings 🍕👊",
     ],
-    correct: 2,
+    correct: 1,
   },
   {
     question: "How do I react when my crush texts first?",

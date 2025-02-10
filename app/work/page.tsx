@@ -69,12 +69,17 @@ export default function WorkPage() {
       </section>
 
       {/* Projects Section */}
-      <section className="relative mb-28">
+      <section className="relative mb-28 z-30">
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px flex-1 bg-gradient-to-r from-pink-500 to-transparent" />
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl relative font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">
             Crazy Creations
           </h2>
+
+          <p className="absolute text-center left-1/2 -translate-x-1/2 text-xs mt-20 text-gray-400 whitespace-nowrap w-fit">
+            These are just dummy. I will add actual projects soon.
+          </p>
+
           <div className="h-px flex-1 bg-gradient-to-l from-pink-500 to-transparent" />
         </div>
 
