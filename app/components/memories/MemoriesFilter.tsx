@@ -38,7 +38,7 @@ const MemoriesFilter = ({
           className={`relative group px-3 py-1.5 rounded-3xl text-xs md:text-sm font-medium whitespace-nowrap transition-all 
         ${
           activeFilter === category.id
-            ? "bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 text-white shadow-lg"
+            ? "bg-gradient-to-r from-teal-400 via-blue-500 to-sky-600 text-white shadow-lg"
             : "bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-md"
         }`}
         >
