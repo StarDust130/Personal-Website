@@ -23,7 +23,7 @@ const MemoriesModel = ({
   handleTouchMove,
   handleNext,
   handlePrev,
-}: MemoriesModelProps) => {
+}: MemoriesModelProps) => {  
   useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = "hidden"; // Disable scrolling
