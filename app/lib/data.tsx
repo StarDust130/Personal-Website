@@ -375,15 +375,15 @@ export const memories: Memory[] = [
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
-  {
-    id: 23,
-    src: "/school.jpg",
-    caption: "Classmates thought I was on mute IRL. 🎤❌🤣",
-    shortTitle: "School Days",
-    category: "fun",
-    year: "2023",
-    color: "from-purple-400 to-pink-500",
-  },
+  // {
+  //   id: 23,
+  //   src: "/school.jpg",
+  //   caption: "Classmates thought I was on mute IRL. 🎤❌🤣",
+  //   shortTitle: "School Days",
+  //   category: "fun",
+  //   year: "2023",
+  //   color: "from-purple-400 to-pink-500",
+  // },
 ];
 
 export const j = [
