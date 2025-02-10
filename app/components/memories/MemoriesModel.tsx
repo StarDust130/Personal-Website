@@ -2,6 +2,7 @@ import { Memory } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
+import { useEffect } from "react";
 
 
 interface MemoriesModelProps {
@@ -23,6 +24,17 @@ const MemoriesModel = ({
   handleNext,
   handlePrev,
 }: MemoriesModelProps) => {
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = ""; // Restore scrolling
+    }
+
+    return () => {
+      document.body.style.overflow = ""; // Cleanup on unmount
+    };
+  }, [selectedImage]);
   return (
     <AnimatePresence>
       {selectedImage && (
@@ -30,7 +42,7 @@ const MemoriesModel = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 backdrop-blur-lg bg-black/60"
+          className="fixed inset-0 z-50 backdrop-blur-lg bg-black/60 overflow-y-hidden"
           onClick={() => setSelectedImage(null)}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
