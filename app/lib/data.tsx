@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Code, Server, Database, Cloud, Bot, ServerCog } from "lucide-react";
 import {
   Puzzle,
@@ -8,151 +7,7 @@ import {
   Coffee,
   PartyPopper,
 } from "lucide-react";
-
-export const data = [
-  {
-    title: "2024",
-    content: (
-      <div>
-        <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-          Built and launched Aceternity UI and Aceternity UI Pro from scratch
-        </p>
-        <div className="grid grid-cols-2 gap-4">
-          <Image
-            src="https://assets.aceternity.com/templates/startup-1.webp"
-            alt="startup template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/templates/startup-2.webp"
-            alt="startup template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/templates/startup-3.webp"
-            alt="startup template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/templates/startup-4.webp"
-            alt="startup template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Early 2023",
-    content: (
-      <div>
-        <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-          I usually run out of copy, but when I see content this big, I try to
-          integrate lorem ipsum.
-        </p>
-        <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-          Lorem ipsum is for people who are too lazy to write copy. But we are
-          not. Here are some more example of beautiful designs I built.
-        </p>
-        <div className="grid grid-cols-2 gap-4">
-          <Image
-            src="https://assets.aceternity.com/pro/hero-sections.png"
-            alt="hero template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/features-section.png"
-            alt="feature template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/pro/bento-grids.png"
-            alt="bento template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/cards.png"
-            alt="cards template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Changelog",
-    content: (
-      <div>
-        <p className="text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Deployed 5 new components on Aceternity today
-        </p>
-        <div className="mb-8">
-          <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-            ✅ Card grid component
-          </div>
-          <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-            ✅ Startup template Aceternity
-          </div>
-          <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-            ✅ Random file upload lol
-          </div>
-          <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-            ✅ Himesh Reshammiya Music CD
-          </div>
-          <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-            ✅ Salman Bhai Fan Club registrations open
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <Image
-            src="https://assets.aceternity.com/pro/hero-sections.png"
-            alt="hero template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/features-section.png"
-            alt="feature template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/pro/bento-grids.png"
-            alt="bento template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-          <Image
-            src="https://assets.aceternity.com/cards.png"
-            alt="cards template"
-            width={500}
-            height={500}
-            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-          />
-        </div>
-      </div>
-    ),
-  },
-];
+import { Memory } from "@/types";
 
 export const projects = [
   {
@@ -223,86 +78,437 @@ export const techStack = [
   {
     name: "Git & Vercel",
     icon: Cloud,
-    description: "Time travel for code ⏳ & magic deployments ✨",
+    description: "Time baby for code ⏳ & magic deployments ✨",
   },
 ];
 
+// Quiz
 export const questions = [
   {
-    question: "My go-to snack?",
-    emoji: "🍕🍟",
+    question: "What’s my biggest talent?",
+    emoji: "😎🔥",
     options: [
-      "Spicy stuff (Sweet inside 🌶️)",
-      "Pocky (Anime hero vibes 🎌)",
-      "Trail Mix (Pretending to be healthy 😴)",
-      "Eat air because I'm just that dramatic 🥲",
+      "Laughing at my own jokes before I even tell them 😂🎤",
+      "Finding new ways to waste time like an artist ⏳🎨",
+      "Winning fake arguments in my head 🥊🧠",
+      "Finding memes that describe my entire life 😂📸",
     ],
     correct: 0,
   },
   {
-    question: "Netflix &...?",
-    emoji: "📺🍿",
+    question: "If I could eat one thing forever, what would it be?",
+    emoji: "🍕🍔",
     options: [
-      "Chill (😵‍💫)",
-      "Start a fight over movie choices 🍿👊",
-      "Meme (Laugh 'til it hurts 🐸)",
-      "Sleep (Next episode? Who cares 💤)",
+      "Toothpaste, because I'm always late for breakfast 🪥😂",
+      "Maa ke haath ka khana (Meri aur mera bacho ki) 🍲👩‍🍳",
+      "Ice cubes, because AC is expensive 🧊💸",
+      "Air, because I'm broke sometimes 💸😭",
     ],
-    correct: 2,
+    correct: 3,
   },
   {
     question: "Perfect date idea?",
     emoji: "💗🐼",
     options: [
       "Roast each other until therapy 🖤🛋️",
-      "Movie , Travel , Time Spend (Sunsets 🌅💫🌸)",
-      "Argue over pizza toppings 🍕👊",
+      "Movie, Explore Each Other, Time Spend (Sunsets 🌅💫🌸)",
       "Go to OYO (Don't Waste time in Build up 🏨)",
+      "Argue over pizza toppings 🍕👊",
     ],
-    correct: 1,
+    correct: 2,
   },
   {
-    question: "What’s my superpower?",
-    emoji: "🦸‍♂️💥",
+    question: "How do I react when my crush texts first?",
+    emoji: "🥵💬",
     options: [
-      "Binge-watching pro 👀",
-      "Making awkward silences a comedy show 😂",
-      "Food delivery arrives in 10 minutes, always 🍔",
-      "Ignoring texts like a pro 💌",
+      "Start thinking wedding venue, guest list, and baby names 💍🤔",
+      "Act cool but internally screaming 🤯💘",
+      "Reply in 0.2 seconds like a government job form ⚡😂",
+      "Throw phone away, then pick it up like nothing happened 🎉📲",
     ],
     correct: 0,
   },
   {
-    question: "If I were an animal...?",
-    emoji: "🐒🐯",
+    question: "What’s my biggest fear?",
+    emoji: "😨💀",
     options: [
-      "Sloth (Laziness on another level 😌)",
-      "Cheetah (Fast but constantly lost 🏃‍♂️)",
-      "Penguin (Cute & clumsy 🐧)",
-      "Elephant (Big heart, forgetful brain 🐘)",
-    ],
-    correct: 4,
-  },
-  {
-    question: "Dream vacation?",
-    emoji: "✈️🏖️",
-    options: [
-      "Beach with Wi-Fi (Work & tan 🤯)",
-      "Anywhere with my loved ones 🏞️",
-      "Space travel (Beam me up, Elon 🚀)",
-      "Anime theme parks in Japan (Shut up, take my money 🎢)",
+      "Opening Google Meet and realizing the camera is ON 😱🎥",
+      "Sending a risky text and getting ‘Seen’ but no reply 👀💔",
+      "Going to a function and getting ‘Shaadi kab karega?’ questions 💍🙄",
+      "Getting a call instead of a text—who even does that? 📞😨",
     ],
     correct: 1,
   },
   {
-    question: "How do I deal with stress?",
-    emoji: "💆‍♂️🧘‍♂️",
+    question: "If I was a millionaire, what’s the first thing I’d do?",
+    emoji: "💰😎",
     options: [
-      "Eat ALL the snacks (Yes, even the weird ones 🍫)",
-      "Watch anime & cry (Embrace the feels 📺😭)",
-      "Channel zen monk vibes (Peaceful vibes only 🧘‍♂️)",
-      "Nap like the world is ending (Goodnight, world 😴)",
+      "Listen to ‘I am a millionaire’ song (Yo Yo Honey Singh) 🎵😂",
+      "Buy  Bitcoin 😆🔥 ",
+      "Still ask my sister ‘Please paisa de do’ 💸🤣",
+      "Plan a Goa trip that will never happen 🏖️😂",
+    ],
+    correct: 2,
+  },
+  {
+    question: "What’s my bad habit?",
+    emoji: "🚩😢",
+    options: [
+      "Saying ‘Bas ek aur episode’ and finishing the whole season 📱😂",
+      "Not bathing for weeks and calling it ‘natural fragrance’ 🚿❌🤢",
+      "Eating at midnight like a secret agent in the fridge 🍕🌙",
+      "All of the above, and proud of it 💀🔥",
     ],
     correct: 3,
+  },
+
+  {
+    question: "What’s my ultimate dream?",
+    emoji: "🌎💭",
+    options: [
+      "Travel the world with my future hot wife 🧳💸",
+      "Go on a date with Mitsuri Kanroji and make other weebs jealous 💖🍜😂",
+      "Open a Dhaba in Goa but still call it a startup 🍛🏖️🚀",
+      "All of the above, because why choose? 💰🔥",
+    ],
+    correct: 1,
+  },
+];
+
+export const memories: Memory[] = [
+  {
+    id: 1,
+    src: "/19.jpg",
+    caption: "Too cute to handle, too smart to ignore. 😎✨",
+    shortTitle: "Little Me",
+    category: "baby",
+    year: "2023",
+    color: "from-orange-400 to-pink-500",
+  },
+  {
+    id: 2,
+    src: "/4.jpg",
+    caption: "Boss moves start early. 😎🍼",
+    shortTitle: "Chairman Baby",
+    category: "baby",
+    year: "2023",
+    color: "from-blue-400 to-purple-500",
+  },
+  {
+    id: 3,
+    src: "/5.jpg",
+    caption: "Every great journey starts with a small step.",
+    shortTitle: "Tiny Explorer",
+    category: "baby",
+    year: "2023",
+    color: "from-green-400 to-teal-500",
+  },
+  {
+    id: 4,
+    src: "/9.jpg",
+    caption: "Mastering the art of doing nothing.",
+    shortTitle: "Relax Mode",
+    category: "baby",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 5,
+    src: "/14.jpg",
+    caption: "First best friend, first enemy—same person.",
+    shortTitle: "Sibling Life",
+    category: "baby",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 6,
+    src: "/18.2.jpg",
+    caption: "18 and still figuring things out.",
+    shortTitle: "Officially an Adult",
+    category: "birthday",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 7,
+    src: "/24.jpg",
+    caption: "My first Insta pic. I shot it, then I deleted my a/c.",
+    shortTitle: "First Click",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 8,
+    src: "/me-16.jpg",
+    caption: "16 candles, still no license.",
+    shortTitle: "Sweet 16",
+    category: "birthday",
+    year: "2022",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 9,
+    src: "/me-19.jpg",
+    caption: "Level 19 unlocked. Where are my rewards?",
+    shortTitle: "Birthday Mode",
+    category: "birthday",
+    year: "2024",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 10,
+    src: "/29.jpg",
+    caption: "Cousins by chance, troublemakers by choice. 😆🔥",
+    shortTitle: "Brother from Another",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 11,
+    src: "/30.jpg",
+    caption: "Sisters: built-in best friends (most of the time).",
+    shortTitle: "Sister Squad",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 12,
+    src: "/31.jpg",
+    caption: "Rakhi day: The one day we pretend to be nice.",
+    shortTitle: "Sibling Tradition",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 13,
+    src: "/25.jpg",
+    caption: "Taj Mahal came to visit me...",
+    shortTitle: "Monument Day",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 14,
+    src: "/28.jpg",
+    caption: "Waterpark trip: 10/10, would splash again.",
+    shortTitle: "Water Fun",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 15,
+    src: "/dance-6.jpg",
+    caption: "Class 6 legends take over the inter-school dance floor! 🕺💃",
+    shortTitle: "Dance Mafia",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 16,
+    src: "/water.jpg",
+    caption: "Me, the sea… and an uninvited extra. 🌊😂",
+    shortTitle: "Beach Time",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 17,
+    src: "/40.jpg",
+    caption: "Living in the moment even if it's slightly offbeat.",
+    shortTitle: "Thagda Vibes",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+
+  {
+    id: 18,
+    src: "/me-17.2.jpg",
+    caption: "Smiling through the awkwardness.",
+    shortTitle: "17th Birthday",
+    category: "birthday",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 19,
+    src: "/32.jpg",
+    caption: "House party? More like a war zone. 😂🔥",
+    shortTitle: "House Party",
+    category: "brosis",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 20,
+    src: "/dance-6.2.jpg",
+    caption: "Dance Mafia Iconic Pose: Level 1000.",
+    shortTitle: "Dance Legends",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 21,
+    src: "/dance-7.jpg",
+    caption: "Find me… if you can. 👀👻",
+    shortTitle: "Ghost Dance",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 22,
+    src: "/15.jpg",
+    caption: "Age is just a number, but my smile is timeless.",
+    shortTitle: "Killer Smile",
+    category: "baby",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+  {
+    id: 23,
+    src: "/school.jpg",
+    caption: "Classmates thought I was on mute IRL. 🎤❌🤣",
+    shortTitle: "School Days",
+    category: "fun",
+    year: "2023",
+    color: "from-purple-400 to-pink-500",
+  },
+];
+
+export const j = [
+  { src: "/j-1.PNG" },
+  { src: "/j-2.PNG" },
+  { src: "/j-3.PNG" },
+  { src: "/j-4.PNG" },
+];
+
+export const categories = [
+  { id: "all", emoji: "✨", label: "All Vibes" },
+  { id: "brosis", emoji: "💗", label: "BroSis" },
+  { id: "birthday", emoji: "🌟", label: "Birthday" },
+  { id: "baby", emoji: "🐤", label: "Baby Days" },
+  { id: "fun", emoji: "😎", label: "Fun" },
+];
+
+// Likes 🍒
+
+export const movies = [
+  {
+    id: 1,
+    title: "Dead Poets Society",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMDYwNGVlY2ItMWYxMS00YjZiLWE5MTAtYWM5NWQ2ZWJjY2Q3XkEyXkFqcGc@._V1_FMjpg_UX1016_.jpg",
+    link: "https://www.imdb.com/title/tt0097165/",
+  },
+  {
+    id: 2,
+    title: "The Shawshank Redemption",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
+    link: "https://www.imdb.com/title/tt0111161/?ref_=nv_sr_srsg_0_tt_7_nm_0_in_0_q_The%2520Shawshank%2520Redemption",
+  },
+  {
+    id: 3,
+    title: "Tamasha",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMjA1MTc0Mjc4Ml5BMl5BanBnXkFtZTgwNjU5Nzk4NjE@._V1_QL75_UX226.5_.jpg",
+    link: "https://www.imdb.com/title/tt3148502/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_Tamasha",
+  },
+  {
+    id: 4,
+    title: "The Lunchbox",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BODkyM2FkZmQtYTQyNC00MGVlLTgxNjctNWRjMjQ5ZDZjZDQ3XkEyXkFqcGc@._V1_FMjpg_UY720_.jpg",
+    link: "https://www.imdb.com/title/tt2350496/?ref_=nv_sr_srsg_1_tt_7_nm_0_in_0_q_The%2520Lunchbox",
+  },
+  {
+    id: 5,
+    title: "Rang De Basanti",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BMTJhZTdmODctZWY3Zi00MGI3LThiZDMtZWQ5ZjNkYzQyMTI3XkEyXkFqcGc@._V1_FMjpg_UX414_.jpg",
+    link: "https://www.imdb.com/title/tt0405508/?ref_=nv_sr_srsg_0_tt_2_nm_1_in_0_q_Rang%2520De%2520Basanti",
+  },
+  {
+    id: 6,
+    title: "The Perfect Days",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BNGVmODFkM2MtOTEzMy00MjFjLThjZmYtODMxZmI1MzcyNDkyXkEyXkFqcGc@._V1_FMjpg_UY728_.jpg",
+    link: "https://www.imdb.com/title/tt27503384/?ref_=fn_all_ttl_1",
+  },
+];
+
+// Anime: Existing items + new additions (Naruto, Spy x Family)
+export const anime = [
+  {
+    id: 1,
+    title: "Grave of the Fireflies",
+    cover: "https://cdn.myanimelist.net/images/anime/1485/141208.jpg",
+    link: "https://myanimelist.net/anime/578/Hotaru_no_Haka/pics",
+  },
+  {
+    id: 2,
+    title: "Attack on Titan",
+    cover: "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+    link: "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
+  },
+  {
+    id: 3,
+    title: "Death Note",
+    cover: "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+    link: "https://myanimelist.net/anime/1535/Death_Note",
+  },
+  {
+    id: 4,
+    title: "Deomon Slayer",
+    cover: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+    link: "https://myanimelist.net/anime/38000/Kimetsu_no_Yaiba?q=demon%20slayer&cat=anime",
+  },
+  {
+    id: 5,
+    title: "Naruto",
+    cover: "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+    link: "https://myanimelist.net/anime/20/Naruto",
+  },
+  {
+    id: 6,
+    title: "Spy x Family",
+    cover: "https://cdn.myanimelist.net/images/anime/1441/122795.jpg",
+    link: "https://myanimelist.net/anime/50265/Spy_x_Family?q=spy%20x&cat=anime",
+  },
+];
+
+// Books: Existing items + new additions
+export const books = [
+  {
+    id: 1,
+    title: "Sapiens: A Brief History of Humankind",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1703329310i/23692271.jpg",
+    link: "https://www.goodreads.com/book/show/23692271-sapiens?from_search=true&from_srp=true&qid=pD0OpndGhS&rank=1",
+  },
+  {
+    id: 5,
+    title: "The Almanack of Naval Ravikant",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
+    link: "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant?ref=nav_sb_ss_1_30",
+  },
+  {
+    id: 6,
+    title: "The Courage to be Disliked",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
+    link: "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked?from_search=true&from_srp=true&qid=ZKwBVTxDnV&rank=1",
   },
 ];

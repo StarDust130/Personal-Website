@@ -11,7 +11,7 @@ const Explore = () => {
             Explore and Discover 🚀
           </h2>
           <p className="mt-4 text-xs md:text-lg text-gray-400">
-            Dive into my timeline, hobbies, experiences, and more.
+            Dive into my Memories, hobbies, experiences, and more.
           </p>
         </div>
 
@@ -19,37 +19,34 @@ const Explore = () => {
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           {[
             {
-              title: "⏳ Timeline",
-              desc: "My journey from noob to pro—don’t judge! 😉",
-              date: "2023",
+              title: "🌟 Memories  ",
+              desc: "Good times, big smiles, and zero regrets! ✨",
               image: "/anime-girl-2.jpg",
-              url: "/timeline",
+              url: "/memories#hero",
             },
             {
               title: "❓ Quiz",
               desc: "Think you know me? Take the challenge! 🤔",
-              date: "2022",
               image: "/anime-girl-3.jpg",
               url: "/quiz#hero",
             },
             {
               title: "💼 Work",
               desc: "Where I hustle (fueled by snacks and dreams). 🍿✨",
-              date: "2021",
+
               image: "/anime-girl-4.jpg",
               url: "/work",
             },
             {
               title: "🌶️ What I Like",
               desc: "Movies, anime, geopolitics... and maybe you? 😏",
-              date: "2021",
               image: "/anime-girl-5.jpg",
               url: "/likes",
             },
           ].map((item, idx) => (
             <article
               key={idx}
-              className="flex flex-col overflow-hidden rounded-lg shadow-lg border border-gray-700"
+              className="flex flex-col overflow-hidden hover:scale-105 rounded-lg shadow-lg border border-gray-700"
             >
               <Link href={item.url}>
                 {/* Image */}
@@ -66,14 +63,6 @@ const Explore = () => {
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-4 bg-gray-900">
-                  {/* Date */}
-                  <time
-                    dateTime={item.date}
-                    className="text-xs font-semibold uppercase text-gray-500"
-                  >
-                    {item.date} - Now
-                  </time>
-
                   {/* Title */}
                   <h3 className="mt-2  text-lg font-bold text-white">
                     {item.title}

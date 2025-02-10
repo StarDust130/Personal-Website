@@ -4,7 +4,7 @@ import BackButton from "./BackButton";
 
 const Navbar = () => {
   return (
-    <div className="w-full  z-30  my-3 flex items-center justify-between px-5 md:px-10">
+    <div className="w-full  z-50  my-3 flex items-center justify-between px-5 md:px-10">
       <div className="flex justify-start w-full">
         <BackButton />
       </div>

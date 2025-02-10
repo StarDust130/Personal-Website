@@ -1,13 +1,17 @@
 import { questions } from "@/app/lib/data";
 import { BadgeCheck, Flame, HeartCrack } from "lucide-react";
 
-interface PlayQuizProps{
-    currentQuestion: number;
-    selectedAnswer: number | null;
-    handleAnswer: (index: number) => void;
+interface PlayQuizProps {
+  currentQuestion: number;
+  selectedAnswer: number | null;
+  handleAnswer: (index: number) => void;
 }
 
-const PlayQuiz = ({ currentQuestion, selectedAnswer, handleAnswer }: PlayQuizProps) => {
+const PlayQuiz = ({
+  currentQuestion,
+  selectedAnswer,
+  handleAnswer,
+}: PlayQuizProps) => {
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6">
       {/* Enhanced Progress Bar */}
@@ -31,15 +35,15 @@ const PlayQuiz = ({ currentQuestion, selectedAnswer, handleAnswer }: PlayQuizPro
       </div>
 
       {/* Animated Question Text */}
-      <h2 className="text-3xl flex justify-start items-center  sm:text-4xl font-bold mb-10 ">
+      <h2 className=" text-2xl  sm:text-4xl font-bold mb-10 ">
         <span className="bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent animate-text-shine">
           {questions[currentQuestion].question}{" "}
         </span>{" "}
-        {questions[currentQuestion].emoji}
+        <span> {questions[currentQuestion].emoji}</span>
       </h2>
 
       {/* Enhanced Answer Options */}
-      <div className="grid gap-3">
+      <div className="grid gap-3 text-sm md:text-lg">
         {questions[currentQuestion].options.map((option, index) => {
           const isCorrect = index === questions[currentQuestion].correct;
           const isSelected = selectedAnswer === index;
@@ -50,7 +54,7 @@ const PlayQuiz = ({ currentQuestion, selectedAnswer, handleAnswer }: PlayQuizPro
               key={index}
               onClick={() => handleAnswer(index)}
               disabled={selectedAnswer !== null}
-              className={`relative p-5 text-left rounded-xl transition-all duration-300 ${
+              className={`relative p-4 text-left rounded-xl transition-all duration-300 ${
                 showResult
                   ? isCorrect
                     ? "border-2 border-green-400/80 bg-green-500/20"
@@ -97,4 +101,4 @@ const PlayQuiz = ({ currentQuestion, selectedAnswer, handleAnswer }: PlayQuizPro
     </div>
   );
 };
-export default PlayQuiz
+export default PlayQuiz;
