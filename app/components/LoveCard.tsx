@@ -211,13 +211,17 @@ const DatingPrefsCard = () => {
               {mode === "angel" ? "😇" : "😈"}
             </motion.button>
             <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 transition-all duration-300 ease-in-out"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-600 transition-all duration-300 ease-in-out hover:drop-shadow-lg"
               onClick={triggerSpecialEasterEgg}
             >
-              My Kind of Girl
+              My Kind of{" "}
+              <span className="underline decoration-wavy decoration-pink-400">
+                Girl
+              </span>
             </motion.h1>
 
             {/* Title */}
