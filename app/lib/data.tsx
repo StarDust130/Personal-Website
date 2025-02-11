@@ -498,6 +498,27 @@ export const books = [
     link: "https://www.goodreads.com/book/show/23692271-sapiens?from_search=true&from_srp=true&qid=pD0OpndGhS&rank=1",
   },
   {
+    id: 6,
+    title: "The Courage to be Disliked",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
+    link: "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked?from_search=true&from_srp=true&qid=ZKwBVTxDnV&rank=1",
+  },
+  {
+    id: 2,
+    title: "The Power of Now",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689947880i/6708.jpg",
+    link: "https://www.goodreads.com/book/show/6708.The_Power_of_Now",
+  },
+  {
+    id: 3,
+    title: "The Power of Positive Thinking",
+    cover:
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587724137i/1134122.jpg",
+    link: "https://www.goodreads.com/book/show/1134122.The_Power_of_Positive_Thinking?ref=rae_3",
+  },
+  {
     id: 5,
     title: "The Almanack of Naval Ravikant",
     cover:
@@ -505,10 +526,10 @@ export const books = [
     link: "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant?ref=nav_sb_ss_1_30",
   },
   {
-    id: 6,
-    title: "The Courage to be Disliked",
+    id: 7,
+    title: "Zero to One",
     cover:
-      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
-    link: "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked?from_search=true&from_srp=true&qid=ZKwBVTxDnV&rank=1",
+      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630663027i/18050143.jpg",
+    link: "https://www.goodreads.com/book/show/18050143-zero-to-one?from_search=true&from_srp=true&qid=TmpnzZcs9N&rank=1",
   },
 ];
