@@ -1,4 +1,5 @@
-import { questions } from "@/app/lib/data";
+
+import { questions } from "@/app/lib/question";
 import { BadgeCheck, Flame, HeartCrack } from "lucide-react";
 
 interface PlayQuizProps {

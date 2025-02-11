@@ -1,4 +1,5 @@
-import { questions } from "@/app/lib/data";
+
+import { questions } from "@/app/lib/question";
 import Image from "next/image";
 import Link from "next/link";
 

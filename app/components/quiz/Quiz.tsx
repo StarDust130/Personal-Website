@@ -1,6 +1,6 @@
 "use client";
 
-import { questions } from "@/app/lib/data";
+import { questions } from "@/app/lib/question";
 import { useState } from "react";
 import QuizHero from "./QuizHero";
 import PlayQuiz from "./PlayQuiz";
