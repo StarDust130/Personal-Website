@@ -1,14 +1,12 @@
 import Image from "next/image";
 
-const QuizHero = ({ setQuizStarted }: { setQuizStarted: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const QuizHero = ({
+  setQuizStarted,
+}: {
+  setQuizStarted: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <div className="max-w-2xl mx-auto text-center relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full mix-blend-screen blur-3xl animate-blob"></div>
-        <div className="absolute top-60 right-20 w-96 h-96 bg-pink-500/10 rounded-full mix-blend-screen blur-3xl animate-blob animation-delay-2000"></div>
-      </div>
-
       <h1 className="text-2xl sm:text-5xl font-bold mb-6 relative flex justify-center items-center">
         <span className=" bg-300% animate-gradient-flow">
           <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -19,7 +17,6 @@ const QuizHero = ({ setQuizStarted }: { setQuizStarted: React.Dispatch<React.Set
       </h1>
 
       <div className="relative group mx-auto w-full max-w-[400px] sm:max-w-[500px]">
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-30"></div>
         <div className="relative overflow-hidden rounded-xl border-2 border-white/10 hover:border-purple-400/30 transition-all duration-300">
           <Image
             src={"/anime-girl-3.jpg"}
@@ -60,7 +57,7 @@ const QuizHero = ({ setQuizStarted }: { setQuizStarted: React.Dispatch<React.Set
 
       <button
         onClick={() => setQuizStarted(true)}
-        className="mt-8 relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 rounded-full text-xl font-semibold hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 mx-auto group/button"
+        className="mt-8 relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 rounded-full text-md md:text-xl font-semibold hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 mx-auto group/button"
       >
         <span className="relative z-10">Start the Vibe Check</span>
         <span className="w-6 h-6 relative z-10 group-hover/button:translate-x-1 transition-transform">
@@ -77,4 +74,4 @@ const QuizHero = ({ setQuizStarted }: { setQuizStarted: React.Dispatch<React.Set
     </div>
   );
 };
-export default QuizHero
+export default QuizHero;
