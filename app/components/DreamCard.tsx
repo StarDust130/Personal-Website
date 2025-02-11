@@ -34,7 +34,7 @@ const DreamCard = () => {
 
     if (attempts >= 3) {
       setTimeout(() => {
-        router.push("https://c.tenor.com/7fzWR4STioAAAAAC/tenor.gif");
+        router.push("https://c.tenor.com/e-un8UrwpfwAAAAd/tenor.gif");
       }, 1500);
     }
   }, [attempts, router]);
