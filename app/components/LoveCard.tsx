@@ -215,13 +215,11 @@ const DatingPrefsCard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               whileHover={{ scale: 1.05 }}
-              className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-600 transition-all duration-300 ease-in-out hover:drop-shadow-lg"
+              className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-600 transition-all duration-300 ease-in-out hover:drop-shadow-lg"
               onClick={triggerSpecialEasterEgg}
             >
-              My Kind of{" "}
-              <span className="underline decoration-wavy decoration-pink-400">
-                Girl
-              </span>
+              My Kind of Girl
+           
             </motion.h1>
 
             {/* Title */}
