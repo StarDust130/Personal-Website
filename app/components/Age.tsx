@@ -22,25 +22,32 @@ const Age: React.FC = () => {
     seconds: 0,
   });
 
-  const calculateTimeSpend = () => {
-    const now = new Date();
-    const diffInMs = now.getTime() - birthDate.getTime();
+ const calculateTimeSpend = () => {
+   const now = new Date();
 
-    const years = Math.floor(diffInMs / (1000 * 60 * 60 * 24 * 365));
-    const months = Math.floor(
-      (diffInMs % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30)
-    );
-    const days = Math.floor(
-      (diffInMs % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)
-    );
-    const hours = Math.floor(
-      (diffInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((diffInMs % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diffInMs % (1000 * 60)) / 1000);
+   // Calculate years properly
+   let years = now.getFullYear() - birthDate.getFullYear();
+   let months = now.getMonth() - birthDate.getMonth();
+   let days = now.getDate() - birthDate.getDate();
 
-    setTimeSpend({ years, months, days, hours, minutes, seconds });
-  };
+   // Adjust if the birthday hasn't occurred yet in the current year
+   if (months < 0 || (months === 0 && days < 0)) {
+     years--;
+     months += 12;
+   }
+   if (days < 0) {
+     const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+     days += prevMonth.getDate();
+     months--;
+   }
+
+   const hours = now.getHours();
+   const minutes = now.getMinutes();
+   const seconds = now.getSeconds();
+
+   setTimeSpend({ years, months, days, hours, minutes, seconds });
+ };
+
 
   useEffect(() => {
     calculateTimeSpend();
