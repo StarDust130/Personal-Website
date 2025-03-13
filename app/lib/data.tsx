@@ -82,7 +82,12 @@ export const techStack = [
   },
 ];
 
-
+export   const interests = [
+  { name: "Coding 💻", color: "blue" },
+  { name: "Books 💙", color: "red" },
+  { name: "Anime 🌸", color: "pink" },
+  { name: "Girls 😉", color: "purple" },
+];
 
 export const memories: Memory[] = [
   {
