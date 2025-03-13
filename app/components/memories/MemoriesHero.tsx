@@ -16,7 +16,7 @@ const MemoriesHero = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_100%)] opacity-60" />
         </motion.div>
 
-        <div className="relative h-36 w-36 md:h-40 md:w-40  mx-auto mt-1 mb-8 group">
+        <div className="relative h-20 w-20 md:h-40 md:w-40  mx-auto mt-1 mb-8 group">
           <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
           <Image
             src={"/d.gif"}
