@@ -36,11 +36,13 @@ const MemoriesFilter = ({
             duration: 0.8,
           }}
           className={`relative group px-3 py-1.5 rounded-3xl text-xs md:text-sm font-medium whitespace-nowrap transition-all 
-        ${
-          activeFilter === category.id
-            ? "bg-gradient-to-r from-teal-400 via-blue-500 to-sky-600 text-white shadow-lg"
-            : "bg-white/10 text-white/80 hover:bg-white/20 backdrop-blur-md"
-        }`}
+    ${
+      activeFilter === category.id
+        ? "bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 border border-gray-700 text-white shadow-lg shadow-gray-900/50"
+        : "bg-white/5 text-white/70 hover:bg-white/15 backdrop-blur-lg"
+    }
+
+      `}
         >
           <div className="flex items-center gap-1 md:gap-2">
             <span className="text-base md:text-lg">{category.emoji}</span>
@@ -51,4 +53,4 @@ const MemoriesFilter = ({
     </motion.div>
   );
 };
-export default MemoriesFilter
+export default MemoriesFilter;
