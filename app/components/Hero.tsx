@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { interests } from "../lib/data";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -86,12 +85,12 @@ const Hero = () => {
       />
 
       {/* Mobile-optimized content wrapper */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pb-16 z-10">
+      <div className="relative h-[40rem] md:h-screen flex flex-col items-center justify-center px-4 sm:px-6 pb-16 z-10">
         {/* Mobile-friendly Split Name Display with reveal animation */}
         <div className="flex flex-col items-center mb-6 sm:mb-8 w-full">
           <div className="flex items-center space-x-2 sm:space-x-3 justify-center">
             <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-purple-500"></div>
-            <h1 className="text-[1.8rem] sm:text-5xl md:text-7xl font-black tracking-tighter text-white text-center">
+            <h1 className="text-[2rem] mb-2 sm:text-5xl md:text-7xl font-black tracking-tighter text-white text-center">
               <span className="inline-block relative z-0 glitch-wrapper">
                 <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-white via-purple-200 to-white">
                   CHANDRASHEKHAR
@@ -138,44 +137,11 @@ const Hero = () => {
             <div className="absolute w-2 h-2 bg-purple-500 rounded-full bottom-0 right-0 animate-ping-slow"></div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-stretch gap-4 sm:gap-6">
-            {/* Gen Z Style Interests Section */}
-
-            <div className="w-full md:w-1/2">
-              <div className="p-6 bg-black/30 backdrop-blur-lg rounded-3xl border border-white/20 shadow-2xl">
-                {/* Title with futuristic gradient glow */}
-                <h3
-                  className="text-xl sm:text-2xl font-bold font-mono 
-         text-center mb-6"
-                >
-                  <span className="bg-clip-text text-transparent tracking-widest bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 ">
-                    INTERESTS
-                  </span>{" "}
-                  🚀
-                </h3>
-
-                {/* Interest List */}
-                <div className="flex flex-wrap gap-3 justify-center">
-                  {interests.map((interest, index) => (
-                    <div
-                      key={index}
-                      className={`relative px-4 py-2 flex items-center justify-center rounded-full 
-          border border-white/20 bg-gradient-to-br from-black/50 to-black/40
-          text-white font-semibold shadow-lg 
-          transition-all duration-300 hover:scale-110 
-          cursor-pointer`}
-                    >
-                      {/* Text with Subtle Shine */}
-                      <span className="relative z-10">{interest.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-col md:flex-row justify-center w-full md:items-stretch gap-4 sm:gap-6">
 
             {/* Gen Z Style Content Section */}
-            <div className="w-full md:w-2/3 mt-0">
-              <div className="bg-gradient-to-r from-black/60 to-black/30 backdrop-blur-lg p-4 rounded-xl border border-gray-700/50 shadow-lg">
+            <div className="w-full  mt-0">
+              <div className="  rounded-xl  ">
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                   I love picking up new skills (when I&apos;m not 
                   procrastination 😅), exploring{" "}
