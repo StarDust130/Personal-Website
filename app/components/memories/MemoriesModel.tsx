@@ -4,15 +4,14 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 
-
 interface MemoriesModelProps {
-    selectedImage: Memory | null;
-    setSelectedImage: (image: Memory | null) => void;
-    handleTouchStart: (e: React.TouchEvent) => void;
-    handleTouchEnd: () => void;
-    handleTouchMove: (e: React.TouchEvent) => void;
-    handleNext: () => void;
-    handlePrev: () => void;
+  selectedImage: Memory | null;
+  setSelectedImage: (image: Memory | null) => void;
+  handleTouchStart: (e: React.TouchEvent) => void;
+  handleTouchEnd: () => void;
+  handleTouchMove: (e: React.TouchEvent) => void;
+  handleNext: () => void;
+  handlePrev: () => void;
 }
 
 const MemoriesModel = ({
@@ -23,7 +22,7 @@ const MemoriesModel = ({
   handleTouchMove,
   handleNext,
   handlePrev,
-}: MemoriesModelProps) => {  
+}: MemoriesModelProps) => {
   useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = "hidden"; // Disable scrolling
@@ -62,25 +61,26 @@ const MemoriesModel = ({
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 z-50 bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
+              className="absolute top-3 right-3 z-50 bg-white/10 p-3 rounded-full backdrop-blur-md hover:bg-white/20 transition-colors"
             >
               <X className="w-4 h-4 md:w-6 md:h-6" />
             </button>
 
-            <div className="relative max-w-4xl w-full rounded-3xl shadow-lg border border-black/40">
+            <div className="relative max-w-4xl w-full rounded-3xl shadow-lg mt-5 border border-black/40">
               {/* Image Container */}
               <motion.div
-                className="relative aspect-[4/3] md:aspect-[16/9] rounded-t-[2.5rem] overflow-hidden"
-                whileHover={{ scale: 1.01 }}
+                className="relative w-full  h-auto rounded-3xl overflow-hidden flex items-center justify-center "
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent" />
                 <Image
                   src={selectedImage.src}
                   alt={selectedImage.caption}
-                  className="w-full h-full object-contain transform transition-transform duration-300 hover:scale-102"
-                  layout="fill"
+                  className="w-auto max-w-full h-auto max-h-[60vh] rounded-3xl object-contain"
+                  layout="intrinsic"
                   priority
+                  width={400}
+                  height={400}
                 />
               </motion.div>
 
