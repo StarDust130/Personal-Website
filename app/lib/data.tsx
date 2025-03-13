@@ -82,7 +82,7 @@ export const techStack = [
   },
 ];
 
-export   const interests = [
+export const interests = [
   { name: "Coding 💻", color: "blue" },
   { name: "Books 💙", color: "red" },
   { name: "Anime 🌸", color: "pink" },
@@ -290,15 +290,15 @@ export const memories: Memory[] = [
     year: "2023",
     color: "from-purple-400 to-pink-500",
   },
-  // {
-  //   id: 23,
-  //   src: "/school.jpg",
-  //   caption: "Classmates thought I was on mute IRL. 🎤❌🤣",
-  //   shortTitle: "School Days",
-  //   category: "fun",
-  //   year: "2023",
-  //   color: "from-purple-400 to-pink-500",
-  // },
+  {
+    id: 23,
+    src: "/me-20.jpg",
+    caption: "Teen mode: OFF. Adulting? Still buffering... 😎🎂",
+    shortTitle: "Level 20 Unlocked",
+    category: "birthday",
+    year: "2025",
+    color: "from-blue-500 to-indigo-500",
+  },
 ];
 
 export const j = [
