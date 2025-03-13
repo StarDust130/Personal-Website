@@ -137,11 +137,12 @@ export const memories: Memory[] = [
   },
   {
     id: 6,
-    src: "/18.2.jpg",
-    caption: "18 and still figuring things out.",
-    shortTitle: "Officially an Adult",
+
+    src: "/me-16.jpg",
+    caption: "16 candles, still no license.",
+    shortTitle: "Sweet 16",
     category: "birthday",
-    year: "2023",
+    year: "2022",
     color: "from-purple-400 to-pink-500",
   },
   {
@@ -155,20 +156,20 @@ export const memories: Memory[] = [
   },
   {
     id: 8,
-    src: "/me-16.jpg",
-    caption: "16 candles, still no license.",
-    shortTitle: "Sweet 16",
+    src: "/me-17.2.jpg",
+    caption: "Smiling through the awkwardness.",
+    shortTitle: "17th Birthday",
     category: "birthday",
-    year: "2022",
+    year: "2023",
     color: "from-purple-400 to-pink-500",
   },
   {
     id: 9,
-    src: "/me-19.jpg",
-    caption: "Level 19 unlocked. Where are my rewards?",
-    shortTitle: "Birthday Mode",
+    src: "/18.2.jpg",
+    caption: "18 and still figuring things out.",
+    shortTitle: "Officially an Adult",
     category: "birthday",
-    year: "2024",
+    year: "2023",
     color: "from-purple-400 to-pink-500",
   },
   {
@@ -246,11 +247,11 @@ export const memories: Memory[] = [
 
   {
     id: 18,
-    src: "/me-17.2.jpg",
-    caption: "Smiling through the awkwardness.",
-    shortTitle: "17th Birthday",
+    src: "/me-19.jpg",
+    caption: "Level 19 unlocked. Where are my rewards?",
+    shortTitle: "Birthday Mode",
     category: "birthday",
-    year: "2023",
+    year: "2024",
     color: "from-purple-400 to-pink-500",
   },
   {
