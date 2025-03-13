@@ -17,13 +17,13 @@ const MemoriesHero = () => {
         </motion.div>
 
         <div className="relative h-20 w-20 md:h-40 md:w-40  mx-auto mt-1 mb-8 group">
-          <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
+          <div className="absolute inset-0 border-4 border-transparent rounded-full filter blur-xl" />
           <Image
             src={"/d.gif"}
             alt="anime-girl"
             width={300}
             height={300}
-            className="mx-auto rounded-full w-72 sm:w-80 md:w-[30vw] animate-float transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
+            className="mx-auto rounded-full w-72 sm:w-80 md:w-[30vw]  transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
           />
         </div>
 
