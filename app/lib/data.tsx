@@ -301,13 +301,6 @@ export const memories: Memory[] = [
   },
 ];
 
-export const j = [
-  { src: "/j-1.PNG" },
-  { src: "/j-2.PNG" },
-  { src: "/j-3.PNG" },
-  { src: "/j-4.png" },
-];
-
 export const categories = [
   { id: "all", emoji: "✨", label: "All Vibes" },
   { id: "brosis", emoji: "💗", label: "BroSis" },
