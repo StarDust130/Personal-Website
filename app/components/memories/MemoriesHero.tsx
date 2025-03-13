@@ -52,18 +52,18 @@ const MemoriesHero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
-                className="text-sm md:text-xl font-light text-white/80"
+                className="text-xs md:text-xl font-light text-white/80"
               >
                 <Typewriter
                   words={[
-                    "My camera roll? Just food pics & accidental screenshots! 📸",
-                    "Memories so good… I stole them from my friends! 🤷‍♂️",
-                    "If 'saving storage' was a lifestyle, I'd be its CEO! 🚀",
-                    "All these photos prove I was there... or just REALLY good at Photoshop! 🤔",
-                    "My friends take all the photos… I just exist in them! 📷",
-                    "These pics are historic artifacts. Mostly of me looking lost. 🏛️",
-                    "Every pic has a story. Most of them involve me not knowing where I am. 😂",
-                    "Imagine taking your own photos. Couldn't be me! 😎",
+                    "My gallery? Just food & oops screenshots! 📸",
+                    "Memories? Stolen from friends! 🤷‍♂️",
+                    "Storage? Never heard of her! 🚀",
+                    "Proof I was there... or just Photoshop? 🤔",
+                    "Friends snap, I just exist! 📷",
+                    "My pics? Me, confused. Always. 🏛️",
+                    "Every pic = lost & clueless. 😂",
+                    "Taking my own pics? Nah. 😎",
                   ]}
                   loop={true}
                   cursor
