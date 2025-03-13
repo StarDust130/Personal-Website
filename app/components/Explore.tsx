@@ -37,8 +37,8 @@ const Explore = () => {
               url: "/work",
             },
             {
-              title: "🔥 Favorites",
-              desc: "Movies, anime, tech & things I love.",
+              title: "💗 Likes",
+              desc: "Movies,Books & you know what😏.",
               image: "/anime-girl-5.jpg",
               url: "/likes",
             },

@@ -17,8 +17,27 @@ const geistSans = Spectral({
 export const metadata: Metadata = {
   title: "Chandrashekhar",
   description:
-    "The personal space of Chandrashekhar—a passionate developer, dreamer, and future startup founder. Crafting sleek, functional web experiences with a touch of creativity.",
+    "Official website of Chandrashekhar, a passionate developer, dreamer, and future startup founder.",
+  keywords: "Chandrashekhar, web developer, frontend, startup, programmer",
+  openGraph: {
+    title: "Chandrashekhar - Developer & Innovator",
+    description:
+      "Explore sleek, functional web experiences built with creativity.",
+    url: "https://chandrashekhar.life",
+    siteName: "Chandrashekhar",
+    images: [
+      {
+        url: "https://chandrashekhar.life/og-image.jpg", // Replace with your real OG image URL
+        width: 1200,
+        height: 630,
+        alt: "Chandrashekhar - Developer Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
+
+
 
 export default function RootLayout({
   children,

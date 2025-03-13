@@ -2,6 +2,32 @@ import { Rocket, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
 import Link from "next/link";
 import { projects, techStack } from "../lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Work - Projects & Experience | Chandrashekhar",
+  description:
+    "Explore my work, projects, and experience in web development, React, Next.js, and more.",
+  keywords:
+    "Chandrashekhar, Web Development, React Projects, Next.js Work, Frontend Developer",
+  openGraph: {
+    title: "Work - Projects & Experience | Chandrashekhar",
+    description:
+      "Discover my professional journey, projects, and contributions to web development.",
+    url: "https://chandrashekhar.life/work",
+    siteName: "Chandrashekhar",
+    images: [
+      {
+        url: "https://chandrashekhar.life/work-og.jpg", // Replace with a proper OG image
+        width: 1200,
+        height: 630,
+        alt: "Work - Chandrashekhar",
+      },
+    ],
+    type: "website",
+  },
+};
+
 
 export default function WorkPage() {
   return (
