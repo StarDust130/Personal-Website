@@ -17,10 +17,11 @@ const ModernMemoriesPage = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const filteredMemories =
-    activeFilter === "all"
-      ? memories
-      : memories.filter((m) => m.category === activeFilter);
+const filteredMemories =
+  activeFilter === "all"
+    ? [...memories].reverse()
+    : [...memories.filter((m) => m.category === activeFilter)].reverse();
+
 
   // Find the index of the selected image in the **filtered** list
   const selectedFilteredIndex = filteredMemories.findIndex(
