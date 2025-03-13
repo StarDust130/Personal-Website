@@ -16,16 +16,16 @@ const MemoriesHero = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_100%)] opacity-60" />
         </motion.div>
 
-           <div className="relative h-24 w-24  mx-auto mt-1 mb-8 group">
-                <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
-                <Image
-                  src={"/d.gif"}
-                  alt="anime-girl"
-                  width={300}
-                  height={300}
-                  className="mx-auto rounded-full w-80   animate-float transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
-                />
-              </div>
+        <div className="relative h-36 w-36 md:h-40 md:w-40  mx-auto mt-1 mb-8 group">
+          <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
+          <Image
+            src={"/d.gif"}
+            alt="anime-girl"
+            width={300}
+            height={300}
+            className="mx-auto rounded-full w-72 sm:w-80 md:w-[30vw] animate-float transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
+          />
+        </div>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           <motion.div
@@ -56,14 +56,14 @@ const MemoriesHero = () => {
               >
                 <Typewriter
                   words={[
-                    "A collection of great memories… none of them taken by me! 📸",
-                    "Proof I was there… or just really good at stealing pics! 🤷‍♂️",
-                    "I found all these in my album… or someone else’s! 📂",
-                    "If others didn’t take my photos, I might not exist! 🤷‍♂️",
-                    "My camera roll? Just screenshots and regrets! 📂",
-                    "My phone has 0 photos, but my friends’ phones have my whole life! 📷",
-                    "Fun fact: If I had to show my own photos, I’d have nothing! 😭",
-                    "These aren’t mine, but I’ll pretend they are for the clout! 😎",
+                    "My camera roll? Just food pics & accidental screenshots! 📸",
+                    "Memories so good… I stole them from my friends! 🤷‍♂️",
+                    "If 'saving storage' was a lifestyle, I'd be its CEO! 🚀",
+                    "All these photos prove I was there... or just REALLY good at Photoshop! 🤔",
+                    "My friends take all the photos… I just exist in them! 📷",
+                    "These pics are historic artifacts. Mostly of me looking lost. 🏛️",
+                    "Every pic has a story. Most of them involve me not knowing where I am. 😂",
+                    "Imagine taking your own photos. Couldn't be me! 😎",
                   ]}
                   loop={true}
                   cursor
