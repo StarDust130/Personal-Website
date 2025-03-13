@@ -19,7 +19,7 @@ const MemoriesHero = () => {
            <div className="relative h-24 w-24  mx-auto mt-1 mb-8 group">
                 <div className="absolute inset-0 border-4 border-transparent rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 filter blur-xl" />
                 <Image
-                  src={"/duck.gif"}
+                  src={"/d.gif"}
                   alt="anime-girl"
                   width={300}
                   height={300}
