@@ -15,7 +15,6 @@ body {
   box-sizing: border-box;
 }
 
-
 body {
   user-select: none;
   -webkit-user-select: none;
@@ -238,14 +237,26 @@ body {
 }
 
 @keyframes border-pulse {
-  0% { border-color: rgba(0, 255, 255, 0.1); }
-  50% { border-color: rgba(0, 255, 255, 0.4); }
-  100% { border-color: rgba(0, 255, 255, 0.1); }
+  0% {
+    border-color: rgba(0, 255, 255, 0.1);
+  }
+  50% {
+    border-color: rgba(0, 255, 255, 0.4);
+  }
+  100% {
+    border-color: rgba(0, 255, 255, 0.1);
+  }
 }
 
 @keyframes confetti {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 @keyframes shine {
@@ -266,7 +277,7 @@ body {
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(255,255,255,0.2) 50%,
+    rgba(255, 255, 255, 0.2) 50%,
     transparent 100%
   );
   background-size: 200% auto;
@@ -274,11 +285,11 @@ body {
 }
 
 .font-mono {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 /* Input */
-/* From Uiverse.io by 0xnihilism */ 
+/* From Uiverse.io by 0xnihilism */
 .input {
   width: 100%;
   max-width: 270px;
@@ -484,4 +495,201 @@ body {
   font-weight: bold;
   letter-spacing: 1px;
   text-shadow: 0px 0px 0 #000;
+}
+
+.perspective {
+  perspective: 500px;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end);
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: "glitch";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: glitch-animation 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, 0);
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: 2px 0 #00ffff;
+  animation: glitch-animation 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  transform: translate(2px, 0);
+}
+
+.glitch-effect {
+  animation: glitch-offset 5s infinite alternate;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+.animate-shift-background {
+  background-size: 200% 200%;
+  animation: shiftBackground 3s ease infinite;
+}
+
+.animate-float-slow {
+  animation: floating 6s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floating 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floating 5s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-scroll {
+  animation: scrollDown 1.5s infinite;
+}
+
+.animate-pulse-delayed {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-pulse-more-delayed {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0.6s;
+}
+
+.letter-spacing-wider {
+  letter-spacing: 0.05em;
+}
+
+@keyframes shiftBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glitch-animation {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-offset {
+  0% {
+    transform: translate(-1px, 1px);
+  }
+  25% {
+    transform: translate(1px, -1px);
+  }
+  50% {
+    transform: translate(-1px, -1px);
+  }
+  75% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(-1px, 1px);
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
