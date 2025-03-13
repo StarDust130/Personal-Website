@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Explore = () => {
   return (
-    <section id="explore" className="py-16 bg-[#080808]">
+    <section id="explore" className="py-16 ">
       <div className="mx-auto max-w-screen-xl px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -53,7 +53,7 @@ const Explore = () => {
                   <Image
                     alt={item.title}
                     src={item.image}
-                    className="absolute inset-0 object-cover brightness-110 transition-transform duration-300 group-hover:scale-110"
+                    className="absolute inset-0 object-cover brightness-110 transition-transform duration-300 group-hover:scale-105"
                     fill
                     quality={100}
                     priority
