@@ -35,11 +35,11 @@ const Hero = () => {
   return (
     <div
       ref={heroRef}
-      className="relative w-full min-h-screen overflow-hidden bg-black"
+      className="relative w-full min-h-screen overflow-hidden"
     >
       {/* Mobile-optimized 3D Grid with parallax */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute w-full h-full bg-black overflow-hidden perspective">
+        <div className="absolute w-full h-full  overflow-hidden perspective">
           <div
             className="absolute w-[200%] h-[200%] top-[-50%] left-[-50%]"
             style={{
@@ -57,7 +57,7 @@ const Hero = () => {
 
       {/* Optimized neon circles for mobile */}
       <div
-        className="absolute -top-20 right-0 w-64 h-64 rounded-full bg-purple-600/20 blur-3xl animate-float-slow opacity-60 md:opacity-80 md:top-1/4 md:left-1/4"
+        className="absolute -top-20 right-0 w-64 h-64 rounded-full  blur-3xl animate-float-slow opacity-60 md:opacity-80 md:top-1/4 md:left-1/4"
         style={{
           transform: `translate(${(mouseX - 0.5) * -20}px, ${
             (mouseY - 0.5) * -20
