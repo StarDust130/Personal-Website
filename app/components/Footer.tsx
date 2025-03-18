@@ -4,19 +4,16 @@ import Image from "next/image";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const handleLogoClick = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="py-10 bg-black z-20 rounded-t-3xl text-white border-t border-gray-700">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex justify-center sm:justify-start">
             {/* Replace Link with an anchor that uses our click handler */}
-            <a onClick={handleLogoClick} className="cursor-pointer">
+            <a
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="cursor-pointer"
+            >
               <Image src="/icon.png" alt="logo" width={50} height={50} />
             </a>
           </div>
