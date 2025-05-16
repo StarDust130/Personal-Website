@@ -16,25 +16,19 @@ const Explore = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           {[
-            // {
-            //   title: "🌟 Memories",
-            //   desc: "Laughs, nostalgia, and epic stories.",
-            //   image: "/anime-girl-2.jpg",
-            //   url: "/memories#hero",
-            // },
-            {
-              title: "❓ Quiz",
-              desc: "Do you really know me? Prove it! 🧐",
-              image: "/anime-girl-3.jpg",
-              url: "/quiz#hero",
-            },
             {
               title: "💼 Work",
               desc: "Building cool stuff, one line at a time.",
               image: "/anime-girl-4.jpg",
               url: "/work",
+            },
+            {
+              title: "❓ Quiz",
+              desc: "Do you really know me? Prove it! 🧐",
+              image: "/anime-girl-3.jpg",
+              url: "/quiz#hero",
             },
             {
               title: "💗 Likes",
@@ -49,7 +43,7 @@ const Explore = () => {
             >
               <Link href={item.url}>
                 {/* Image */}
-                <div className="relative h-56 sm:h-64">
+                <div className="relative h-56 w-full sm:h-64">
                   <Image
                     alt={item.title}
                     src={item.image}
