@@ -19,12 +19,12 @@ const Explore = () => {
         {/* Cards Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            {
-              title: "🌟 Mahi Speacil",
-              desc: "Just my pics. Don't take screenshots or send them to anyone, dude.",
-              image: "/anime-girl-2.jpg",
-              url: "/memories#hero",
-            },
+            // {
+            //   title: "🌟 Mahi Speacil",
+            //   desc: "Just my pics. Don't take screenshots or send them to anyone, dude.",
+            //   image: "/anime-girl-2.jpg",
+            //   url: "/memories#hero",
+            // },
             {
               title: "❓ Quiz",
               desc: "Do you really know me? Prove it! 🧐",
