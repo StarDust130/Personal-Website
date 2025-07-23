@@ -31,17 +31,36 @@ const Memories = () => {
     // <div className="flex flex-col w-full min-h-screen bg-black text-white">
     //   {/* <MemoriesPage /> */}
     // </div>
-    <div className="flex flex-col items-center justify-center w-full min-h-screen bg-black text-white space-y-6">
-      <h1 className="text-3xl md:text-5xl font-bold text-center">
-        📚 Study Hard, LEVEL 7 Baddie 😉💙
+    <div className="flex flex-col w-full min-h-screen bg-black text-white px-4 py-6 space-y-5">
+      {/* Flirty Anime Girl Avatar */}
+      <div className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mt-2 group">
+        <div className="absolute inset-0  blur-xl opacity-40 animate-pulse" />
+        <Image
+          src="/d.gif"
+          alt="anime-girl"
+          width={300}
+          height={300}
+          className="mx-auto rounded-full w-72 sm:w-80 md:w-[30vw]  transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
+        />
+      </div>
+
+      {/* Funny Flirty Gen Z Heading */}
+      <h1 className="text-center text-lg sm:text-2xl font-semibold">
+        😤 Study hard, Level 7 Baddie 😏💋
+        <br />
       </h1>
+
+      {/* Vibe GIF */}
       <Image
-        src={"https://c.tenor.com/7fzWR4STioAAAAAC/tenor.gif"}
-        alt="Study Hard Baddie"
-        height={500}
-        width={500}
-        className="rounded-2xl shadow-lg"
+        src="https://c.tenor.com/7fzWR4STioAAAAAC/tenor.gif"
+        alt="Study Mood"
+        height={400}
+        width={400}
+        className="rounded-xl mx-auto shadow-md max-w-[90%] sm:max-w-xs"
       />
+      <span className="text-xs text-center">
+        Oops 😳 You weren&apos;t supposed to see that… or were you? 💅👀
+      </span>
     </div>
   );
 };
