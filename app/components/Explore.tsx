@@ -19,8 +19,8 @@ const Explore = () => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
-              title: "🌟 Memories",
-              desc: "Laughs, nostalgia, and epic stories.",
+              title: "🌟 Mahi Speacil",
+              desc: "Just my pics. Don't take screenshots or send them to anyone, dude.",
               image: "/anime-girl-2.jpg",
               url: "/memories#hero",
             },
