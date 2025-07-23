@@ -35,11 +35,9 @@ const Memories = () => {
       {/* Flirty Anime Girl Avatar */}
       <div className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mt-2 group">
         <div className="absolute inset-0  blur-xl opacity-40 animate-pulse" />
-        <Image
+        <img
           src="/d.gif"
           alt="anime-girl"
-          width={300}
-          height={300}
           className="mx-auto rounded-full w-72 sm:w-80 md:w-[30vw]  transition-transform duration-300 hover:scale-110 cursor-pointer z-10 relative"
         />
       </div>
