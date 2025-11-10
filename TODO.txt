@@ -1,0 +1,45 @@
+        {/* TRAVEL */}
+        <section id="travel" className="relative">
+          <SectionHeader
+            title="Travel 🌍"
+            subtitle="Before 25, I want to travel all across India 🇮🇳 and then the world 🌎. My fav dream place is Japan 🇯🇵. I love mountains 🏔️, peaceful nature, and India’s northeast (Sikkim 💚)."
+          />
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="relative mt-8 overflow-hidden rounded-2xl border border-white/10"
+          >
+            {/* Parallax-ish gradient waves */}
+            <div className="relative h-56 w-full bg-gradient-to-b from-sky-500/20 via-violet-500/10 to-fuchsia-500/20">
+              <div className="mountain layer-1" />
+              <div className="mountain layer-2" />
+              <div className="mountain layer-3" />
+              <div className="absolute inset-0 [background:radial-gradient(1000px_300px_at_50%_120%,rgba(255,255,255,0.08),transparent)]" />
+            </div>
+          </motion.div>
+        </section>
+
+
+        function SectionHeader({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      className="mx-auto max-w-3xl text-center"
+    >
+      <h2 className="text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">
+        {title}
+      </h2>
+      {subtitle && <p className="mt-3 text-neutral-300">{subtitle}</p>}
+    </motion.div>
+  );
+}
