@@ -635,7 +635,7 @@ export default function PageMain(): React.ReactElement {
               color="bg-red-500"
               stars="10"
               forks="2"
-              image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop"
+              image="/pro-1.png"
             />
             <ProjectCard
               index={1}
