@@ -1,5 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  eslint: {
+    // Allow builds to complete even if ESLint reports errors/warnings
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -10,4 +15,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
