@@ -155,7 +155,7 @@ export default function PageMain(): React.ReactElement {
             </div>
             <div className="flex flex-col overflow-hidden">
               <span className="font-mono text-xs md:text-sm uppercase tracking-widest font-bold leading-none whitespace-nowrap truncate max-w-[150px] md:max-w-none">
-                Chandrashekhar Y
+                Chandrashekhar
               </span>
               <span className="font-mono text-[10px] text-gray-500 uppercase leading-none mt-1 hidden sm:block">
                 Full Stack Developer
@@ -248,7 +248,7 @@ export default function PageMain(): React.ReactElement {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="bg-red-600 text-white px-3 py-1 font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest transform -rotate-2 border border-black shadow-sm flex items-center gap-2">
-                    <CheckCircle size={12} /> Ready to Hire
+                    <CheckCircle size={12} /> Ready to Work ✌️
                   </span>
                   <div className="h-[2px] flex-grow bg-black relative">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full"></div>
@@ -326,7 +326,7 @@ export default function PageMain(): React.ReactElement {
                   <div className="absolute inset-0 w-full h-full">
                     <Image
                       src={heroImages[0]}
-                      alt="Chandrashekhar Y"
+                      alt="Chandrashekhar"
                       fill
                       priority
                       sizes="(min-width: 1024px) 520px, (min-width: 768px) 480px, 100vw"
@@ -343,7 +343,7 @@ export default function PageMain(): React.ReactElement {
 
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-white pt-24">
                       <h3 className="text-3xl md:text-4xl font-display font-bold mb-1 uppercase">
-                        Chandrashekhar Y
+                        Chandrashekhar
                       </h3>
                       <div className="flex items-center gap-3">
                         <span className="font-mono text-[10px] bg-red-600 text-white px-2 py-0.5 font-bold">
@@ -371,7 +371,7 @@ export default function PageMain(): React.ReactElement {
           </div>
         </div>
 
-        <Marquee text="CHANDRASHEKHAR Y • FULL STACK DEV • REACT NATIVE • UI/UX DESIGN • READY TO WORK •" />
+        <Marquee text="Chandrashekhar • FULL STACK DEV • REACT NATIVE • UI/UX DESIGN • READY TO WORK •" />
       </header>
 
       <section
@@ -416,7 +416,7 @@ export default function PageMain(): React.ReactElement {
                   trust builds business.&quot;
                 </p>
                 <div className="mt-2 font-bold text-right text-red-600">
-                  — Chandrashekhar Y
+                  — Chandrashekhar
                 </div>
               </div>
             </div>
@@ -458,7 +458,10 @@ export default function PageMain(): React.ReactElement {
                 </p>
               </BentoCard>
 
-              <BentoCard className="col-span-2 hover:bg-yellow-100 bg-[#f0f0f0]" delay={0.4}>
+              <BentoCard
+                className="col-span-2 hover:bg-yellow-100 bg-[#f0f0f0]"
+                delay={0.4}
+              >
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-xl font-bold font-display uppercase">
                     Core Systems
@@ -919,7 +922,7 @@ export default function PageMain(): React.ReactElement {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
               <h4 className="text-3xl md:text-4xl font-black font-display uppercase mb-6">
-                Chandrashekhar Y
+                Chandrashekhar
               </h4>
               <p className="font-serif italic text-gray-400 max-w-sm text-lg">
                 Building the web one component at a time. Honest work, clean
@@ -1009,7 +1012,7 @@ export default function PageMain(): React.ReactElement {
           </div>
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-mono uppercase tracking-widest text-gray-500">
-            <span>© 2024 Chandrashekhar Y</span>
+            <span>© 2024 Chandrashekhar</span>
             <span className="mt-2 md:mt-0 flex items-center gap-2">
               Next.js <span className="text-red-600">✦</span> React{" "}
               <span className="text-red-600">✦</span> Tailwind

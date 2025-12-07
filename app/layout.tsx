@@ -14,7 +14,7 @@ const geistSans = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: "Chandrashekhar Yadav",
+  title: "Chandrashekharadav",
   description:
     "Official website of Chandrashekhar, a passionate developer, dreamer, and future startup founder.",
   keywords: "Chandrashekhar, web developer, frontend, startup, programmer",

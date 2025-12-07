@@ -521,7 +521,7 @@ export default function ProjectPage() {
             </div>
             <div className="flex flex-col overflow-hidden">
               <span className="font-mono text-xs md:text-sm uppercase tracking-widest font-bold leading-none">
-                Chandrashekhar Y
+                Chandrashekhar
               </span>
               <span className="font-mono text-[10px] text-gray-500 uppercase leading-none mt-1 hidden sm:block">
                 Project Archives{" "}
@@ -530,36 +530,42 @@ export default function ProjectPage() {
             </div>
           </Link>
 
-            <div className="hidden md:flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest">
-              <Link
+          <div className="hidden md:flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest">
+            <Link
               href="/"
               className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-white hover:bg-yellow-300 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5"
-              >
+            >
               <span className="relative">
                 Home
                 <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 origin-left transition-transform" />
               </span>
-              </Link>
+            </Link>
 
-              <Link
+            <Link
               href="https://github.com/StarDust130"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-gradient-to-r from-black to-gray-800 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(220,38,38,1)]"
-              >
+            >
               <span>GitHub</span>
-              <Github size={14} className="group-hover:scale-110 transition-transform" />
-              </Link>
+              <Github
+                size={14}
+                className="group-hover:scale-110 transition-transform"
+              />
+            </Link>
 
-              <Link
+            <Link
               target="_blank"
               href="mailto:csyadav0513@gmail.com"
               className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-red-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-black hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
-              >
+            >
               <span>Let&apos;s Talk</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+              <ArrowRight
+                size={14}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </Link>
+          </div>
 
           <button
             className="md:hidden p-2 z-50 hover:bg-black hover:text-white transition-colors border-2 border-transparent hover:border-black"
@@ -975,7 +981,7 @@ export default function ProjectPage() {
               </span>
             </div>
             <h4 className="font-display font-black text-3xl uppercase tracking-tight">
-              Chandrashekhar Y
+              Chandrashekhar
             </h4>
             <p className="font-mono text-xs text-gray-500 mt-2 max-w-xs mx-auto md:mx-0">
               Full Stack Developer • India • React • Next.js • Design Engineer
@@ -1005,7 +1011,7 @@ export default function ProjectPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-          <span>© 2024 Chandrashekhar Y</span>
+          <span>© 2024 Chandrashekhar</span>
           <span>Built with React & Tailwind</span>
         </div>
       </footer>
