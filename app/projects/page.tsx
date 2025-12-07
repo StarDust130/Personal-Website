@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import {
   motion,
   useScroll,
@@ -30,8 +31,20 @@ import {
   Mail,
 } from "lucide-react";
 
+// --- Types ---
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  stack: string[];
+  image: string;
+  stars: number;
+  forks: number;
+  category: string;
+}
+
 // --- Mock Data for Projects ---
-const PROJECTS = [
+const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Neon Nexus",
@@ -109,12 +122,12 @@ const PROJECTS = [
 // --- Reusable Components ---
 
 const CustomCursor = () => {
-  const cursorRef = useRef(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Only enable custom cursor on non-touch devices
     if (window.matchMedia("(pointer: fine)").matches) {
-      const moveCursor = (e) => {
+      const moveCursor = (e: MouseEvent) => {
         if (cursorRef.current) {
           cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         }
@@ -140,11 +153,16 @@ const Spotlight = () => {
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
-    const handleMouseMove = ({ clientX, clientY }) => {
+    if (!window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
+    const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
       mouseX.set(clientX);
       mouseY.set(clientY);
     };
-    window.addEventListener("mousemove", handleMouseMove);
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
@@ -164,9 +182,15 @@ const Spotlight = () => {
   );
 };
 
-const HoverLink = ({ children, href }) => {
+const HoverLink = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => {
   return (
-    <a
+    <Link
       href={href}
       className="relative block overflow-hidden group hover:text-red-600 transition-colors duration-300"
     >
@@ -176,11 +200,11 @@ const HoverLink = ({ children, href }) => {
       <span className="absolute top-0 left-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-red-600 font-black">
         {children}
       </span>
-    </a>
+    </Link>
   );
 };
 
-const GlitchText = ({ text }) => {
+const GlitchText = ({ text }: { text: string }) => {
   return (
     <div className="relative group inline-block">
       <span className="relative z-10">{text}</span>
@@ -194,75 +218,91 @@ const GlitchText = ({ text }) => {
   );
 };
 
-const TiltCard = React.forwardRef(({ children, className }, ref) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+interface TiltCardProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
-  const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
-  const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
+const TiltCard = React.forwardRef<HTMLDivElement, TiltCardProps>(
+  ({ children, className }, ref) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-8deg", "8deg"]);
+    const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
+    const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseXFromCenter = e.clientX - rect.left - width / 2;
-    const mouseYFromCenter = e.clientY - rect.top - height / 2;
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["8deg", "-8deg"]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-8deg", "8deg"]);
 
-    x.set(mouseXFromCenter / width);
-    y.set(mouseYFromCenter / height);
-  };
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const mouseXFromCenter = e.clientX - rect.left - width / 2;
+      const mouseYFromCenter = e.clientY - rect.top - height / 2;
 
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+      x.set(mouseXFromCenter / width);
+      y.set(mouseYFromCenter / height);
+    };
 
-  const [isMobile, setIsMobile] = useState(false);
+    const handleMouseLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
 
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const [isMobile, setIsMobile] = useState(false);
 
-  if (isMobile) {
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    if (isMobile) {
+      return (
+        <div ref={ref} className={className}>
+          <div className="h-full w-full">{children}</div>
+        </div>
+      );
+    }
+
     return (
-      <div ref={ref} className={className}>
-        <div className="h-full w-full">{children}</div>
-      </div>
+      <motion.div
+        ref={ref}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className={`perspective-1000 ${className}`}
+      >
+        <div
+          className="h-full w-full"
+          style={{ transform: "translateZ(20px)" }}
+        >
+          {children}
+        </div>
+      </motion.div>
     );
   }
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`perspective-1000 ${className}`}
-    >
-      <div className="h-full w-full" style={{ transform: "translateZ(20px)" }}>
-        {children}
-      </div>
-    </motion.div>
-  );
-});
+);
 
 TiltCard.displayName = "TiltCard";
 
-const TypewriterText = ({ text, delay = 0 }) => {
+const TypewriterText = ({
+  text,
+  delay = 0,
+}: {
+  text: string;
+  delay?: number;
+}) => {
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
-    let timeout;
+    let timeout: NodeJS.Timeout;
     const startTimeout = setTimeout(() => {
       let currentIndex = 0;
       const typeChar = () => {
@@ -289,9 +329,9 @@ const AnimatedCodeBlock = () => {
   const [code, setCode] = useState("");
   const fullCode = `const Developer = {
   name: "Chandrashekhar",
-  role: "Full Stack Architect",
-  focus: "Building Scalable UI",
-  stack: ["React", "Next.js", "Node"],
+  role: "Full Stack Developer 😇",
+  focus: "Building Scalable Apps",
+  stack: ["Next.js", "React", "AI Integration", "Node"],
   status: "Available for hire",
   init: function() {
     return this.createValue();
@@ -318,50 +358,31 @@ const AnimatedCodeBlock = () => {
         <div className="w-3 h-3 bg-yellow-400 border border-black"></div>
       </div>
       <pre className="mt-4 whitespace-pre-wrap text-gray-800 leading-relaxed">
-        <span className="text-red-600 font-bold">const</span> Developer = {"{"}
-        <br />
         {code}
         <span className="animate-pulse inline-block w-2 h-4 bg-black align-middle ml-1" />
-        <br />
-        {"};"}
       </pre>
     </div>
   );
 };
 
-const MagneticButton = ({ children, href, className }) => {
-  const ref = useRef(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 150, damping: 15 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-    x.set(clientX - centerX);
-    y.set(clientY - centerY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
+const MagneticButton = ({
+  children,
+  href,
+  className,
+}: {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}) => {
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
   return (
-    <motion.a
-      ref={ref}
+    <a
       href={href}
-      target="_blank"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: springX, y: springY }}
+      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
       className={className}
     >
       {children}
-    </motion.a>
+    </a>
   );
 };
 
@@ -378,7 +399,7 @@ export default function ProjectPage() {
   useEffect(() => {
     const handleScroll = () =>
       setScrolled(typeof window !== "undefined" && window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -391,7 +412,7 @@ export default function ProjectPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#e5e5e5] text-black font-sans selection:bg-red-600 selection:text-white overflow-x-hidden cursor-none relative perspective-1000">
+    <div className="min-h-screen bg-[#e5e5e5] text-black font-sans selection:bg-red-600 selection:text-white overflow-x-hidden relative perspective-1000">
       <CustomCursor />
       <Spotlight />
 
@@ -426,10 +447,14 @@ export default function ProjectPage() {
           scrolled
             ? "bg-white/90 backdrop-blur-md py-2 shadow-lg"
             : "bg-[#e5e5e5]/80 backdrop-blur-sm py-4"
-        }`}
+        } ${isMenuOpen ? "opacity-0 pointer-events-none hidden" : ""}`}
+        aria-hidden={isMenuOpen}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-3 group cursor-pointer">
+          <Link
+            href="/"
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <div className="w-10 h-10 bg-black text-white flex items-center justify-center font-black font-serif text-xl group-hover:bg-red-600 transition-colors border-2 border-transparent group-hover:border-black shrink-0 relative overflow-hidden">
               <span className="relative z-10">CY</span>
               <div className="absolute inset-0 bg-red-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
@@ -443,25 +468,25 @@ export default function ProjectPage() {
                 <span className="text-red-600 animate-pulse">●</span>
               </span>
             </div>
-          </a>
+          </Link>
 
           <div className="hidden md:flex gap-8 font-mono text-xs font-bold uppercase tracking-widest items-center">
-            <HoverLink href="#">Home</HoverLink>
-            <div className="flex items-center gap-1 text-red-600">
-              <Terminal size={12} /> <HoverLink href="#">Projects</HoverLink>
-            </div>
-            <a
+            <HoverLink href="/">Home</HoverLink>
+            <Link
               href="https://github.com/StarDust130"
               target="_blank"
+              rel="noreferrer"
               className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-transparent hover:text-black transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(220,38,38,1)]"
             >
               GitHub <Github size={14} />
-            </a>
+            </Link>
           </div>
 
           <button
             className="md:hidden p-2 z-50 hover:bg-black hover:text-white transition-colors border-2 border-transparent hover:border-black"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -475,22 +500,23 @@ export default function ProjectPage() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center md:hidden border-l-4 border-black"
+            className="fixed inset-0 bg-white z-[70] flex flex-col items-center justify-center md:hidden border-l-4 border-black"
           >
+            <button
+              className="absolute top-4 right-4 p-2 border-2 border-black hover:bg-black hover:text-white transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
             <div className="flex flex-col gap-8 text-center font-display font-black text-3xl uppercase">
-              <a href="#" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 Home
-              </a>
-              <a
-                href="#"
-                className="text-red-600"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Projects
-              </a>
+              </Link>
               <a
                 href="https://github.com/StarDust130"
                 target="_blank"
+                rel="noreferrer"
                 className="text-base font-mono bg-black text-white px-6 py-3"
               >
                 GitHub Profile
@@ -635,25 +661,17 @@ export default function ProjectPage() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-widest border-2 transition-all relative overflow-hidden group ${
+                className={`px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-widest border-2 transition-all whitespace-nowrap ${
                   filter === cat
                     ? "bg-black text-white border-black transform -translate-y-1 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)]"
                     : "bg-white text-black border-black hover:bg-gray-100"
                 }`}
               >
-                <span className="relative z-10">{cat}</span>
-                {filter !== cat && (
-                  <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-                )}
-                {filter !== cat && (
-                  <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 delay-100">
-                    {cat}
-                  </span>
-                )}
+                <span>{cat}</span>
               </button>
             ))}
           </div>
-          <div className="ml-auto hidden md:flex items-center gap-2 text-xs font-mono text-gray-500 border border-gray-400 px-3 py-1 rounded-full bg-white">
+          <div className="ml-auto hidden md:flex items-center gap-2 text-xs font-mono text-gray-500 border border-gray-400 px-3 py-1 rounded-full bg-white whitespace-nowrap">
             <Terminal size={14} className="text-green-600" />
             <span>{filteredProjects.length} PROJECTS</span>
           </div>
@@ -701,6 +719,8 @@ export default function ProjectPage() {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out"
                       />
 
@@ -785,41 +805,77 @@ export default function ProjectPage() {
       {/* Massive CTA Section */}
       <section className="py-20 md:py-32 bg-[#e5e5e5] border-t-2 border-black relative overflow-hidden group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-30 pointer-events-none mix-blend-multiply"></div>
+
+        {/* New "Horizon Grid" Animation Background - Replaces Marquee */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none perspective-1000 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#e5e5e5] to-transparent z-10"></div>
+          <motion.div
+            className="absolute inset-0 bg-[size:50px_50px] [background-image:linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)]"
+            style={{
+              transform: "rotateX(60deg) scale(2)",
+              transformOrigin: "50% 100%",
+            }}
+            animate={{
+              backgroundPosition: ["0px 0px", "0px 100px"],
+            }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 2,
+            }}
+          />
+        </div>
+
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-50"></div>
 
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
           <div className="inline-block border-2 border-red-600 text-red-600 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.3em] mb-10 animate-pulse bg-red-50">
-            ● Contact
+            ● Incoming Transmission
           </div>
 
-          <h2 className="text-4xl md:text-7xl font-black font-display uppercase mb-12 leading-none">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-8xl font-black font-display uppercase mb-12 leading-none relative"
+          >
             Have an idea?
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-black animate-gradient-x">
-              Let's Build It.
-            </span>
-          </h2>
+            <div className="relative inline-block mt-2">
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-black">
+                Let's Build It.
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-2 md:h-4 bg-black origin-left"></span>
+            </div>
+          </motion.h2>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="flex flex-col md:flex-row items-center justify-center gap-6"
+          >
             <MagneticButton
-              href="mailto:hello@example.com"
-              className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 md:px-10 md:py-6 text-lg md:text-xl font-mono font-bold uppercase border-2 border-black hover:bg-black hover:text-white transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+              href="mailto:csyadav0513@gmail.com"
+              className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-mono font-bold uppercase border-4 border-black hover:bg-black hover:text-white transition-colors duration-200 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
             >
-              <Mail className="w-6 h-6" />
-              <span>Email Me</span>
+              <Mail className="w-6 h-6 md:w-8 md:h-8" />
+              <span>Let&apos;s Talk</span>
             </MagneticButton>
 
             <MagneticButton
               href="https://github.com/StarDust130"
-              className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 md:px-10 md:py-6 text-lg md:text-xl font-mono font-bold uppercase border-2 border-transparent hover:bg-red-600 transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(220,38,38,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+              className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-mono font-bold uppercase border-4 border-transparent hover:bg-red-600 hover:border-black transition-colors duration-200 shadow-[6px_6px_0px_0px_rgba(220,38,38,1)]"
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-6 h-6 md:w-8 md:h-8" />
               <span>GitHub</span>
-              <ExternalLink className="w-4 h-4 opacity-50" />
+              <ExternalLink className="w-5 h-5 opacity-50" />
             </MagneticButton>
-          </div>
+          </motion.div>
 
-          <p className="mt-12 font-mono text-xs text-gray-500 uppercase tracking-[0.2em]">
+          <p className="mt-16 font-mono text-xs md:text-sm text-gray-500 uppercase tracking-[0.2em]">
             // Available for freelance & full-time roles
           </p>
         </div>
