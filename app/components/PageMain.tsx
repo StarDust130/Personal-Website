@@ -175,6 +175,20 @@ export default function PageMain(): React.ReactElement {
               </a>
             ))}
             <Link
+              href="/fun"
+              className="relative hover:text-red-600 transition-colors group py-2"
+            >
+              Fun
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link
+              href="/projects"
+              className="relative hover:text-red-600 transition-colors group py-2"
+            >
+              Projects
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link
               target="_blank"
               href="mailto:csyadav0513@gmail.com"
               className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-red-600 hover:border-red-600 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
@@ -215,6 +229,20 @@ export default function PageMain(): React.ReactElement {
                   {item}
                 </motion.a>
               ))}
+              <Link
+                href="/fun"
+                className="relative hover:text-red-600 transition-colors group py-2"
+              >
+                Fun
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+              <Link
+                href="/projects"
+                className="relative hover:text-red-600 transition-colors group py-2"
+              >
+                Projects
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+              </Link>
               <motion.a
                 href="mailto:csyadav0513@gmail.com"
                 initial={{ opacity: 0, y: 20 }}
@@ -223,11 +251,11 @@ export default function PageMain(): React.ReactElement {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-red-600 underline decoration-2 underline-offset-4"
               >
-                Let&quot;s Talk
+                Let's Talk
               </motion.a>
             </div>
             <div className="absolute bottom-10 text-xs font-mono uppercase tracking-widest text-gray-400">
-              System Status: Online
+              System Status: <span className="text-green-500 animate-pulse font-bold">Online</span>
             </div>
           </motion.div>
         )}
