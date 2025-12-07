@@ -433,7 +433,7 @@ export default function PageMain(): React.ReactElement {
                   </span>
                 </div>
                 <h3 className="text-5xl font-black font-display text-black mb-1">
-                  {githubStats.repos !== null ? githubStats.repos : "100"}
+                  {githubStats.repos !== null ? githubStats.repos : "100 +"}+
                 </h3>
                 <p className="font-mono text-black text-xs uppercase tracking-widest ">
                   Public Repositories
