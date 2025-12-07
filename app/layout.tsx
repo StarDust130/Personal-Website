@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import FloatingDots from "./components/FloatingDots";
 import { ShootingStars } from "@/components/ui/shooting-stars";
-import Footer from "./components/Footer";
 import BgSvg from "./components/BgSvg";
 
 const geistSans = Spectral({
@@ -37,8 +35,6 @@ export const metadata: Metadata = {
   },
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,7 +47,6 @@ export default function RootLayout({
           id="hero"
           className="   shadow-glow-purple  min-h-screen w-full flex flex-col font-inter relative"
         >
-          {/* <Navbar /> */}
           {children}
           <Analytics />
           <BgSvg />
