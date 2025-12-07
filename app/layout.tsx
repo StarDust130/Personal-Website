@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import FloatingDots from "./components/FloatingDots";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import BgSvg from "./components/BgSvg";
+import { displayFont, monoFont, serifFont } from "./fonts";
 
 const geistSans = Spectral({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased h-full`}>
+      <body
+        className={`${geistSans.className} ${displayFont.variable} ${serifFont.variable} ${monoFont.variable} antialiased h-full`}
+      >
         <main
           id="hero"
           className="   shadow-glow-purple  min-h-screen w-full flex flex-col font-inter relative"

@@ -75,6 +75,9 @@ export default function PageMain(): React.ReactElement {
     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop",
   ];
 
+  const heroBlurData =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Crect width='10' height='10' fill='%23e5e5e5'/%3E%3C/svg%3E";
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
@@ -135,31 +138,6 @@ export default function PageMain(): React.ReactElement {
       <CustomCursor />
       <CyberGrid />
       <BackToTop />
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .font-display { font-family: 'Cinzel', serif; }
-        .font-mono { font-family: 'Space Grotesk', monospace; }
-        .bg-grid-pattern {
-          background-image: linear-gradient(to right, #e5e5e5 1px, transparent 1px),
-                            linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-        .text-stroke-sm {
-          -webkit-text-stroke: 1px black;
-          color: transparent;
-        }
-        .manga-shadow {
-          box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-        }
-        .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-      `}</style>
 
       <div className="noise-overlay"></div>
 
@@ -292,7 +270,7 @@ export default function PageMain(): React.ReactElement {
                   </span>
                 </div>
 
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-display font-black leading-[0.9] tracking-tighter mb-8 relative group cursor-default">
+                <h1 className="md:text-7xl lg:text-8xl  font-display font-black leading-[0.9] tracking-tighter mb-8 relative group cursor-default">
                   FULL STACK
                   <br />
                   <span className="text-stroke-sm relative text-transparent bg-clip-text bg-gradient-to-b from-black to-black/80 group-hover:text-red-600 transition-all duration-300">
@@ -368,9 +346,11 @@ export default function PageMain(): React.ReactElement {
                       <Image
                         src={heroImages[currentHeroImage]}
                         alt="Chandrashekhar Y"
-                        loading="eager"
-                        width={100}
-                        height={100}
+                        fill
+                        priority={currentHeroImage === 0}
+                        sizes="(min-width: 1024px) 520px, (min-width: 768px) 480px, 100vw"
+                        placeholder="blur"
+                        blurDataURL={heroBlurData}
                         className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
                         onError={(e) => {
                           const img = e.currentTarget;

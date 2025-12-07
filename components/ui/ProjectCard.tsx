@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, GitFork } from "lucide-react";
+import Image from "next/image";
 const ProjectCard = ({
   title,
   category,
@@ -19,10 +20,14 @@ const ProjectCard = ({
       <div
         className={`absolute top-0 left-0 w-full h-full ${color} opacity-20 z-10 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-300`}
       ></div>
-      <img
+      <Image
         src={image}
         alt={title}
-        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        placeholder="blur"
+        blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
       />
       <div className="absolute top-2 right-2 z-20">
         <span className="font-mono text-[10px] bg-black text-white px-2 py-1 font-bold uppercase tracking-widest border border-white">
