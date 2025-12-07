@@ -23,15 +23,10 @@ import {
   CheckCircle,
   Menu,
   X,
-  ArrowUp,
-  Linkedin,
-  Instagram,
   Activity,
   GitCommit,
-  Users,
   Monitor,
   Smartphone,
-  Database,
 } from "lucide-react";
 
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -43,6 +38,8 @@ import BentoCard from "@/components/ui/BentoCard";
 import SkillRow from "@/components/ui/SkillRow";
 import ProjectCard from "@/components/ui/ProjectCard";
 import ServiceCard from "@/components/ui/ServiceCard";
+import Link from "next/link";
+import Image from "next/image";
 
 type GithubStats = { repos: number | null; followers: number | null };
 
@@ -214,7 +211,7 @@ export default function PageMain(): React.ReactElement {
               href="mailto:csyadav0513@gmail.com"
               className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-red-600 hover:border-red-600 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
-              Let's Talk <ArrowRight size={14} />
+              Let&quot;s Talk <ArrowRight size={14} />
             </a>
           </div>
 
@@ -258,7 +255,7 @@ export default function PageMain(): React.ReactElement {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-red-600 underline decoration-2 underline-offset-4"
               >
-                Let's Talk
+                Let&quot;s Talk
               </motion.a>
             </div>
             <div className="absolute bottom-10 text-xs font-mono uppercase tracking-widest text-gray-400">
@@ -303,9 +300,9 @@ export default function PageMain(): React.ReactElement {
                 </h1>
 
                 <p className="font-serif italic text-lg md:text-2xl leading-relaxed max-w-xl mb-10 border-l-4 border-red-600 pl-6 text-gray-800 bg-white/50 backdrop-blur-sm py-2">
-                  "I craft high-performance web experiences. Clean code, modern
-                  design, and ready to scale. Let's build something
-                  extraordinary together."
+                  &quot;I craft high-performance web experiences. Clean code,
+                  modern design, and ready to scale. Let&apos;s build something
+                  extraordinary together.&quot;
                 </p>
 
                 <div className="flex flex-wrap gap-4">
@@ -323,7 +320,7 @@ export default function PageMain(): React.ReactElement {
                     href="mailto:csyadav0513@gmail.com"
                     className="bg-white text-black border-2 border-black px-6 md:px-8 py-3 md:py-4 font-mono font-bold uppercase hover:bg-yellow-400 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center gap-2 text-sm md:text-base"
                   >
-                    <Mail size={16} /> Let's Talk
+                    <Mail size={16} /> Let&apos;s Talk
                   </a>
                 </div>
               </motion.div>
@@ -367,10 +364,12 @@ export default function PageMain(): React.ReactElement {
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute inset-0 w-full h-full"
                     >
-                      <img
+                      <Image
                         src={heroImages[currentHeroImage]}
                         alt="Chandrashekhar Y"
                         loading="eager"
+                        width={100}
+                        height={100}
                         className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
                         onError={(e) => {
                           const img = e.currentTarget;
@@ -462,8 +461,8 @@ export default function PageMain(): React.ReactElement {
                   size={48}
                 />
                 <p className="relative z-10">
-                  "I care about your success. Good code builds trust, and trust
-                  builds business."
+                  &quot;I care about your success. Good code builds trust, and
+                  trust builds business.&quot;
                 </p>
                 <div className="mt-2 font-bold text-right text-red-600">
                   — Chandrashekhar Y
@@ -648,14 +647,14 @@ export default function PageMain(): React.ReactElement {
               <p className="md:max-w-xs text-sm font-mono text-gray-500 mb-2">
                 Projects I built to learn and master modern web development.
               </p>
-              <a
+              <Link
                 href="https://github.com/StarDust130"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors"
+                className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors"
               >
                 <Github size={14} /> github.com/StarDust130
-              </a>
+              </Link>
             </div>
           </div>
 
