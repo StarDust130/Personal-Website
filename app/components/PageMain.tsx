@@ -175,13 +175,6 @@ export default function PageMain(): React.ReactElement {
               </a>
             ))}
             <Link
-              href="/fun"
-              className="relative hover:text-red-600 transition-colors group py-2"
-            >
-              Fun
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link
               href="/projects"
               className="relative hover:text-red-600 transition-colors group py-2"
             >
@@ -229,13 +222,6 @@ export default function PageMain(): React.ReactElement {
                   {item}
                 </motion.a>
               ))}
-              <Link
-                href="/fun"
-                className="relative hover:text-red-600 transition-colors group py-2"
-              >
-                Fun
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
-              </Link>
               <Link
                 href="/projects"
                 className="relative hover:text-red-600 transition-colors group py-2"
