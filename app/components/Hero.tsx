@@ -138,12 +138,11 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col md:flex-row justify-center w-full md:items-stretch gap-4 sm:gap-6">
-
             {/* Gen Z Style Content Section */}
             <div className="w-full  mt-0">
               <div className="  rounded-xl  ">
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  I love picking up new skills (when I&apos;m not 
+                  I love picking up new skills (when I&apos;m not
                   procrastination 😅), exploring{" "}
                   <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500 hover:from-purple-200 hover:to-purple-400 transition-all cursor-default">
                     mind-bending ideas
@@ -165,13 +164,18 @@ const Hero = () => {
 
         {/* Buttons Section */}
         <div className="flex  md:flex-row items-center w-full justify-center gap-4">
-          <Link href="mailto:csyadav0513@gmail.com" target="_blank">
-            <button className="button mt-3">
-              <div>
-                <span>Let&apos;s Chat 💬</span>
-              </div>
-            </button>
-          </Link>
+          <button
+            className="button mt-3"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.location.href = "mailto:csyadav0513@gmail.com";
+              }
+            }}
+          >
+            <div>
+              <span>Let&apos;s Chat 💬</span>
+            </div>
+          </button>
 
           <Link href="#explore">
             <button className="button mt-3">
