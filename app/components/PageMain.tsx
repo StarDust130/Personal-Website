@@ -241,7 +241,10 @@ export default function PageMain(): React.ReactElement {
               </motion.a>
             </div>
             <div className="absolute bottom-10 text-xs font-mono uppercase tracking-widest text-gray-400">
-              System Status: <span className="text-green-500 animate-pulse font-bold">Online</span>
+              System Status:{" "}
+              <span className="text-green-500 animate-pulse font-bold">
+                Online
+              </span>
             </div>
           </motion.div>
         )}
@@ -615,22 +618,23 @@ export default function PageMain(): React.ReactElement {
               <p className="md:max-w-xs text-sm font-mono text-gray-500 mb-2">
                 Projects I built to learn and master modern web development.
               </p>
-              <a
+              <Link
                 href="https://github.com/StarDust130"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors"
               >
                 <Github size={14} /> github.com/StarDust130
-              </a>
+              </Link>
+            
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard
               index={0}
-              title="Portfolio V1"
-              category="Next.js 14"
+              title="Sarathi AI"
+              category="Next.js 16"
               description="My first portfolio website built with modern technologies. Clean code structure and responsive design."
               color="bg-red-500"
               stars="10"
