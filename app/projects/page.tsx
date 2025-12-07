@@ -325,43 +325,103 @@ const TypewriterText = ({
 };
 
 // --- NEW ANIMATED CODE BLOCK (Brutalist Style) ---
+type CodeSegment = {
+  text: string;
+  className: string;
+};
+
+const codeSegments: CodeSegment[] = [
+  { text: "const", className: "text-red-600 font-semibold" },
+  { text: " Developer ", className: "text-blue-800" },
+  { text: "=", className: "text-gray-700" },
+  { text: " {", className: "text-gray-700" },
+  { text: "\n  name: ", className: "text-gray-800" },
+  { text: '"Chandrashekhar"', className: "text-emerald-700" },
+  { text: ",\n  role: ", className: "text-gray-800" },
+  { text: '"Full Stack Developer 😇"', className: "text-emerald-700" },
+  { text: ",\n  focus: ", className: "text-gray-800" },
+  { text: '"Building Scalable Apps"', className: "text-emerald-700" },
+  { text: ",\n  stack: [", className: "text-gray-800" },
+  { text: '"Next.js"', className: "text-emerald-700" },
+  { text: ", ", className: "text-gray-700" },
+  { text: '"React"', className: "text-emerald-700" },
+  { text: ", ", className: "text-gray-700" },
+  { text: '"AI Integration"', className: "text-emerald-700" },
+  { text: ", ", className: "text-gray-700" },
+  { text: '"Node"', className: "text-emerald-700" },
+  { text: "],\n  status: ", className: "text-gray-800" },
+  { text: '"Available for hire"', className: "text-emerald-700" },
+  {
+    text: ",\n  init: function() {\n    return this.createValue();\n  }\n};",
+    className: "text-gray-800",
+  },
+];
+
+const totalCodeLength = codeSegments.reduce(
+  (sum, segment) => sum + segment.text.length,
+  0
+);
+
 const AnimatedCodeBlock = () => {
-  const [code, setCode] = useState("");
-  const fullCode = `const Developer = {
-  name: "Chandrashekhar",
-  role: "Full Stack Developer 😇",
-  focus: "Building Scalable Apps",
-  stack: ["Next.js", "React", "AI Integration", "Node"],
-  status: "Available for hire",
-  init: function() {
-    return this.createValue();
-  }
-};`;
+  const getSegmentsUpTo = (count: number) => {
+    let remaining = count;
+    return codeSegments.map((segment) => {
+      if (remaining <= 0) {
+        return { ...segment, text: "" };
+      }
+      const visibleText = segment.text.slice(0, remaining);
+      remaining -= segment.text.length;
+      return { ...segment, text: visibleText };
+    });
+  };
+
+  const [visibleSegments, setVisibleSegments] = useState<CodeSegment[]>(() =>
+    getSegmentsUpTo(0)
+  );
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      setCode(fullCode.slice(0, i));
-      i++;
-      if (i > fullCode.length) clearInterval(interval);
-    }, 40);
+      i += 1;
+      setVisibleSegments(getSegmentsUpTo(i));
+      if (i >= totalCodeLength) clearInterval(interval);
+    }, 35);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative font-mono text-[10px] sm:text-xs md:text-sm bg-white border-2 border-black p-4 md:p-6 shadow-[8px_8px_0px_0px_rgba(220,38,38,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 w-full max-w-lg mx-auto">
-      <div className="absolute top-0 left-0 bg-black text-white px-2 py-1 text-[9px] font-bold uppercase tracking-widest border-b-2 border-r-2 border-black">
-        PROFILE.JS
+    <motion.div
+      whileHover={{ rotate: -0.3, translateY: -4 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      className="relative font-mono text-[10px] sm:text-xs md:text-sm bg-gradient-to-br from-white via-slate-50 to-slate-100 border border-slate-900/80 rounded-xl p-4 md:p-6 shadow-[10px_10px_0px_0px_rgba(220,38,38,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 w-full max-w-lg mx-auto overflow-hidden"
+    >
+      <div className="pointer-events-none absolute inset-0 rounded-xl bg-[radial-gradient(circle_at_20%_20%,rgba(220,38,38,0.14),transparent_38%),radial-gradient(circle_at_85%_10%,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_50%_90%,rgba(16,185,129,0.1),transparent_40%)]" />
+      <div className="pointer-events-none absolute inset-0 rounded-xl mix-blend-multiply opacity-10 [background-image:repeating-linear-gradient(transparent_0,transparent_12px,rgba(0,0,0,0.06)_12px,rgba(0,0,0,0.06)_14px)]" />
+      <div className="pointer-events-none absolute inset-0 rounded-xl border border-white/40 shadow-[0_24px_40px_-22px_rgba(0,0,0,0.7)]" />
+
+      <div className="relative z-10">
+        <div className="flex items-center justify-between">
+          <div className="bg-black text-white px-2 py-1 text-[9px] font-bold uppercase tracking-widest rounded-sm border border-black shadow-[4px_4px_0_rgba(0,0,0,0.7)]">
+            PROFILE.JS
+          </div>
+          <div className="flex items-center gap-2 text-[9px] font-semibold text-slate-700">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 bg-red-500 border border-black shadow-[2px_2px_0_rgba(0,0,0,0.6)]" />
+              <div className="w-3 h-3 bg-amber-300 border border-black shadow-[2px_2px_0_rgba(0,0,0,0.6)]" />
+            </div>
+          </div>
+        </div>
+
+        <pre className="mt-4 whitespace-pre-wrap text-gray-800 leading-relaxed">
+          {visibleSegments.map((segment, idx) => (
+            <span key={idx} className={segment.className}>
+              {segment.text}
+            </span>
+          ))}
+          <span className="animate-pulse inline-block w-2 h-4 bg-black align-middle ml-1" />
+        </pre>
       </div>
-      <div className="absolute top-3 right-3 flex gap-2">
-        <div className="w-3 h-3 bg-red-600 border border-black"></div>
-        <div className="w-3 h-3 bg-yellow-400 border border-black"></div>
-      </div>
-      <pre className="mt-4 whitespace-pre-wrap text-gray-800 leading-relaxed">
-        {code}
-        <span className="animate-pulse inline-block w-2 h-4 bg-black align-middle ml-1" />
-      </pre>
-    </div>
+    </motion.div>
   );
 };
 
@@ -470,17 +530,36 @@ export default function ProjectPage() {
             </div>
           </Link>
 
-          <div className="hidden md:flex gap-8 font-mono text-xs font-bold uppercase tracking-widest items-center">
-            <HoverLink href="/">Home</HoverLink>
-            <Link
+            <div className="hidden md:flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-widest">
+              <Link
+              href="/"
+              className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-white hover:bg-yellow-300 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5"
+              >
+              <span className="relative">
+                Home
+                <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 origin-left transition-transform" />
+              </span>
+              </Link>
+
+              <Link
               href="https://github.com/StarDust130"
               target="_blank"
               rel="noreferrer"
-              className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-transparent hover:text-black transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(220,38,38,1)]"
-            >
-              GitHub <Github size={14} />
-            </Link>
-          </div>
+              className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-gradient-to-r from-black to-gray-800 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(220,38,38,1)]"
+              >
+              <span>GitHub</span>
+              <Github size={14} className="group-hover:scale-110 transition-transform" />
+              </Link>
+
+              <Link
+              target="_blank"
+              href="mailto:csyadav0513@gmail.com"
+              className="group inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-red-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-black hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+              >
+              <span>Let&apos;s Talk</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
           <button
             className="md:hidden p-2 z-50 hover:bg-black hover:text-white transition-colors border-2 border-transparent hover:border-black"
