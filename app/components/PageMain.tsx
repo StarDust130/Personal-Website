@@ -127,7 +127,7 @@ export default function PageMain(): React.ReactElement {
     const subject = `Inquiry: Project Discussion with ${formName}`;
     const body = `Hi Chandrashekhar,%0D%0A%0D%0A${formMessage}%0D%0A%0D%0A-----------------------------------%0D%0AProject Budget: ${formBudget}%0D%0AContact Email: ${formEmail}%0D%0A%0D%0ABest regards,%0D%0A${formName}`;
     if (typeof window !== "undefined") {
-      window.location.href = `mailto:cstadav0513@gmail.com?subject=${encodeURIComponent(
+      window.location.href = `mailto:csyadav0513@gmail.com?subject=${encodeURIComponent(
         subject
       )}&body=${body}`;
     }
@@ -211,7 +211,7 @@ export default function PageMain(): React.ReactElement {
               </a>
             ))}
             <a
-              href="mailto:cstadav0513@gmail.com"
+              href="mailto:csyadav0513@gmail.com"
               className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-red-600 hover:border-red-600 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               Let's Talk <ArrowRight size={14} />
@@ -251,7 +251,7 @@ export default function PageMain(): React.ReactElement {
                 </motion.a>
               ))}
               <motion.a
-                href="mailto:cstadav0513@gmail.com"
+                href="mailto:csyadav0513@gmail.com"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -320,7 +320,7 @@ export default function PageMain(): React.ReactElement {
                     />
                   </a>
                   <a
-                    href="mailto:cstadav0513@gmail.com"
+                    href="mailto:csyadav0513@gmail.com"
                     className="bg-white text-black border-2 border-black px-6 md:px-8 py-3 md:py-4 font-mono font-bold uppercase hover:bg-yellow-400 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center gap-2 text-sm md:text-base"
                   >
                     <Mail size={16} /> Let's Talk
@@ -845,7 +845,7 @@ export default function PageMain(): React.ReactElement {
                 <Twitter size={24} />
               </a>
               <a
-                href="mailto:cstadav0513@gmail.com"
+                href="mailto:csyadav0513@gmail.com"
                 className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors group"
               >
                 <Mail size={24} />
