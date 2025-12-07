@@ -1026,11 +1026,8 @@ export default function PageMain(): React.ReactElement {
           </div>
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-mono uppercase tracking-widest text-gray-500">
-            <span>© 2024 Chandrashekhar</span>
-            <span className="mt-2 md:mt-0 flex items-center gap-2">
-              Next.js <span className="text-red-600">✦</span> React{" "}
-              <span className="text-red-600">✦</span> Tailwind
-            </span>
+            <span>© {new Date().getFullYear()} Chandrashekhar</span>
+
             <span className="mt-2 md:mt-0">Made with ❤️ in India</span>
           </div>
         </div>
