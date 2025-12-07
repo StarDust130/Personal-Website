@@ -15,7 +15,7 @@ const geistSans = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: "Chandrashekhar",
+  title: "Chandrashekhar Yadav",
   description:
     "Official website of Chandrashekhar, a passionate developer, dreamer, and future startup founder.",
   keywords: "Chandrashekhar, web developer, frontend, startup, programmer",
@@ -49,15 +49,14 @@ export default function RootLayout({
       <body className={`${geistSans.className} antialiased h-full`}>
         <main
           id="hero"
-          className="bg-black   shadow-glow-purple text-white min-h-screen w-full flex flex-col font-inter relative"
+          className="   shadow-glow-purple  min-h-screen w-full flex flex-col font-inter relative"
         >
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
           <Analytics />
           <BgSvg />
           <FloatingDots />
           <ShootingStars />
-          <Footer />
         </main>
       </body>
     </html>
