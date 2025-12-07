@@ -67,23 +67,12 @@ export default function PageMain(): React.ReactElement {
     repos: null,
     followers: null,
   });
-  const [currentHeroImage, setCurrentHeroImage] = useState<number>(0);
+  const [currentHeroImage] = useState<number>(0);
 
-  const heroImages: string[] = [
-    "/24.jpg",
-    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop",
-  ];
+  const heroImages: string[] = ["/24.jpg"];
 
   const heroBlurData =
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Crect width='10' height='10' fill='%23e5e5e5'/%3E%3C/svg%3E";
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [heroImages.length]);
 
   const [formName, setFormName] = useState<string>("");
   const [formBudget, setFormBudget] = useState<string>("");
@@ -317,7 +306,7 @@ export default function PageMain(): React.ReactElement {
                 <div className="border-b-2 border-black bg-black text-white p-2 flex justify-between font-mono text-[10px] md:text-xs uppercase items-center shrink-0 z-20 relative">
                   <span className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>{" "}
-                    REC // CAM 0{currentHeroImage + 1}
+                    REC // CAM 01
                   </span>
                   <span>Potential: MAX</span>
                 </div>
@@ -334,57 +323,38 @@ export default function PageMain(): React.ReactElement {
                     }}
                   />
 
-                  <AnimatePresence mode="popLayout">
-                    <motion.div
-                      key={currentHeroImage}
-                      initial={{ y: "100%" }}
-                      animate={{ y: "0%" }}
-                      exit={{ y: "-100%", opacity: 0.5 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0 w-full h-full"
-                    >
-                      <Image
-                        src={heroImages[currentHeroImage]}
-                        alt="Chandrashekhar Y"
-                        fill
-                        priority={currentHeroImage === 0}
-                        sizes="(min-width: 1024px) 520px, (min-width: 768px) 480px, 100vw"
-                        placeholder="blur"
-                        blurDataURL={heroBlurData}
-                        className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
-                        onError={(e) => {
-                          const img = e.currentTarget;
-                          img.onerror = null;
-                          img.src =
-                            "https://via.placeholder.com/400x600?text=Chandrashekhar+Y";
-                        }}
-                      />
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={heroImages[0]}
+                      alt="Chandrashekhar Y"
+                      fill
+                      priority
+                      sizes="(min-width: 1024px) 520px, (min-width: 768px) 480px, 100vw"
+                      placeholder="blur"
+                      blurDataURL={heroBlurData}
+                      className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        img.onerror = null;
+                        img.src =
+                          "https://via.placeholder.com/400x600?text=Chandrashekhar+Y";
+                      }}
+                    />
 
-                      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-white pt-24">
-                        <motion.h3
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 }}
-                          className="text-3xl md:text-4xl font-display font-bold mb-1 uppercase"
-                        >
-                          Chandrashekhar Y
-                        </motion.h3>
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.4 }}
-                          className="flex items-center gap-3"
-                        >
-                          <span className="font-mono text-[10px] bg-red-600 text-white px-2 py-0.5 font-bold">
-                            DEVELOPER
-                          </span>
-                          <span className="font-mono text-[10px] opacity-80 uppercase tracking-widest">
-                            Next.js Enthusiast
-                          </span>
-                        </motion.div>
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-white pt-24">
+                      <h3 className="text-3xl md:text-4xl font-display font-bold mb-1 uppercase">
+                        Chandrashekhar Y
+                      </h3>
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-[10px] bg-red-600 text-white px-2 py-0.5 font-bold">
+                          DEVELOPER
+                        </span>
+                        <span className="font-mono text-[10px] opacity-80 uppercase tracking-widest">
+                          Next.js Enthusiast
+                        </span>
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="border-t-2 border-black p-4 bg-white flex justify-between items-center relative overflow-hidden shrink-0 z-20">
@@ -458,15 +428,15 @@ export default function PageMain(): React.ReactElement {
               >
                 <div className="flex justify-between items-start mb-4">
                   <Github className="text-white w-8 h-8" />
-                  <span className="bg-white/20 text-white text-[10px] px-2 py-1 rounded font-bold">
+                  <span className="bg-white text-black text-[10px] px-2 py-1 rounded font-black uppercase">
                     Public
                   </span>
                 </div>
                 <h3 className="text-5xl font-black font-display text-white mb-1">
-                  {githubStats.repos !== null ? githubStats.repos : "20+"}
+                  {githubStats.repos !== null ? githubStats.repos : "100"}
                 </h3>
-                <p className="font-mono text-xs uppercase tracking-widest opacity-60">
-                  Repositories
+                <p className="font-mono text-xs uppercase tracking-widest text-white/80">
+                  Public Repositories
                 </p>
               </BentoCard>
 
@@ -628,14 +598,14 @@ export default function PageMain(): React.ReactElement {
               <p className="md:max-w-xs text-sm font-mono text-gray-500 mb-2">
                 Projects I built to learn and master modern web development.
               </p>
-              <Link
+              <a
                 href="https://github.com/StarDust130"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer noopener"
                 className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors"
               >
                 <Github size={14} /> github.com/StarDust130
-              </Link>
+              </a>
             </div>
           </div>
 
