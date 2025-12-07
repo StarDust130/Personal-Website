@@ -207,12 +207,13 @@ export default function PageMain(): React.ReactElement {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
-            <a
+            <Link
+              target="_blank"
               href="mailto:csyadav0513@gmail.com"
               className="bg-black text-white border-2 border-black px-5 py-2 hover:bg-red-600 hover:border-red-600 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
-              Let&quot;s Talk <ArrowRight size={14} />
-            </a>
+              Let&apos;s Talk <ArrowRight size={14} />
+            </Link>
           </div>
 
           <button
