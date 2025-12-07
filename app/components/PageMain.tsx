@@ -423,19 +423,19 @@ export default function PageMain(): React.ReactElement {
 
             <div className="md:col-span-5 grid grid-cols-2 gap-4 h-min content-start">
               <BentoCard
-                className="bg-black text-white hover:bg-gray-900 transition-colors"
+                className="bg-black text-white hover:bg-sky-100 transition-colors"
                 delay={0.2}
               >
                 <div className="flex justify-between items-start mb-4">
-                  <Github className="text-white w-8 h-8" />
+                  <Github className="text-black w-8 h-8" />
                   <span className="bg-white text-black text-[10px] px-2 py-1 rounded font-black uppercase">
                     Public
                   </span>
                 </div>
-                <h3 className="text-5xl font-black font-display text-white mb-1">
+                <h3 className="text-5xl font-black font-display text-black mb-1">
                   {githubStats.repos !== null ? githubStats.repos : "100"}
                 </h3>
-                <p className="font-mono text-xs uppercase tracking-widest text-white/80">
+                <p className="font-mono text-black text-xs uppercase tracking-widest ">
                   Public Repositories
                 </p>
               </BentoCard>
@@ -458,7 +458,7 @@ export default function PageMain(): React.ReactElement {
                 </p>
               </BentoCard>
 
-              <BentoCard className="col-span-2 bg-[#f0f0f0]" delay={0.4}>
+              <BentoCard className="col-span-2 hover:bg-yellow-100 bg-[#f0f0f0]" delay={0.4}>
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-xl font-bold font-display uppercase">
                     Core Systems
