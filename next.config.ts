@@ -1,6 +1,7 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+// Next.js 16 changed the NextConfig typing; allow additional custom keys
+const nextConfig: Partial<NextConfig> & Record<string, any> = {
   eslint: {
     // Allow builds to complete even if ESLint reports errors/warnings
     ignoreDuringBuilds: true,
