@@ -650,7 +650,7 @@ export default function PageMain(): React.ReactElement {
             </div>
           </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard
               index={0}
               title="Neo Brut"
@@ -665,7 +665,7 @@ export default function PageMain(): React.ReactElement {
               index={1}
               title="Sarathi AI"
               category="AI API Integration"
-              description="An AI friend that chats in Hindi, gives ideas and guidance, and uses a modern Next.js structure."
+              description="An AI guide that shares lessons from the Gita to help you grow, built on a modern Next.js stack."
               color="bg-red-500"
               image="/pro-1.png"
               link="https://sarathi-ai-topaz.vercel.app/"
@@ -675,10 +675,10 @@ export default function PageMain(): React.ReactElement {
               index={2}
               title="Hungrr"
               category="React/NodeJS"
-              description="Food ordering app for Café San QQR. It handles the menu, live orders, and payments with a fast user experience."
+              description="Food ordering app for Café Scan QR. It handles the menu, live orders, and payments with a fast user experience."
               color="bg-yellow-400"
               image="/pro-3.png"
-              link="hungrr.in"
+              link="https://hungrr.in/"
               githubLink="https://github.com/StarDust130/Hungrr"
             />
 
