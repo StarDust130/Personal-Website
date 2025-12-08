@@ -657,8 +657,8 @@ export default function PageMain(): React.ReactElement {
               category="Next.js 16"
               description="My first portfolio website built with modern technologies. Clean code structure and responsive design."
               color="bg-red-500"
-              stars="10"
-              forks="2"
+              stars={10}
+              forks={2}
               image="/pro-1.png"
             />
             <ProjectCard
@@ -667,8 +667,8 @@ export default function PageMain(): React.ReactElement {
               category="React / Firebase"
               description="A real-time messaging app. I learned how to handle database streams and user authentication securely."
               color="bg-pink-500"
-              stars="5"
-              forks="0"
+              stars={5}
+              forks={0}
               image="https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1000&auto=format&fit=crop"
             />
             <ProjectCard
@@ -677,8 +677,8 @@ export default function PageMain(): React.ReactElement {
               category="API Integration"
               description="Tracks live crypto prices. Focused on fetching data efficiently and displaying charts using Chart.js."
               color="bg-yellow-400"
-              stars="8"
-              forks="1"
+              stars={8}
+              forks={1}
               image="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1000&auto=format&fit=crop"
             />
             <ProjectCard
@@ -687,8 +687,8 @@ export default function PageMain(): React.ReactElement {
               category="MERN Stack"
               description="A full CRUD application to manage daily tasks. This taught me how to connect Backend with Frontend."
               color="bg-blue-500"
-              stars="12"
-              forks="3"
+              stars={12}
+              forks={3}
               image="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1000&auto=format&fit=crop"
             />
 
