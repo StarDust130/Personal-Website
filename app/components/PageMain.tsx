@@ -772,7 +772,7 @@ export default function PageMain(): React.ReactElement {
             <FeatureCard
               title="Modern Stack"
               icon={Zap}
-              description="Built on Next.js 14 and Tailwind. Fast, scalable, and ready for the future of the web."
+              description="Built on Next.js 16+ and Tailwind. Fast, scalable, and ready for the future of the web."
             />
             <FeatureCard
               title="Responsive"
