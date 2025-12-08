@@ -487,22 +487,31 @@ export default function PageMain(): React.ReactElement {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <div className="flex justify-between text-xs font-mono font-bold mb-1">
-                      <span>Front-End</span>
-                      <span>95%</span>
-                    </div>
-                    <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
-                      <div className="h-full bg-black w-[95%]"></div>
-                    </div>
+                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                    <span>Front-End</span>
+                    <span>95%</span>
+                  </div>
+                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                    <div className="h-full bg-black w-[95%]"></div>
+                  </div>
                   </div>
                   <div>
-                    <div className="flex justify-between text-xs font-mono font-bold mb-1">
-                      <span>Back-End</span>
-                      <span>80%</span>
-                    </div>
-                    <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
-                      <div className="h-full bg-red-600 w-[80%]"></div>
-                    </div>
+                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                    <span>Back-End</span>
+                    <span>85%</span>
+                  </div>
+                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                    <div className="h-full bg-red-600 w-[85%]"></div>
+                  </div>
+                  </div>
+                  <div>
+                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                    <span>DevOps</span>
+                    <span>80%</span>
+                  </div>
+                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                    <div className="h-full bg-green-600 w-[80%]"></div>
+                  </div>
                   </div>
                 </div>
               </BentoCard>
