@@ -624,85 +624,82 @@ export default function PageMain(): React.ReactElement {
         className="py-16 md:py-24 border-b-2 border-black bg-white"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-8">
             <div className="text-center md:text-left">
               <span className="font-mono text-xs font-bold text-red-600 uppercase tracking-widest border border-red-600 px-2 py-1 mb-4 inline-block">
-              Personal Archives
+                Personal Archives
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-[0.8] relative z-10">
-              Selected
-              <br />
-              Works
+                Selected
+                <br />
+                Works
               </h2>
             </div>
             <div className="w-full md:w-auto text-center md:text-right">
               <p className="text-sm font-mono text-gray-500 mb-3 md:mb-2 md:max-w-xs mx-auto md:mx-0">
-              Projects I built to learn and master modern web development.
+                Projects I built to learn and master modern web development.
               </p>
               <Link
-              href="https://github.com/StarDust130"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-2 hover:bg-red-600 transition-colors w-full md:w-auto justify-center"
+                href="https://github.com/StarDust130"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-2 hover:bg-red-600 transition-colors w-full md:w-auto justify-center"
               >
-              <SiGithub size={14} /> github.com/StarDust130
+                <SiGithub size={14} /> github.com/StarDust130
               </Link>
             </div>
-            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard
               index={0}
+              title="Neo Brut"
+              category="NextJS / neubrutalism"
+              description="I built a small UI library in a neo-brutalism style to power a real-time messaging app with clean components and secure auth."
+              color="bg-pink-500"
+              image="/pro-2.png"
+              link="https://sarathi-ai-topaz.vercel.app/"
+              githubLink="https://github.com/StarDust130/Neo-Brut"
+            />
+            <ProjectCard
+              index={1}
               title="Sarathi AI"
-              category="Next.js 16"
-              description="My first portfolio website built with modern technologies. Clean code structure and responsive design."
+              category="AI API Integration"
+              description="An AI friend that chats in Hindi, gives ideas and guidance, and uses a modern Next.js structure."
               color="bg-red-500"
-              stars={10}
-              forks={2}
               image="/pro-1.png"
               link="https://sarathi-ai-topaz.vercel.app/"
               githubLink="https://github.com/StarDust130/sarathi-ai"
             />
             <ProjectCard
-              index={1}
-              title="Chat App"
-              category="React / Firebase"
-              description="A real-time messaging app. I learned how to handle database streams and user authentication securely."
-              color="bg-pink-500"
-              stars={5}
-              forks={0}
-              image="https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1000&auto=format&fit=crop"
-              link="https://sarathi-ai-topaz.vercel.app/"
-            />
-            <ProjectCard
               index={2}
-              title="Crypto Tracker"
-              category="API Integration"
-              description="Tracks live crypto prices. Focused on fetching data efficiently and displaying charts using Chart.js."
+              title="Hungrr"
+              category="React/NodeJS"
+              description="Food ordering app for Café San QQR. It handles the menu, live orders, and payments with a fast user experience."
               color="bg-yellow-400"
-              stars={8}
-              forks={1}
-              image="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1000&auto=format&fit=crop"
+              image="/pro-3.png"
+              link="hungrr.in"
+              githubLink="https://github.com/StarDust130/Hungrr"
             />
 
             <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center w-full">
               <a
-              href="/projects"
-              className="w-full md:w-3/4 bg-black text-white p-8 border-2 border-black flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(255,0,0,1)] transition-all"
+                href="/projects"
+                className="w-full md:w-3/4 bg-black text-white p-8 border-2 border-black flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(255,0,0,1)] transition-all"
               >
-              <div className="absolute inset-0 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-in-out"></div>
-              <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-              <div className="relative z-10">
-                <h3 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                View All Projects
-                </h3>
-                <p className="font-mono text-gray-400 group-hover:text-white transition-colors uppercase tracking-widest mb-8 text-sm">
-                Click to see more of my work
-                </p>
-                <div className="inline-flex items-center gap-2 border-2 border-white px-6 py-3 font-bold uppercase text-sm hover:bg-white hover:text-black transition-colors">
-                <Layers size={16} /> Open Projects Page
+                <div className="absolute inset-0 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-in-out"></div>
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+                <div className="relative z-10">
+                  <h3 className="text-3xl md:text-5xl font-display font-bold mb-4">
+                    View All Projects
+                  </h3>
+                  <p className="font-mono text-gray-400 group-hover:text-white transition-colors uppercase tracking-widest mb-8 text-sm">
+                    Click to see more of my work
+                  </p>
+                  <div className="inline-flex items-center gap-2 border-2 border-white px-6 py-3 font-bold uppercase text-sm hover:bg-white hover:text-black transition-colors">
+                    <Layers size={16} /> Open Projects Page
+                  </div>
                 </div>
-              </div>
               </a>
             </div>
           </div>
