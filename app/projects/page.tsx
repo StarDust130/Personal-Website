@@ -76,7 +76,7 @@ const PROJECTS: Project[] = [
       "A 3D browser game built with Three.js. Navigate through procedural endless terrain.",
     stack: ["Three.js", "WebGL", "GSAP"],
     image:
-      "https://images.unsplash.com/photo-1614726365723-49fa6d91fbb6?q=80&w=2070&auto=format&fit=crop",
+      "https://www.designyourway.net/blog/wp-content/uploads/2019/01/games-wallpaper-15-1600x900.jpg",
     stars: 256,
     forks: 40,
     category: "Game",
@@ -88,7 +88,7 @@ const PROJECTS: Project[] = [
       "AI-powered cryptocurrency trend predictor using sentiment analysis from social media feeds.",
     stack: ["Python", "FastAPI", "React"],
     image:
-      "https://images.unsplash.com/photo-1621504450168-38f647315431?q=80&w=2070&auto=format&fit=crop",
+      "https://img.freepik.com/free-photo/cyberpunk-bitcoin-illustration_23-2151611181.jpg",
     stars: 67,
     forks: 8,
     category: "AI/ML",
