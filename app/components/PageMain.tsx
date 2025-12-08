@@ -468,7 +468,7 @@ export default function PageMain(): React.ReactElement {
                   </span>
                 </div>
                 <h3 className="text-5xl font-black font-display text-red-600 mb-1">
-                  850+
+                  4,500+
                 </h3>
                 <p className="font-mono text-xs uppercase tracking-widest text-gray-500">
                   Commits
@@ -487,31 +487,31 @@ export default function PageMain(): React.ReactElement {
                 </div>
                 <div className="space-y-4">
                   <div>
-                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
-                    <span>Front-End</span>
-                    <span>95%</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
-                    <div className="h-full bg-black w-[95%]"></div>
-                  </div>
-                  </div>
-                  <div>
-                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
-                    <span>Back-End</span>
-                    <span>85%</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
-                    <div className="h-full bg-red-600 w-[85%]"></div>
-                  </div>
+                    <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                      <span>Front-End</span>
+                      <span>95%</span>
+                    </div>
+                    <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                      <div className="h-full bg-black w-[95%]"></div>
+                    </div>
                   </div>
                   <div>
-                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
-                    <span>DevOps</span>
-                    <span>80%</span>
+                    <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                      <span>Back-End</span>
+                      <span>85%</span>
+                    </div>
+                    <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                      <div className="h-full bg-red-600 w-[85%]"></div>
+                    </div>
                   </div>
-                  <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
-                    <div className="h-full bg-green-600 w-[80%]"></div>
-                  </div>
+                  <div>
+                    <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                      <span>DevOps</span>
+                      <span>80%</span>
+                    </div>
+                    <div className="h-2 w-full bg-gray-300 rounded-full overflow-hidden">
+                      <div className="h-full bg-green-600 w-[80%]"></div>
+                    </div>
                   </div>
                 </div>
               </BentoCard>
@@ -547,8 +547,8 @@ export default function PageMain(): React.ReactElement {
               <div className="space-y-2">
                 <SkillRow label="Next.js" value="Advanced" icon={Globe} />
                 <SkillRow label="React" value="Advanced" icon={Zap} />
-                <SkillRow label="TypeScript" value="Good" icon={Terminal} />
                 <SkillRow label="Tailwind CSS" value="Expert" icon={Palette} />
+                <SkillRow label="TypeScript" value="Great" icon={Terminal} />
                 <SkillRow
                   label="Framer Motion"
                   value="Learning"
@@ -565,9 +565,14 @@ export default function PageMain(): React.ReactElement {
                 <Terminal className="text-blue-600" />
               </div>
               <div className="space-y-2">
-                <SkillRow label="Node.js" value="Good" icon={Cpu} />
-                <SkillRow label="PostgreSQL" value="Basic" icon={Layers} />
-                <SkillRow label="MongoDB" value="Good" icon={Terminal} />
+                <SkillRow label="Node.js" value="Advanced" icon={Cpu} />
+                <SkillRow label="PostgreSQL" value="Advanced" icon={Layers} />
+                <SkillRow
+                  label="AI API Integration"
+                  value="Great"
+                  icon={Globe}
+                />
+                <SkillRow label="MongoDB" value="Great" icon={Terminal} />
                 <SkillRow label="Firebase" value="Good" icon={Zap} />
               </div>
             </BentoCard>
@@ -581,9 +586,10 @@ export default function PageMain(): React.ReactElement {
               </div>
               <div className="space-y-6 font-mono text-sm pt-2">
                 {[
-                  { name: "Code Quality", level: "Clean", percent: "100%" },
-                  { name: "Delivery Speed", level: "Fast", percent: "90%" },
-                  { name: "Communication", level: "Clear", percent: "100%" },
+                  { name: "Truth Worthy 🔥", level: "200%", percent: "200%" },
+                  { name: "Code Quality 💎", level: "Clean", percent: "100%" },
+                  { name: "Delivery Speed ⚡", level: "Fast", percent: "99%" },
+                  { name: "Communication 💬", level: "Clear", percent: "90%" },
                 ].map((tool) => (
                   <div key={tool.name}>
                     <div className="flex justify-between mb-2 font-bold">
@@ -599,7 +605,13 @@ export default function PageMain(): React.ReactElement {
                   </div>
                 ))}
                 <div className="mt-4 pt-4 border-t border-black/10 text-center text-xs text-gray-500 uppercase tracking-widest font-bold">
-                  Ready to work
+                  <Link
+                    href="mailto:csyadav0513@gmail.com"
+                    target="_blank"
+                    className="mt-4 pt-4 border-t border-black/10 text-center text-xs text-gray-500 uppercase tracking-widest font-bold hover:text-red-600 transition-colors cursor-pointer"
+                  >
+                    Ready to work ☺️
+                  </Link>
                 </div>
               </div>
             </BentoCard>
@@ -635,7 +647,6 @@ export default function PageMain(): React.ReactElement {
               >
                 <Github size={14} /> github.com/StarDust130
               </Link>
-            
             </div>
           </div>
 
