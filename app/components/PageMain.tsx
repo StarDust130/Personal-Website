@@ -8,8 +8,6 @@ import {
 } from "framer-motion";
 import {
   ArrowRight,
-  Github,
-  Twitter,
   Mail,
   Code2,
   Palette,
@@ -28,6 +26,8 @@ import {
   Monitor,
   Smartphone,
 } from "lucide-react";
+import { SiGithub, SiGmail } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa6";
 
 import CustomCursor from "@/components/ui/CustomCursor";
 import CyberGrid from "@/components/ui/CyberGrid";
@@ -444,7 +444,7 @@ export default function PageMain(): React.ReactElement {
                 delay={0.2}
               >
                 <div className="flex justify-between items-start mb-4">
-                  <Github className="text-black w-8 h-8" />
+                  <SiGithub className="text-black w-8 h-8" />
                   <span className="bg-white text-black text-[10px] px-2 py-1 rounded font-black uppercase">
                     Public
                   </span>
@@ -645,7 +645,7 @@ export default function PageMain(): React.ReactElement {
                 rel="noreferrer noopener"
                 className="inline-flex cursor-pointer items-center gap-2 text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors"
               >
-                <Github size={14} /> github.com/StarDust130
+                <SiGithub size={14} /> github.com/StarDust130
               </Link>
             </div>
           </div>
@@ -821,26 +821,28 @@ export default function PageMain(): React.ReactElement {
             </div>
 
             <div className="flex gap-4">
-              <a
+              <Link
                 href="https://github.com/StarDust130"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors group"
               >
-                <Github size={24} />
-              </a>
-              <a
-                href="#"
-                className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-blue-400 hover:text-white hover:border-blue-400 transition-colors group"
+                <SiGithub size={24} />
+              </Link>
+              <Link
+                href="https://x.com/the_csyadav"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-colors group"
               >
-                <Twitter size={24} />
-              </a>
-              <a
+                <FaXTwitter size={24} />
+              </Link>
+              <Link
                 href="mailto:csyadav0513@gmail.com"
-                className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors group"
+                className="w-16 h-16 border-2 border-black flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-colors group"
               >
-                <Mail size={24} />
-              </a>
+                <SiGmail size={24} />
+              </Link>
             </div>
           </div>
 
@@ -949,7 +951,7 @@ export default function PageMain(): React.ReactElement {
               <div className="font-mono text-[10px] uppercase text-gray-500 mb-1">
                 Mission
               </div>
-              <div className="font-bold uppercase">Build Trust</div>
+                <div className="font-bold uppercase text-red-600 hover:text-yellow-400 transition-colors cursor-pointer">Build Great Projects</div>
             </div>
           </div>
         </div>
@@ -1013,37 +1015,36 @@ export default function PageMain(): React.ReactElement {
                 </h5>
                 <ul className="space-y-2 font-mono text-sm text-gray-400">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      href="https://x.com/the_csyadav"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-red-500 transition-colors"
                     >
                       Twitter / X
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="https://github.com/StarDust130"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-red-500 transition-colors"
                     >
                       GitHub
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      href="mailto:csyadav0513@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-red-500 transition-colors"
                     >
-                      LinkedIn
-                    </a>
+                      Email
+                    </Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-red-500 transition-colors"
-                    >
-                      Instagram
-                    </a>
-                  </li>
+                  <li></li>
                 </ul>
               </div>
             </div>
