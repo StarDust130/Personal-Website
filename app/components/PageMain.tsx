@@ -379,9 +379,16 @@ export default function PageMain(): React.ReactElement {
                   <span className="font-serif font-bold text-base md:text-lg z-10">
                     STATUS
                   </span>
-                  <span className="font-mono text-xl md:text-3xl font-black tracking-tighter z-10 uppercase">
-                    Open <span className="text-red-600">To Work</span>
-                  </span>
+                  <Link
+                    href="mailto:csyadav0513@gmail.com"
+                    target="_blank"
+                
+                  >
+                    
+                    <span className="font-mono text-xl md:text-3xl font-black tracking-tighter z-10 uppercase hover:text-red-500 transition-colors">
+                      Open <span className="text-red-600 hover:text-black">To Work</span>
+                    </span>
+                  </Link>
                 </div>
               </div>
             </div>
