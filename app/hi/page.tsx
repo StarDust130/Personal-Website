@@ -16,7 +16,7 @@ const WhatsAppIcon = ({ className }: any) => (
 
 const PortfolioHero = () => {
   const phoneNumber = "+91 93029 03537";
-  const rawNumber = "19302903537";
+  const rawNumber = "9302903537";
 
   const handleWhatsApp = () =>
     window.open(`https://wa.me/${rawNumber}`, "_blank");
