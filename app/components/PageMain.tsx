@@ -379,14 +379,12 @@ export default function PageMain(): React.ReactElement {
                   <span className="font-serif font-bold text-base md:text-lg z-10">
                     STATUS
                   </span>
-                  <Link
-                    href="mailto:csyadav0513@gmail.com"
-                    target="_blank"
-                
-                  >
-                    
+                  <Link href="mailto:csyadav0513@gmail.com" target="_blank">
                     <span className="font-mono text-xl md:text-3xl font-black tracking-tighter z-10 uppercase hover:text-red-500 transition-colors">
-                      Open <span className="text-red-600 hover:text-black">To Work</span>
+                      Open{" "}
+                      <span className="text-red-600 hover:text-black">
+                        To Work
+                      </span>
                     </span>
                   </Link>
                 </div>
@@ -665,7 +663,7 @@ export default function PageMain(): React.ReactElement {
               description="I built a small UI library in a neo-brutalism style to power a real-time messaging app with clean components and secure auth."
               color="bg-pink-500"
               image="/pro-2.png"
-              link="https://sarathi-ai-topaz.vercel.app/"
+              link="https://neo-brut.vercel.app/"
               githubLink="https://github.com/StarDust130/Neo-Brut"
             />
             <ProjectCard
