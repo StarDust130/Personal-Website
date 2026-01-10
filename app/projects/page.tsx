@@ -1011,7 +1011,7 @@ export default function ProjectPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-          <span>© 2024 Chandrashekhar</span>
+          <span>© 2026 Chandrashekhar</span>
           <span>Built with React & Tailwind</span>
         </div>
       </footer>
