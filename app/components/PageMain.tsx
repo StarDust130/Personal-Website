@@ -473,7 +473,7 @@ export default function PageMain(): React.ReactElement {
                   </span>
                 </div>
                 <h3 className="text-5xl font-black font-display text-red-600 mb-1">
-                  4,500+
+                  10,000+
                 </h3>
                 <p className="font-mono text-xs uppercase tracking-widest text-gray-500">
                   Commits
