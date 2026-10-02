@@ -1,41 +1,101 @@
-import type { Metadata } from "next";
-import { Spectral } from "next/font/google";
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import FloatingDots from "./components/FloatingDots";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import BgSvg from "./components/BgSvg";
-import { displayFont, monoFont, serifFont } from "./fonts";
-import ShutterScreen from "./components/ShutterScreen";
-import Script from "next/script";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
-const geistSans = Spectral({
+import "./globals.css";
+
+const site = {
+  name: "Chandrashekhar Yadav",
+  domain: "https://csyadav.vercel.app",
+  github: "https://github.com/StarDust130",
+  linkedin: "https://www.linkedin.com/",
+};
+
+const description =
+  "The digital home of Chandrashekhar Yadav. He builds things, writes software, explores AI, reads philosophy, meditates, and tries to understand the world a little more deeply.";
+
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
+const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
-  style: "normal",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Chandrashekhar",
-  description:
-    "Official website of Chandrashekhar, a passionate developer, dreamer, and future startup founder.",
-  keywords: "Chandrashekhar, web developer, frontend, startup, programmer",
-  openGraph: {
-    title: "Chandrashekhar - Developer & Innovator",
-    description:
-      "Explore sleek, functional web experiences built with creativity.",
-    url: "https://chandrashekhar.life",
-    siteName: "Chandrashekhar",
-    images: [
-      {
-        url: "https://chandrashekhar.life/og-image.jpg", // Replace with your real OG image URL
-        width: 1200,
-        height: 630,
-        alt: "Chandrashekhar - Developer Portfolio",
-      },
-    ],
-    type: "website",
+  metadataBase: new URL(site.domain),
+
+  title: {
+    default: site.name,
+    template: `%s — ${site.name}`,
   },
+
+  description,
+
+  authors: [
+    {
+      name: site.name,
+      url: site.domain,
+    },
+  ],
+
+  creator: site.name,
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: site.domain,
+    siteName: site.name,
+    title: site.name,
+    description,
+    locale: "en_US",
+  },
+
+  twitter: {
+    card: "summary",
+    title: site.name,
+    description,
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.domain,
+  sameAs: [site.github, site.linkedin],
+  knowsAbout: [
+    "Software",
+    "Artificial Intelligence",
+    "Philosophy",
+    "Meditation",
+    "Technology",
+  ],
 };
 
 export default function RootLayout({
@@ -44,22 +104,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
-      <body
-        className={`${geistSans.className} ${displayFont.variable} ${serifFont.variable} ${monoFont.variable} antialiased h-full`}
-      >
-        <main
-          id="hero"
-          className="   shadow-glow-purple  min-h-screen w-full flex flex-col font-inter relative"
-        >
-          {children}
-          <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
-          <ShutterScreen />
-          <Analytics />
-          <BgSvg />
-          <FloatingDots />
-          <ShootingStars />
-        </main>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable}`}
+    >
+      <body className="bg-ink font-sans text-paper antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
+
+        {children}
+
+        <Analytics />
       </body>
     </html>
   );
