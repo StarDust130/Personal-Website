@@ -7,56 +7,28 @@ import { useEffect, useState, type ReactNode } from "react";
 
 import {
   LuArrowUpRight,
-  LuBookOpen,
   LuFileText,
-  LuFlower2,
-  LuHammer,
   LuMail,
-  LuTelescope,
 } from "react-icons/lu";
 
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { RiMagicLine } from "react-icons/ri";
-
-import type { IconType } from "react-icons";
-
-/* ═══════════════════════════════════════════════════════════════
-   SITE DATA
-   ═══════════════════════════════════════════════════════════════ */
 
 const site = {
   name: "Chandrashekhar Yadav",
   location: "India",
   year: 2026,
 
-  // Replace with your real email
-  email: "hello@example.com",
+  email: "csyadav0513@gmail.com",
 
   github: "https://github.com/StarDust130",
 
   x: "https://x.com/the_csyadav",
 
-  // File: public/resume.pdf
   resume: "/resume.pdf",
 };
 
 const mailto = `mailto:${site.email}`;
-
-/* ═══════════════════════════════════════════════════════════════
-   INTERESTS
-   ═══════════════════════════════════════════════════════════════ */
-
-const interests: {
-  label: string;
-  Icon: IconType;
-}[] = [
-  { label: "Building", Icon: LuHammer },
-  { label: "Thinking", Icon: LuTelescope },
-  { label: "Reading", Icon: LuBookOpen },
-  { label: "Anime", Icon: LuFlower2 },
-  { label: "Peace", Icon: RiMagicLine },
-];
 
 /* ═══════════════════════════════════════════════════════════════
    MOTION
@@ -120,7 +92,7 @@ function Reveal({
 function Clock() {
   return (
     <span suppressHydrationWarning>
-      <span className="mx-1.5 text-accent/50">·</span>
+      <span className="mx-1.5 text-[#9b8ed8]/60">·</span>
       <TimeText />
     </span>
   );
@@ -187,10 +159,10 @@ const linkBase =
 
 function HomeView() {
   return (
-    <div className="flex min-h-svh flex-col bg-ink lg:h-svh lg:overflow-hidden">
+    <div className="min-h-svh bg-ink">
       {/* ═════════════════ HEADER ═════════════════ */}
 
-      <header className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-5 pt-5 sm:px-10 sm:pt-7 lg:flex-row lg:items-center lg:justify-between">
+      <header className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 pt-5 sm:gap-5 sm:px-10 sm:pt-7 lg:flex-row lg:items-center lg:justify-between">
         {/* Logo */}
 
         <Reveal>
@@ -210,7 +182,7 @@ function HomeView() {
               />
             </span>
 
-            <span className="text-[13px] font-medium tracking-[-0.01em] text-paper transition-colors duration-300 group-hover:text-[#c4b5fd]">
+            <span className="text-[12px] font-medium tracking-[-0.01em] text-paper transition-colors duration-300 group-hover:text-[#c4b5fd] sm:text-[13px]">
               {site.name}
             </span>
           </Link>
@@ -220,7 +192,7 @@ function HomeView() {
 
         <Reveal delay={0.08}>
           <nav aria-label="Primary navigation">
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-x-7">
+            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2.5 sm:gap-x-7 sm:gap-y-3">
               {/* Resume */}
 
               <li>
@@ -246,15 +218,15 @@ function HomeView() {
                 </a>
               </li>
 
-              {/* Projects / GitHub */}
+              {/* Projects */}
 
               <li>
                 <a
                   href={site.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${linkBase} hover:text-[#f5f5f5]`}
                   aria-label="See my projects on GitHub"
+                  className={`${linkBase} hover:text-[#f5f5f5]`}
                 >
                   <FaGithub
                     aria-hidden
@@ -278,8 +250,8 @@ function HomeView() {
                   href={site.x}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${linkBase} hover:text-[#9fb7d4]`}
                   aria-label="Chandrashekhar Yadav on X"
+                  className={`${linkBase} hover:text-[#9fb7d4]`}
                 >
                   <FaXTwitter
                     aria-hidden
@@ -295,8 +267,8 @@ function HomeView() {
               <li>
                 <a
                   href={mailto}
-                  className={`${linkBase} hover:text-[#7dd3fc]`}
                   aria-label={`Email ${site.name}`}
+                  className={`${linkBase} hover:text-[#7dd3fc]`}
                 >
                   <LuMail
                     aria-hidden
@@ -314,30 +286,33 @@ function HomeView() {
 
       {/* ═════════════════ HERO ═════════════════ */}
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 py-12 sm:px-10 sm:py-14 lg:py-6">
+      <main className="mx-auto w-full max-w-6xl px-5 pb-8 pt-16 sm:px-10 sm:pb-10 sm:pt-20 lg:flex lg:min-h-[calc(100svh-7rem)] lg:flex-col lg:justify-center lg:py-6">
         {/* Eyebrow */}
 
         <Reveal delay={0.12}>
-          <p className="flex items-center gap-3 font-mono text-[9px] tracking-[0.32em] text-faint sm:text-[10px]">
+          <p className="flex items-center gap-3 font-mono text-[8px] tracking-[0.32em] text-faint sm:text-[10px]">
             <span
               aria-hidden
-              className="h-px w-6  sm:w-7"
+              className="h-px w-6 bg-[#a78bfa]/55 sm:w-7"
             />
 
             <span>HELLO, I&rsquo;M</span>
 
-        
+            <span
+              aria-hidden
+              className="size-1 rounded-full bg-[#a78bfa]/80 shadow-[0_0_10px_rgba(167,139,250,0.7)]"
+            />
           </p>
         </Reveal>
 
         {/* Name */}
 
         <h1
-          className="mt-5 text-paper sm:mt-6"
+          className="mt-4 text-paper sm:mt-6"
           style={{
             fontFamily:
               "var(--font-instrument), Georgia, serif",
-            fontSize: "clamp(2.8rem, 7vw, 6rem)",
+            fontSize: "clamp(2.65rem, 7vw, 6rem)",
             fontWeight: 400,
             lineHeight: 0.9,
             letterSpacing: "-0.025em",
@@ -356,64 +331,73 @@ function HomeView() {
           </Reveal>
         </h1>
 
-        <div className="mt-8 grid gap-10 sm:mt-11 sm:gap-12 lg:mt-10 lg:grid-cols-12 lg:gap-8">
-          {/* Main copy */}
+        <div className="mt-7 grid gap-9 sm:mt-11 sm:gap-12 lg:mt-10 lg:grid-cols-12 lg:gap-8">
+          {/* ═════════════ MAIN COPY ═════════════ */}
 
           <div className="lg:col-span-7">
+            {/* Lead */}
+
             <Reveal delay={0.38}>
-              <p className="max-w-[38ch] text-[1.08rem] leading-[1.5] text-paper/90 sm:text-[clamp(1.1rem,1rem+0.4vw,1.35rem)]">
+              <p className="max-w-[38ch] text-[1rem] leading-[1.48] text-paper/90 sm:text-[clamp(1.1rem,1rem+0.4vw,1.35rem)]">
                 I&rsquo;m curious by nature. I tend to follow
                 questions further than I originally intended.
               </p>
             </Reveal>
 
-            <Reveal delay={0.47}>
-              <p className="mt-4 max-w-[49ch] text-[0.92rem] leading-[1.8] text-muted sm:mt-5 sm:text-[0.98rem]">
-                I learn by making things. A project usually starts
-                with a simple idea and turns into a chain of
-                questions — why does this work, what is happening
-                underneath, what did I assume without really
-                checking?
-              </p>
-            </Reveal>
+            {/* Desktop copy */}
 
-            <Reveal delay={0.56}>
-              <p className="mt-4 max-w-[49ch] text-[0.92rem] leading-[1.8] text-muted sm:text-[0.98rem]">
-                I like following those questions until something
-                makes sense. Sometimes that leads into code.
-                Sometimes into a book. Sometimes into sitting
-                quietly and noticing my own mind.
-              </p>
-            </Reveal>
+            <div className="hidden sm:block">
+              <Reveal delay={0.47}>
+                <p className="mt-5 max-w-[49ch] text-[0.98rem] leading-[1.8] text-muted">
+                  I learn by making things. A project usually starts
+                  with a simple idea and turns into a chain of
+                  questions — why does this work, what is happening
+                  underneath, what did I assume without really
+                  checking?
+                </p>
+              </Reveal>
 
-            {/* Interests */}
+              <Reveal delay={0.56}>
+                <p className="mt-4 max-w-[49ch] text-[0.98rem] leading-[1.8] text-muted">
+                  I like following those questions until something
+                  makes sense. Sometimes that leads into code.
+                  Sometimes into a book. Sometimes into sitting
+                  quietly and noticing my own mind.
+                </p>
+              </Reveal>
+            </div>
+
+            {/* Mobile copy */}
+
+            <div className="sm:hidden">
+              <Reveal delay={0.47}>
+                <p className="mt-4 max-w-[40ch] text-[0.9rem] leading-[1.72] text-muted">
+                  I learn by making things. A project starts with an
+                  idea, turns into questions, and keeps going until
+                  I understand what&rsquo;s underneath.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.56}>
+                <p className="mt-3.5 max-w-[40ch] text-[0.9rem] leading-[1.72] text-muted">
+                  Sometimes that means code. Sometimes a book.
+                  Sometimes sitting quietly and noticing my own
+                  mind.
+                </p>
+              </Reveal>
+            </div>
+
+            {/* Personal life line */}
 
             <Reveal delay={0.66}>
-              <div className="mt-7 flex max-w-[46rem] flex-wrap items-center gap-x-2.5 gap-y-2 font-mono text-[9px] tracking-[0.18em] text-faint sm:mt-8 sm:text-[10px] sm:tracking-[0.2em]">
-                {interests.map(({ label, Icon }, index) => (
-                  <span
-                    key={label}
-                    className="group/interest inline-flex items-center gap-1.5 text-faint transition-colors duration-300 hover:text-[#e7e2d8]"
-                  >
-                    <Icon
-                      aria-hidden
-                      className="size-3 transition-transform duration-300 group-hover/interest:scale-110"
-                      strokeWidth={1.5}
-                    />
-
-                    <span>{label.toUpperCase()}</span>
-
-                    {index < interests.length - 1 && (
-                      <span
-                        aria-hidden
-                        className="ml-0.5 text-faint/40"
-                      >
-                        ·
-                      </span>
-                    )}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-6 max-w-[42ch] text-[11px] leading-[1.8] text-faint sm:mt-8 sm:text-[12px] sm:leading-[1.9]">
+                <span className="text-[#c4b5fd]/80">
+                  These days:
+                </span>{" "}
+                I&rsquo;m building things, reading philosophy,
+                meditating, asking too many questions, and watching
+                anime.
+              </p>
             </Reveal>
 
             {/* Projects */}
@@ -423,7 +407,7 @@ function HomeView() {
                 href={site.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-7 inline-flex items-center gap-2 border-b border-line pb-1.5 text-[12px] text-paper transition-all duration-300 hover:border-[#a78bfa] hover:text-[#c4b5fd] sm:mt-8 sm:text-[13px]"
+                className="group mt-6 inline-flex items-center gap-2 border-b border-line pb-1.5 text-[12px] text-paper transition-all duration-300 hover:border-[#a78bfa] hover:text-[#c4b5fd] sm:mt-8 sm:text-[13px]"
               >
                 <FaGithub
                   aria-hidden
@@ -441,7 +425,7 @@ function HomeView() {
             </Reveal>
           </div>
 
-          {/* About */}
+          {/* ═════════════ ABOUT ═════════════ */}
 
           <Reveal
             delay={0.54}
@@ -451,11 +435,13 @@ function HomeView() {
               aria-label="About Chandrashekhar"
               className="max-w-[42ch] border-l border-line pl-4 transition-all duration-500 hover:border-[#8f84c7]/60 sm:pl-6"
             >
-              <p className="font-mono text-[9px] tracking-[0.3em] text-sky-500 sm:text-[10px]">
+              <p className="font-mono text-[8px] tracking-[0.3em] text-sky-500 sm:text-[10px]">
                 ABOUT
               </p>
 
-              <div className="mt-4 space-y-4 text-[11.5px] leading-[1.75] text-muted sm:text-[13px] sm:leading-[1.8]">
+              {/* Desktop About */}
+
+              <div className="mt-4 hidden space-y-4 text-[13px] leading-[1.8] text-muted sm:block">
                 <p className="text-paper">
                   Building is how I learn.
                 </p>
@@ -487,6 +473,31 @@ function HomeView() {
                   questions.
                 </p>
               </div>
+
+              {/* Mobile About */}
+
+              <div className="mt-3.5 space-y-3 text-[11px] leading-[1.72] text-muted sm:hidden">
+                <p className="text-paper">
+                  Building is how I learn.
+                </p>
+
+                <p>
+                  When something breaks, I want to know why. I like
+                  following the chain of cause and effect until I
+                  find where my assumptions stop matching reality.
+                </p>
+
+                <p>
+                  Philosophy helps me question the frame. Meditation
+                  helps me notice what happens before I try to explain
+                  it.
+                </p>
+
+                <p className="text-paper/85">
+                  I&rsquo;m more interested in asking better questions
+                  than collecting easy answers.
+                </p>
+              </div>
             </aside>
           </Reveal>
         </div>
@@ -495,17 +506,21 @@ function HomeView() {
       {/* ═════════════════ FOOTER ═════════════════ */}
 
       <footer className="border-t border-line">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3.5 font-mono text-[8px] tracking-[0.17em] text-faint sm:px-10 sm:py-4 sm:text-[10px] sm:tracking-[0.21em]">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3.5 font-mono text-[8px] tracking-[0.14em] text-faint sm:px-10 sm:py-4 sm:text-[10px] sm:tracking-[0.21em]">
+          {/* Time */}
+
           <p className="whitespace-nowrap">
             {site.location.toUpperCase()} · {site.year}
             <Clock />
           </p>
 
+          {/* Center */}
+
           <p className="hidden md:block text-faint/70">
             BUILDING · THINKING · LEARNING
           </p>
 
-          {/* Available for work */}
+          {/* Availability */}
 
           <p className="group flex cursor-default items-center gap-2 whitespace-nowrap text-emerald-300/75 transition-colors duration-300 hover:text-emerald-300">
             <span className="relative flex size-2 items-center justify-center">
@@ -522,9 +537,7 @@ function HomeView() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PAGE
-   ═══════════════════════════════════════════════════════════════ */
+/* ═════════════════ PAGE ═════════════════ */
 
 export default function Page() {
   return <HomeView />;
