@@ -5,14 +5,21 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
 
-import {
-  LuArrowUpRight,
-  LuFileText,
-  LuMail,
-} from "react-icons/lu";
+
 
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
+import {
+  LuArrowUpRight,
+  LuBookOpen,
+  LuCircleHelp,
+  LuFileText,
+  LuFlower2,
+  LuHammer,
+  LuMail,
+  LuTv,
+} from "react-icons/lu";
 
 const site = {
   name: "Chandrashekhar Yadav",
@@ -390,15 +397,59 @@ function HomeView() {
             {/* Personal life line */}
 
             <Reveal delay={0.66}>
-              <p className="mt-6 max-w-[42ch] text-[11px] leading-[1.8] text-faint sm:mt-8 sm:text-[12px] sm:leading-[1.9]">
-                <span className="text-[#c4b5fd]/80">
-                  These days:
-                </span>{" "}
-                I&rsquo;m building things, reading philosophy,
-                meditating, asking too many questions, and watching
-                anime.
-              </p>
-            </Reveal>
+  <div className="mt-6 sm:mt-8">
+    <p className="mb-3 font-mono text-[8px] tracking-[0.28em] text-faint sm:text-[9px]">
+      THESE DAYS
+    </p>
+
+    <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-[11px] text-muted sm:gap-x-6 sm:gap-y-3 sm:text-[12px]">
+      <span className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-paper">
+        <LuHammer
+          aria-hidden
+          className="size-3 text-[#c4b5fd]/70 transition-transform duration-300 group-hover:scale-110"
+          strokeWidth={1.5}
+        />
+        Building
+      </span>
+
+      <span className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-paper">
+        <LuBookOpen
+          aria-hidden
+          className="size-3 text-[#c4b5fd]/70 transition-transform duration-300 group-hover:scale-110"
+          strokeWidth={1.5}
+        />
+        Philosophy
+      </span>
+
+      <span className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-paper">
+        <LuFlower2
+          aria-hidden
+          className="size-3 text-[#c4b5fd]/70 transition-transform duration-300 group-hover:scale-110"
+          strokeWidth={1.5}
+        />
+        Meditation
+      </span>
+
+      <span className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-paper">
+        <LuCircleHelp
+          aria-hidden
+          className="size-3 text-[#c4b5fd]/70 transition-transform duration-300 group-hover:scale-110"
+          strokeWidth={1.5}
+        />
+        Questions
+      </span>
+
+      <span className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-paper">
+        <LuTv
+          aria-hidden
+          className="size-3 text-[#c4b5fd]/70 transition-transform duration-300 group-hover:scale-110"
+          strokeWidth={1.5}
+        />
+        Anime
+      </span>
+    </div>
+  </div>
+</Reveal>
 
             {/* Projects */}
 
