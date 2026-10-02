@@ -8,10 +8,10 @@ import { useEffect, useState, type ReactNode } from "react";
 import {
   LuArrowUpRight,
   LuBookOpen,
+  LuFileText,
   LuFlower2,
   LuHammer,
   LuMail,
-  LuSparkles,
   LuTelescope,
 } from "react-icons/lu";
 
@@ -30,14 +30,14 @@ const site = {
   location: "India",
   year: 2026,
 
-  // Replace with your real email.
+  // Replace with your real email
   email: "hello@example.com",
 
   github: "https://github.com/StarDust130",
 
   x: "https://x.com/the_csyadav",
 
-  // Put the actual PDF at: public/resume.pdf
+  // File: public/resume.pdf
   resume: "/resume.pdf",
 };
 
@@ -120,7 +120,7 @@ function Reveal({
 function Clock() {
   return (
     <span suppressHydrationWarning>
-      <span className="mx-1.5">·</span>
+      <span className="mx-1.5 text-accent/50">·</span>
       <TimeText />
     </span>
   );
@@ -175,11 +175,11 @@ function MountGate({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SHARED LINKS
+   SHARED LINK STYLE
    ═══════════════════════════════════════════════════════════════ */
 
-const linkClass =
-  "group inline-flex items-center gap-1.5 text-[12px] text-muted transition-all duration-300 hover:-translate-y-px hover:text-paper sm:text-[13px]";
+const linkBase =
+  "group inline-flex items-center gap-1.5 text-[12px] text-muted transition-all duration-300 hover:-translate-y-px sm:text-[13px]";
 
 /* ═══════════════════════════════════════════════════════════════
    HOME
@@ -188,10 +188,10 @@ const linkClass =
 function HomeView() {
   return (
     <div className="flex min-h-svh flex-col bg-ink lg:h-svh lg:overflow-hidden">
-      {/* ───────────────── Header ───────────────── */}
+      {/* ═════════════════ HEADER ═════════════════ */}
 
       <header className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-5 pt-5 sm:px-10 sm:pt-7 lg:flex-row lg:items-center lg:justify-between">
-        {/* Logo + name */}
+        {/* Logo */}
 
         <Reveal>
           <Link
@@ -199,7 +199,7 @@ function HomeView() {
             aria-label={`${site.name} — home`}
             className="group inline-flex w-fit items-center gap-2.5"
           >
-            <span className="relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-white/10 bg-white/[0.04] shadow-[0_0_0_1px_rgba(255,255,255,0.02)] sm:size-9">
+            <span className="relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-white/10 bg-white/[0.04] shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 group-hover:border-[#c4b5fd]/40 group-hover:bg-[#c4b5fd]/[0.05] sm:size-9">
               <Image
                 src="/icon.png"
                 alt=""
@@ -210,7 +210,7 @@ function HomeView() {
               />
             </span>
 
-            <span className="text-[13px] font-medium tracking-[-0.01em] text-paper">
+            <span className="text-[13px] font-medium tracking-[-0.01em] text-paper transition-colors duration-300 group-hover:text-[#c4b5fd]">
               {site.name}
             </span>
           </Link>
@@ -228,26 +228,32 @@ function HomeView() {
                   href={site.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkBase} hover:text-[#c4b5fd]`}
                 >
+                  <LuFileText
+                    aria-hidden
+                    className="size-3.5 transition-transform duration-300 group-hover:rotate-[-5deg]"
+                    strokeWidth={1.5}
+                  />
+
                   <span>Resume</span>
 
                   <LuArrowUpRight
                     aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
+                    className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
                     strokeWidth={1.5}
                   />
                 </a>
               </li>
 
-              {/* Projects */}
+              {/* Projects / GitHub */}
 
               <li>
                 <a
                   href={site.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkBase} hover:text-[#f5f5f5]`}
                   aria-label="See my projects on GitHub"
                 >
                   <FaGithub
@@ -259,7 +265,7 @@ function HomeView() {
 
                   <LuArrowUpRight
                     aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
+                    className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
                     strokeWidth={1.5}
                   />
                 </a>
@@ -272,7 +278,7 @@ function HomeView() {
                   href={site.x}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkBase} hover:text-[#9fb7d4]`}
                   aria-label="Chandrashekhar Yadav on X"
                 >
                   <FaXTwitter
@@ -289,7 +295,7 @@ function HomeView() {
               <li>
                 <a
                   href={mailto}
-                  className={linkClass}
+                  className={`${linkBase} hover:text-[#7dd3fc]`}
                   aria-label={`Email ${site.name}`}
                 >
                   <LuMail
@@ -306,7 +312,7 @@ function HomeView() {
         </Reveal>
       </header>
 
-      {/* ───────────────── Hero ───────────────── */}
+      {/* ═════════════════ HERO ═════════════════ */}
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 py-12 sm:px-10 sm:py-14 lg:py-6">
         {/* Eyebrow */}
@@ -315,10 +321,12 @@ function HomeView() {
           <p className="flex items-center gap-3 font-mono text-[9px] tracking-[0.32em] text-faint sm:text-[10px]">
             <span
               aria-hidden
-              className="h-px w-6 bg-faint/60 sm:w-7"
+              className="h-px w-6  sm:w-7"
             />
 
-            HELLO, I&rsquo;M
+            <span>HELLO, I&rsquo;M</span>
+
+        
           </p>
         </Reveal>
 
@@ -341,12 +349,15 @@ function HomeView() {
             y={14}
             className="block"
           >
-            Chandrashekhar 🕊️
+            Chandrashekhar{" "}
+            <span className="inline-block transition-transform duration-500 hover:rotate-6">
+              🕊️
+            </span>
           </Reveal>
         </h1>
 
         <div className="mt-8 grid gap-10 sm:mt-11 sm:gap-12 lg:mt-10 lg:grid-cols-12 lg:gap-8">
-          {/* ───────────────── Main copy ───────────────── */}
+          {/* Main copy */}
 
           <div className="lg:col-span-7">
             <Reveal delay={0.38}>
@@ -382,7 +393,7 @@ function HomeView() {
                 {interests.map(({ label, Icon }, index) => (
                   <span
                     key={label}
-                    className="group/interest inline-flex items-center gap-1.5 transition-colors duration-300 hover:text-paper"
+                    className="group/interest inline-flex items-center gap-1.5 text-faint transition-colors duration-300 hover:text-[#e7e2d8]"
                   >
                     <Icon
                       aria-hidden
@@ -395,7 +406,7 @@ function HomeView() {
                     {index < interests.length - 1 && (
                       <span
                         aria-hidden
-                        className="ml-0.5 text-accent/40"
+                        className="ml-0.5 text-faint/40"
                       >
                         ·
                       </span>
@@ -412,7 +423,7 @@ function HomeView() {
                 href={site.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-7 inline-flex items-center gap-2 border-b border-line pb-1.5 text-[12px] text-paper transition-all duration-300 hover:border-paper hover:text-paper sm:mt-8 sm:text-[13px]"
+                className="group mt-7 inline-flex items-center gap-2 border-b border-line pb-1.5 text-[12px] text-paper transition-all duration-300 hover:border-[#a78bfa] hover:text-[#c4b5fd] sm:mt-8 sm:text-[13px]"
               >
                 <FaGithub
                   aria-hidden
@@ -423,14 +434,14 @@ function HomeView() {
 
                 <LuArrowUpRight
                   aria-hidden
-                  className="size-3.5 transition-transform duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
+                  className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
                   strokeWidth={1.5}
                 />
               </a>
             </Reveal>
           </div>
 
-          {/* ───────────────── About ───────────────── */}
+          {/* About */}
 
           <Reveal
             delay={0.54}
@@ -438,9 +449,9 @@ function HomeView() {
           >
             <aside
               aria-label="About Chandrashekhar"
-              className="max-w-[42ch] border-l border-line pl-4 sm:pl-6"
+              className="max-w-[42ch] border-l border-line pl-4 transition-all duration-500 hover:border-[#8f84c7]/60 sm:pl-6"
             >
-              <p className="font-mono text-[9px] tracking-[0.3em] text-faint sm:text-[10px]">
+              <p className="font-mono text-[9px] tracking-[0.3em] text-sky-500 sm:text-[10px]">
                 ABOUT
               </p>
 
@@ -481,7 +492,7 @@ function HomeView() {
         </div>
       </main>
 
-      {/* ───────────────── Footer ───────────────── */}
+      {/* ═════════════════ FOOTER ═════════════════ */}
 
       <footer className="border-t border-line">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3.5 font-mono text-[8px] tracking-[0.17em] text-faint sm:px-10 sm:py-4 sm:text-[10px] sm:tracking-[0.21em]">
@@ -490,17 +501,20 @@ function HomeView() {
             <Clock />
           </p>
 
-          <p className="hidden md:block">
+          <p className="hidden md:block text-faint/70">
             BUILDING · THINKING · LEARNING
           </p>
 
-          <p className="flex items-center gap-2 whitespace-nowrap">
-            <span
-              aria-hidden
-              className="dot-breathe size-1.5 rounded-full bg-accent"
-            />
+          {/* Available for work */}
 
-            AVAILABLE FOR WORK
+          <p className="group flex cursor-default items-center gap-2 whitespace-nowrap text-emerald-300/75 transition-colors duration-300 hover:text-emerald-300">
+            <span className="relative flex size-2 items-center justify-center">
+              <span className="absolute size-2 animate-ping rounded-full bg-emerald-400/25" />
+
+              <span className="relative size-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+            </span>
+
+            <span>AVAILABLE FOR WORK</span>
           </p>
         </div>
       </footer>
