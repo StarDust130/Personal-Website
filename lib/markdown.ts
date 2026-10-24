@@ -17,6 +17,7 @@ export const markdownSanitizeSchema = {
     "figure",
     "figcaption",
     "mark",
+    "small", // Allow small image credits
   ],
   strip: [
     ...(defaultSchema.strip ?? []),
