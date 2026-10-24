@@ -27,7 +27,7 @@ export default function BlogHeader() {
           </span>
         </Link>
 
-        <nav aria-label="Writing navigation" className="flex items-center gap-4 sm:gap-6">
+        <nav aria-label="Thoughts navigation" className="flex items-center gap-4 sm:gap-6">
           <Link
             href="/"
             className={`${navLink} text-muted hover:text-paper`}
@@ -39,7 +39,7 @@ export default function BlogHeader() {
             aria-current="page"
             className={`${navLink} border-b border-accent/70 text-paper`}
           >
-            Writing
+            Thoughts
           </Link>
         </nav>
       </div>
