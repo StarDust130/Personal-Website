@@ -1142,3 +1142,25 @@ body {
     animation: none !important;
   }
 }
+/* Small, understated image attribution */
+.prose small {
+  display: block;
+  margin: -1.25rem 0 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+  color: var(--color-faint);
+}
+
+.prose small a {
+  color: var(--color-muted);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose small a:hover {
+  color: var(--color-paper);
+  text-decoration: underline;
+}
