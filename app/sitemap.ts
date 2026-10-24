@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: absoluteUrl("/blog"),
+      url: absoluteUrl("/thoughts"),
       lastModified: latestPublishedDate
         ? new Date(latestPublishedDate)
         : undefined,
