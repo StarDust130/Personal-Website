@@ -35,7 +35,7 @@ export default function BlogHeader() {
             Home
           </Link>
           <Link
-            href="/blog"
+            href="/thoughts"
             aria-current="page"
             className={`${navLink} border-b border-accent/70 text-paper`}
           >
