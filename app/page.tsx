@@ -142,9 +142,9 @@ function HomeView() {
       external: true,
     },
     {
-      label: "Writing",
+      label: "Thoughts",
       description: "Notes, ideas & experiments",
-      href: "/blog",
+      href: "/thoughts",
       icon: LuBookOpen,
       external: false,
     },
