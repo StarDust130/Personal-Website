@@ -1,6 +1,6 @@
 ---
 # Writing post template — copy this file and rename the copy (e.g. my-new-post.md).
-# The file name becomes the URL slug: content/blog/my-new-post.md -> /blog/my-new-post
+# The file name becomes the URL slug: content/blog/my-new-post.md -> /thoughts/my-new-post
 
 # title: (optional) falls back to the first H1 in the body, then the file name
 title: "Your Post Title"
