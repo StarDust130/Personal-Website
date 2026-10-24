@@ -37,7 +37,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>${escapeXml(siteConfig.author)} — Writing</title>
+    <title>${escapeXml(siteConfig.author)} — Thoughts</title>
     <link>${absoluteUrl("/blog")}</link>
     <description>${escapeXml(siteConfig.writingDescription)}</description>
     <language>en</language>${
