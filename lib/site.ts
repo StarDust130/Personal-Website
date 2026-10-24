@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Chandrashekhar Yadav",
   author: "Chandrashekhar Yadav",
-  url: "https://www.chandrashekhar.me",
+  url: "https://chandrashekhar.me",
   avatar: "/me.jpeg",
   description:
     "Developer and builder making thoughtful things for the web.",
