@@ -98,6 +98,20 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: getCoverRemotePatterns(),
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog",
+        destination: "/thoughts",
+        permanent: true,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "/thoughts/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
