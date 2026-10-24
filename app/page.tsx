@@ -18,7 +18,9 @@ import {
   LuFlower2,
   LuHammer,
   LuMail,
+  LuMenu,
   LuTv,
+  LuX,
 } from "react-icons/lu";
 
 const site = {
@@ -93,83 +95,80 @@ function Reveal({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INDIA TIME
-   ═══════════════════════════════════════════════════════════════ */
-
-function Clock() {
-  return (
-    <span suppressHydrationWarning>
-      <span className="mx-1.5 text-[#9b8ed8]/60">·</span>
-      <TimeText />
-    </span>
-  );
-}
-
-function TimeText() {
-  return (
-    <MountGate fallback="IST">
-      {() => {
-        const parts = new Intl.DateTimeFormat("en-IN", {
-          timeZone: "Asia/Kolkata",
-          day: "2-digit",
-          month: "short",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        }).formatToParts(new Date());
-
-        const get = (type: Intl.DateTimeFormatPartTypes) =>
-          parts.find((part) => part.type === type)?.value ?? "";
-
-        return `${get("day")} ${get("month")} · ${get(
-          "hour"
-        )}:${get("minute")} ${get("dayPeriod").toUpperCase()} IST`;
-      }}
-    </MountGate>
-  );
-}
-
-function MountGate({
-  children,
-  fallback,
-}: {
-  children: () => string;
-  fallback: string;
-}) {
-  const [text, setText] = useState<string | null>(null);
-
-  useEffect(() => {
-    const tick = () => setText(children());
-
-    tick();
-
-    const id = window.setInterval(tick, 30_000);
-
-    return () => window.clearInterval(id);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return <>{text ?? fallback}</>;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    SHARED LINK STYLE
    ═══════════════════════════════════════════════════════════════ */
 
 const linkBase =
-  "group inline-flex items-center gap-1.5 text-[12px] text-muted transition-all duration-300 hover:-translate-y-px sm:text-[13px]";
+  "group inline-flex items-center gap-2 text-[12px] text-muted transition-colors duration-200 sm:text-[13px]";
 
 /* ═══════════════════════════════════════════════════════════════
    HOME
    ═══════════════════════════════════════════════════════════════ */
 
 function HomeView() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
+
+  const navItems = [
+    {
+      label: "Resume",
+      description: "Experience & background",
+      href: site.resume,
+      icon: LuFileText,
+      external: true,
+    },
+    {
+      label: "Projects",
+      description: "Things I’ve built",
+      href: site.github,
+      icon: FaGithub,
+      external: true,
+    },
+    {
+      label: "Writing",
+      description: "Notes, ideas & experiments",
+      href: "/blog",
+      icon: LuBookOpen,
+      external: false,
+    },
+    {
+      label: "@the_csyadav",
+      description: "Follow along on X",
+      href: site.x,
+      icon: FaXTwitter,
+      external: true,
+    },
+    {
+      label: "Email",
+      description: "Get in touch",
+      href: mailto,
+      icon: LuMail,
+      external: false,
+    },
+  ];
+
   return (
     <div className="min-h-svh bg-ink">
       {/* ═════════════════ HEADER ═════════════════ */}
 
-      <header className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 pt-5 sm:gap-5 sm:px-10 sm:pt-7 lg:flex-row lg:items-center lg:justify-between">
+      <header className="mx-auto flex w-full max-w-6xl flex-row items-center justify-between gap-4 px-5 pt-5 sm:gap-5 sm:px-10 sm:pt-7 lg:flex-row lg:items-center lg:justify-between">
         {/* Logo */}
 
         <Reveal>
@@ -197,99 +196,162 @@ function HomeView() {
 
         {/* Navigation */}
 
-        <Reveal delay={0.08}>
-          <nav aria-label="Primary navigation">
-            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2.5 sm:gap-x-7 sm:gap-y-3">
-              {/* Resume */}
+        <Reveal delay={0.08} className="shrink-0">
+          <div className="flex items-center">
+            {/* Desktop navigation */}
+            <nav aria-label="Primary navigation" className="hidden md:block">
+              <ul className="flex items-center gap-x-5 lg:gap-x-7">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
 
-              <li>
-                <a
-                  href={site.resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${linkBase} hover:text-[#c4b5fd]`}
-                >
-                  <LuFileText
-                    aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:rotate-[-5deg]"
-                    strokeWidth={1.5}
-                  />
+                  return (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        aria-label={
+                          item.label === "Projects"
+                            ? "See my projects on GitHub"
+                            : item.label === "@the_csyadav"
+                              ? "Chandrashekhar Yadav on X"
+                              : item.label === "Email"
+                                ? `Email ${site.name}`
+                                : item.label
+                        }
+                        className={`${linkBase} hover:text-paper focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-line focus-visible:ring-offset-4 focus-visible:ring-offset-ink`}
+                      >
+                        <Icon
+                          aria-hidden="true"
+                          className="size-3.5 shrink-0 opacity-75"
+                          strokeWidth={1.5}
+                        />
+                        <span>{item.label}</span>
+                        {item.external && (
+                          <LuArrowUpRight
+                            aria-hidden="true"
+                            className="size-3 opacity-45"
+                            strokeWidth={1.5}
+                          />
+                        )}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-                  <span>Resume</span>
-
-                  <LuArrowUpRight
-                    aria-hidden
-                    className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
-                    strokeWidth={1.5}
-                  />
-                </a>
-              </li>
-
-              {/* Projects */}
-
-              <li>
-                <a
-                  href={site.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="See my projects on GitHub"
-                  className={`${linkBase} hover:text-[#f5f5f5]`}
-                >
-                  <FaGithub
-                    aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:scale-110"
-                  />
-
-                  <span>Projects</span>
-
-                  <LuArrowUpRight
-                    aria-hidden
-                    className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
-                    strokeWidth={1.5}
-                  />
-                </a>
-              </li>
-
-              {/* X */}
-
-              <li>
-                <a
-                  href={site.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Chandrashekhar Yadav on X"
-                  className={`${linkBase} hover:text-[#9fb7d4]`}
-                >
-                  <FaXTwitter
-                    aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:scale-110"
-                  />
-
-                  <span>@the_csyadav</span>
-                </a>
-              </li>
-
-              {/* Email */}
-
-              <li>
-                <a
-                  href={mailto}
-                  aria-label={`Email ${site.name}`}
-                  className={`${linkBase} hover:text-[#7dd3fc]`}
-                >
-                  <LuMail
-                    aria-hidden
-                    className="size-3.5 transition-transform duration-300 group-hover:scale-110"
-                    strokeWidth={1.5}
-                  />
-
-                  <span>Email</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+            {/* Mobile menu toggle */}
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen((open) => !open)}
+              className="inline-flex size-10 items-center justify-center rounded-md border border-line text-muted transition-colors duration-200 hover:border-white/20 hover:text-paper focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-line md:hidden"
+            >
+              {menuOpen ? (
+                <LuX aria-hidden="true" className="size-[18px]" strokeWidth={1.5} />
+              ) : (
+                <LuMenu aria-hidden="true" className="size-[18px]" strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
         </Reveal>
       </header>
+
+      {/* Full-screen mobile navigation */}
+      <div
+        id="mobile-navigation"
+        role="dialog"
+        aria-modal={menuOpen}
+        aria-label="Navigation menu"
+        aria-hidden={!menuOpen}
+        className={`fixed inset-0 z-[100] flex min-h-svh flex-col bg-ink px-6 pb-7 pt-6 transition-[opacity,visibility] duration-300 ease-out md:hidden ${
+          menuOpen
+            ? "visible opacity-100"
+            : "invisible pointer-events-none opacity-0"
+        }`}
+      >
+        <div
+          className={`mx-auto flex min-h-[calc(100svh-3.25rem)] w-full max-w-md flex-1 flex-col transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-y-0" : "translate-y-1"
+          }`}
+        >
+          {/* Menu heading */}
+          <div className="flex items-center justify-between border-b border-line pb-5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-faint">
+              Navigation <span className="ml-1 text-faint/50">/ 05</span>
+            </p>
+            <button
+              type="button"
+              aria-label="Close navigation menu"
+              tabIndex={menuOpen ? 0 : -1}
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex size-9 items-center justify-center text-muted transition-colors duration-200 hover:text-paper focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-line"
+            >
+              <LuX aria-hidden="true" className="size-[18px]" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          {/* Destinations */}
+          <nav
+            aria-label="Mobile navigation"
+            className="flex flex-1 flex-col justify-center py-7"
+          >
+            <ul className="divide-y divide-white/[0.08]">
+              {navItems.map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      tabIndex={menuOpen ? 0 : -1}
+                      onClick={() => setMenuOpen(false)}
+                      className="group flex items-center gap-4 py-4 text-paper/85 transition-colors duration-200 hover:text-paper focus-visible:outline-none focus-visible:text-paper sm:py-5"
+                    >
+                      <span className="w-5 shrink-0 font-mono text-[10px] tabular-nums text-faint/60">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <Icon
+                        aria-hidden="true"
+                        className="size-4 shrink-0 text-muted"
+                        strokeWidth={1.5}
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-serif text-[25px] leading-tight tracking-[-0.025em]">
+                          {item.label}
+                        </span>
+                        <span className="mt-1 block text-[11px] leading-relaxed text-muted">
+                          {item.description}
+                        </span>
+                      </span>
+                      {item.external && (
+                        <LuArrowUpRight
+                          aria-hidden="true"
+                          className="size-4 shrink-0 text-faint/55"
+                          strokeWidth={1.5}
+                        />
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          {/* Menu footer */}
+          <div className="border-t border-line pt-4">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-faint/55">
+              Chandrashekhar Yadav
+            </p>
+          </div>
+        </div>
+      </div>
+
 
       {/* ═════════════════ HERO ═════════════════ */}
 
