@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "motion/react";
+
+const targetDate = new Date("2030-03-13T00:00:00").getTime();
 
 export default function JapanTripCountdown() {
-  const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     years: 0,
     months: 0,
@@ -14,11 +15,7 @@ export default function JapanTripCountdown() {
     seconds: 0,
   });
 
-  const targetDate = new Date("2030-03-13T00:00:00").getTime();
-
   useEffect(() => {
-    setMounted(true);
-
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
       const difference = targetDate - now;
@@ -41,15 +38,14 @@ export default function JapanTripCountdown() {
       setTimeLeft({ years, months, days, hours, minutes, seconds });
     };
 
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
+    const initialTick = window.setTimeout(calculateTimeLeft, 0);
+    const timer = window.setInterval(calculateTimeLeft, 1000);
 
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
-  if (!mounted) {
-    return <div className="min-h-screen bg-[#F0EBE1]" />;
-  }
+    return () => {
+      window.clearTimeout(initialTick);
+      window.clearInterval(timer);
+    };
+  }, []);
 
   const timeUnits = [
     { label: "YEARS", value: timeLeft.years, kanji: "年", id: "Y-01" },
@@ -61,7 +57,7 @@ export default function JapanTripCountdown() {
   ];
 
   // Grid Animation Variants
-  const gridContainer = {
+  const gridContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -69,7 +65,7 @@ export default function JapanTripCountdown() {
     },
   };
 
-  const gridItem = {
+  const gridItem: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
@@ -246,7 +242,7 @@ export default function JapanTripCountdown() {
           {/* Aggressive Directive */}
           <div className="flex-1 text-center xl:text-right">
             <p className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0A0A0A] uppercase tracking-tighter leading-tight drop-shadow-sm">
-              Don't waste time.
+              Don&apos;t waste time.
               <br className="hidden sm:block xl:hidden" /> Earn now or regret
               later.
             </p>
