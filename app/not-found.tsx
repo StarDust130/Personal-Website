@@ -27,7 +27,7 @@ export default function NotFound() {
           Home
         </Link>
         <Link
-          href="/blog"
+          href="/thoughts"
           className="inline-flex min-h-10 items-center rounded-md border border-line px-4 font-mono text-[11px] uppercase tracking-[0.12em] text-muted transition-colors hover:border-accent/40 hover:text-paper focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
         >
           Thoughts
