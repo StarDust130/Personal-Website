@@ -392,7 +392,7 @@ function HomeView() {
             <Reveal delay={0.66}>
   <div className="mt-6 sm:mt-8">
     <p className="mb-3 font-mono text-[8px] tracking-[0.28em] text-faint sm:text-[9px]">
-      THESE DAYS
+      THESE DAYS:
     </p>
 
     <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-[11px] text-muted sm:gap-x-6 sm:gap-y-3 sm:text-[12px]">
@@ -444,29 +444,6 @@ function HomeView() {
   </div>
 </Reveal>
 
-            {/* Projects */}
-
-            <Reveal delay={0.74}>
-              <a
-                href={site.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-2 border-b border-line pb-1.5 text-[12px] text-paper transition-all duration-300 hover:border-[#a78bfa] hover:text-[#c4b5fd] sm:mt-8 sm:text-[13px]"
-              >
-                <FaGithub
-                  aria-hidden
-                  className="size-3.5 transition-transform duration-300 group-hover:scale-110"
-                />
-
-                <span>See my projects</span>
-
-                <LuArrowUpRight
-                  aria-hidden
-                  className="size-3.5 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]"
-                  strokeWidth={1.5}
-                />
-              </a>
-            </Reveal>
           </div>
 
           {/* ═════════════ ABOUT ═════════════ */}
@@ -549,34 +526,17 @@ function HomeView() {
 
       {/* ═════════════════ FOOTER ═════════════════ */}
 
-      <footer className="border-t border-line">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3.5 font-mono text-[8px] tracking-[0.14em] text-faint sm:px-10 sm:py-4 sm:text-[10px] sm:tracking-[0.21em]">
-          {/* Time */}
+<footer className="border-t border-line">
+  <div className="group mx-auto flex max-w-6xl items-center justify-center gap-3 px-5 py-2.5">
+    <span className="h-px w-3 bg-faint/30 transition-all duration-500 ease-out group-hover:w-6 group-hover:bg-faint/60" />
 
-          <p className="whitespace-nowrap">
-            {site.location.toUpperCase()} · {site.year}
-            <Clock />
-          </p>
+    <p className="font-serif text-xs italic tracking-wide text-faint/80 transition-all duration-500 ease-out group-hover:text-faint/90 sm:text-[13px]">
+      What you seek is seeking you.
+    </p>
 
-          {/* Center */}
-
-          <p className="hidden md:block text-faint/70">
-            BUILDING · THINKING · LEARNING
-          </p>
-
-          {/* Availability */}
-
-          <p className="group flex cursor-default items-center gap-2 whitespace-nowrap text-emerald-300/75 transition-colors duration-300 hover:text-emerald-300">
-            <span className="relative flex size-2 items-center justify-center">
-              <span className="absolute size-2 animate-ping rounded-full bg-emerald-400/25" />
-
-              <span className="relative size-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
-            </span>
-
-            <span>AVAILABLE FOR WORK</span>
-          </p>
-        </div>
-      </footer>
+    <span className="h-px w-3 bg-faint/30 transition-all duration-500 ease-out group-hover:w-6 group-hover:bg-faint/60" />
+  </div>
+</footer>
     </div>
   );
 }
