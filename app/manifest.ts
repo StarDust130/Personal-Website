@@ -25,8 +25,8 @@ export default function manifest(): MetadataRoute.Manifest {
     screenshots: [],
     shortcuts: [
       {
-        name: "Writing",
-        short_name: "Writing",
+        name: "Thoughts",
+        short_name: "Thoughts",
         description: "Read my latest posts",
         url: "/blog",
         icons: [{ src: "/icon.png", sizes: "641x390" }],
