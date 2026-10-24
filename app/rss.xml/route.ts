@@ -38,7 +38,7 @@ export async function GET() {
 <rss version="2.0">
   <channel>
     <title>${escapeXml(siteConfig.author)} — Thoughts</title>
-    <link>${absoluteUrl("/blog")}</link>
+    <link>${absoluteUrl("/thoughts")}</link>
     <description>${escapeXml(siteConfig.writingDescription)}</description>
     <language>en</language>${
       latestPublishedDate
