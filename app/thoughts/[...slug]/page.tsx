@@ -56,7 +56,7 @@ export async function generateMetadata({
     ? [{ url: imageUrl(post.cover), alt: imageAlt }]
     : [
         {
-          url: absoluteUrl("/blog/opengraph-image"),
+          url: absoluteUrl("/thoughts/opengraph-image"),
           width: 1200,
           height: 630,
           alt: `Thoughts — ${siteConfig.author}`,
@@ -112,7 +112,7 @@ export default async function BlogPostPage({
   const cover = post.cover;
   const socialImage = post.cover
     ? imageUrl(post.cover)
-    : absoluteUrl("/blog/opengraph-image");
+    : absoluteUrl("/thoughts/opengraph-image");
   const headerDate = post.updatedDate ?? post.date;
   const headerDateLabel = post.updatedDate ? "Updated" : "Published";
 
@@ -130,7 +130,7 @@ export default async function BlogPostPage({
         "@type": "ListItem",
         position: 2,
         name: "Thoughts",
-        item: absoluteUrl("/blog"),
+        item: absoluteUrl("/thoughts"),
       },
       {
         "@type": "ListItem",
@@ -199,7 +199,7 @@ export default async function BlogPostPage({
 
             <article className="min-w-0">
               <Link
-                href="/blog"
+                href="/thoughts"
                 className="inline-flex min-h-9 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
               >
                 <ArrowLeft
