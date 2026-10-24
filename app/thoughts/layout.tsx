@@ -36,7 +36,7 @@ export default function BlogLayout({
             <Link href="/" className={footerLink}>
               Home
             </Link>
-            <Link href="/blog" className={footerLink}>
+            <Link href="/thoughts" className={footerLink}>
               Thoughts
             </Link>
             <a
