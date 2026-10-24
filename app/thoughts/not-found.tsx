@@ -28,7 +28,7 @@ export default function BlogNotFound() {
 
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
-          href="/blog"
+          href="/thoughts"
           className="inline-flex min-h-10 items-center rounded-md border border-accent/40 bg-accent/10 px-4 font-mono text-[10px] uppercase tracking-[0.14em] text-accent transition-colors hover:bg-accent/15 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
         >
           All thoughts
