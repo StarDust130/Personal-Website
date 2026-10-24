@@ -298,17 +298,10 @@ function HomeView() {
 
         <Reveal delay={0.12}>
           <p className="flex items-center gap-3 font-mono text-[8px] tracking-[0.32em] text-faint sm:text-[10px]">
-            <span
-              aria-hidden
-              className="h-px w-6 bg-[#a78bfa]/55 sm:w-7"
-            />
 
-            <span>HELLO, I&rsquo;M</span>
 
-            <span
-              aria-hidden
-              className="size-1 rounded-full bg-[#a78bfa]/80 shadow-[0_0_10px_rgba(167,139,250,0.7)]"
-            />
+            <span className="font-bold">HEY,👋  I&rsquo;M</span>
+
           </p>
         </Reveal>
 
