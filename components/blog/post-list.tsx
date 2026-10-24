@@ -221,7 +221,7 @@ function StandardPost({
 function MorePosts({ posts }: { posts: BlogIndexEntry[] }) {
   return (
     <section
-      aria-label="More writing"
+      aria-label="More thoughts"
       className="mt-5 columns-1 gap-5 md:columns-2"
     >
       {posts.map((post) => (
@@ -242,7 +242,7 @@ function BentoPosts({ posts }: { posts: BlogIndexEntry[] }) {
   return (
     <>
       <section
-        aria-label="Featured writing"
+        aria-label="Featured thoughts"
         className="mt-6 grid items-start gap-5 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
       >
         <FeaturedPost post={featured} priority />
@@ -260,7 +260,7 @@ function BentoPosts({ posts }: { posts: BlogIndexEntry[] }) {
 function ResultPosts({ posts }: { posts: BlogIndexEntry[] }) {
   if (posts.length === 1) {
     return (
-      <section aria-label="Writing" className="mt-6 max-w-[42rem]">
+      <section aria-label="Thoughts" className="mt-6 max-w-[42rem]">
         <StandardPost post={posts[0]} priority />
       </section>
     );
@@ -268,7 +268,7 @@ function ResultPosts({ posts }: { posts: BlogIndexEntry[] }) {
 
   return (
     <section
-      aria-label="Writing"
+      aria-label="Thoughts"
       className="mt-6 grid items-start gap-5 md:grid-cols-2"
     >
       {posts.map((post, index) => (
@@ -293,7 +293,7 @@ function ListHeader() {
       aria-hidden="true"
       className="hidden border-b border-line pb-3 font-mono text-[9px] uppercase tracking-[0.15em] text-faint md:grid md:grid-cols-[minmax(0,1fr)_9rem_5rem] md:gap-6"
     >
-      <span>Writing</span>
+      <span>Thoughts</span>
       <span className="text-right">Date</span>
       <span className="text-right">Read</span>
     </div>
@@ -347,7 +347,7 @@ function ViewToggle({
   return (
     <div
       role="group"
-      aria-label="Writing layout"
+      aria-label="Thoughts layout"
       className="inline-flex shrink-0 rounded-lg border border-line bg-white/[0.02] p-0.5"
     >
       {options.map(({ value, label, Icon }) => {
@@ -480,13 +480,13 @@ export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
       className="mt-8"
     >
       <h2 id="post-list-heading" className="sr-only">
-        All writing
+        All thoughts
       </h2>
 
       <div className="flex flex-col gap-4 border-b border-line pb-5 lg:flex-row lg:items-center lg:justify-between">
         <div role="search" className="w-full lg:max-w-md">
           <label htmlFor="blog-search" className="sr-only">
-            Search writing
+            Search thoughts
           </label>
           <div className="relative">
             <Search
@@ -500,7 +500,7 @@ export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
               value={query}
               onChange={(event) => handleQueryChange(event.target.value)}
               onKeyDown={handleSearchKeyDown}
-              placeholder="Search writing…"
+              placeholder="Search thoughts…"
               autoComplete="off"
               spellCheck={false}
               aria-keyshortcuts="/"
@@ -553,7 +553,7 @@ export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
               Nothing matches that search.
             </p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-              No writing mentions “{normalizedQuery}”. Try a shorter phrase or a
+              No thoughts mention “{normalizedQuery}”. Try a shorter phrase or a
               different word.
             </p>
             <button
