@@ -10,18 +10,18 @@ export const metadata: Metadata = {
   title: "Thoughts",
   description,
   alternates: {
-    canonical: "/blog",
+    canonical: "/thoughts",
   },
   openGraph: {
     title: `Thoughts — ${siteConfig.author}`,
     description,
     type: "website",
     locale: "en_US",
-    url: absoluteUrl("/blog"),
+    url: absoluteUrl("/thoughts"),
     siteName: siteConfig.author,
     images: [
       {
-        url: absoluteUrl("/blog/opengraph-image"),
+        url: absoluteUrl("/thoughts/opengraph-image"),
         width: 1200,
         height: 630,
         alt: `Thoughts — ${siteConfig.author}`,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Thoughts — ${siteConfig.author}`,
     description,
-    images: [absoluteUrl("/blog/opengraph-image")],
+    images: [absoluteUrl("/thoughts/opengraph-image")],
   },
 };
 
@@ -45,7 +45,7 @@ export default function BlogPage() {
     "@type": "Blog",
     name: `Thoughts — ${siteConfig.author}`,
     description,
-    url: absoluteUrl("/blog"),
+    url: absoluteUrl("/thoughts"),
     inLanguage: "en",
     author: {
       "@type": "Person",
@@ -89,7 +89,7 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 2,
         name: "Thoughts",
-        item: absoluteUrl("/blog"),
+        item: absoluteUrl("/thoughts"),
       },
     ],
   };
