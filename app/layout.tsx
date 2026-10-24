@@ -2,17 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
-
-const site = {
-  name: "Chandrashekhar Yadav",
-  domain: "https://csyadav.vercel.app",
-  github: "https://github.com/StarDust130",
-  linkedin: "https://www.linkedin.com/",
-};
-
-const description =
-  "The digital home of Chandrashekhar Yadav. He builds things, writes software, explores AI, reads philosophy, meditates, and tries to understand the world a little more deeply.";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -35,23 +26,24 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.domain),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: site.name,
-    template: `%s — ${site.name}`,
+    default: siteConfig.name,
+    template: `%s — ${siteConfig.name}`,
   },
 
-  description,
+  description: siteConfig.description,
 
   authors: [
     {
-      name: site.name,
-      url: site.domain,
+      name: siteConfig.author,
+      url: siteConfig.url,
     },
   ],
 
-  creator: site.name,
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
 
   alternates: {
     canonical: "/",
@@ -59,43 +51,64 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: site.domain,
-    siteName: site.name,
-    title: site.name,
-    description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description: siteConfig.description,
     locale: "en_US",
   },
 
   twitter: {
-    card: "summary",
-    title: site.name,
-    description,
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
   colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: site.name,
-  url: site.domain,
-  sameAs: [site.github, site.linkedin],
+  name: siteConfig.name,
+  url: siteConfig.url,
+  sameAs: [
+    "https://github.com/StarDust130",
+    "https://www.linkedin.com/in/chandrashekhar-yadav/",
+  ],
   knowsAbout: [
-    "Software",
+    "Software Engineering",
     "Artificial Intelligence",
+    "System Design",
+    "React",
+    "TypeScript",
+    "Node.js",
     "Philosophy",
     "Meditation",
-    "Technology",
   ],
+  jobTitle: "Software Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Freelance",
+  },
 };
 
 export default function RootLayout({
@@ -112,13 +125,13 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
 
         {children}
 
-        <Analytics />
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );
