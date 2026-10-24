@@ -1,59 +1,109 @@
 ---
 title: "Hello, world."
-description: "A small beginning. A place for the thoughts, questions, and little things I don't want to forget."
+description: "A small corner of the internet for curious thoughts, strange questions, little discoveries, and whatever else wanders into my mind."
 date: 2026-10-24
+image: "https://images.unsplash.com/photo-1581850518616-bcb8077a2336?auto=format&fit=crop&w=1170&q=80"
+coverAlt: "Colorful graffiti artwork filled with surreal, playful characters"
 ---
 
-![A quiet night sky scattered with stars above dark hills](https://images.unsplash.com/photo-1627213501468-5d9bda71c43c?auto=format&fit=crop&w=1800&q=85)
+<small>Image: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a> · <a href="https://unsplash.com/photos/graffiti-mural-with-colorful-cartoon-monsters-WKQt_X-SKFI" target="_blank" rel="noopener noreferrer">Original image</a></small>
 
-*Every interesting journey starts somewhere. This one starts here.*
+*Every interesting journey starts somewhere. This one starts with a question, probably followed by seventeen more.*
 
-## So, hello.
+## Well, hello there.
 
-I've wanted a place like this for a while.
+So, I finally made a place to put my thoughts.
 
-Not somewhere to teach people how to live, pretend I have everything figured out, or turn every experience into some profound lesson.
+Not because I've figured life out. Quite the opposite, actually.
 
-Just a place to write.
+I'm still trying to understand what we're all doing here, why the mind refuses to shut up when we're trying to sleep, and how one innocent question can somehow lead to three hours of reading about consciousness.
 
-About things I experience, ideas that get stuck in my head, books I'm reading, things I'm building, questions about life, philosophy, technology, or something completely random that I find interesting.
+You know, the usual stuff.
 
-Sometimes I'll have something meaningful to say. Sometimes I'll just be thinking out loud.
+This is a place for all of that.
 
-I'm okay with that.
+Things I experience. Ideas that get stuck in my head. Books that make me question things I thought I understood. Little observations about people, life, technology, philosophy, and occasionally something completely ridiculous.
 
-## Why write?
+Sometimes I'll write something meaningful.
 
-I spend a lot of time thinking about things. Sometimes more than necessary.
+Sometimes I'll spend an entire page wondering about something that has absolutely no practical use.
 
-I'll come across an idea, follow a question down a rabbit hole, and suddenly find myself wondering about something completely different from where I started.
+Both seem equally valid to me.
 
-I want to keep some of those thoughts.
+## A place for unfinished thoughts
 
-Writing gives me a reason to slow down, put an idea into words, and see whether it actually makes sense outside my head.
+I have a habit of following questions further than I probably need to.
 
-Maybe I'll understand something better. Maybe I'll discover that I was wrong. Maybe I'll look back at something I wrote years from now and see how differently I think.
+I'll start wondering about something simple, follow a trail of ideas, and suddenly find myself somewhere I never expected to be.
 
-All of that sounds worthwhile.
+Why do we believe what we believe?
 
-## Nothing to prove
+What does it mean to be happy?
 
-I don't want this to become another place where everything has to be perfect.
+How much of our personality is actually *us*, and how much is just habit?
 
-Not every thought needs to be original. Not every question needs an answer. And not everything I write needs to be useful to someone else.
+And why does the brain remember an embarrassing thing from five years ago at 2 a.m., but forget why I walked into a room?
 
-Sometimes noticing something ordinary is interesting enough.
+Some questions are serious. Some are stupid. Some might turn out to be the same question wearing different clothes.
 
-So I'll write when I have something I want to explore, share what I'm learning, and leave room for my thoughts to change.
+I want to explore them without pretending I already know the answers.
 
-No schedule. No promises to publish every week. Just curiosity and the occasional attempt to make sense of things.
+Writing seems like a good way to do that. It forces me to slow down, put thoughts into words, and discover whether an idea actually makes sense outside my own head.
 
-## Here we go.
+Sometimes writing clarifies things.
 
-This is the first one. A small beginning, nothing more.
+Sometimes it reveals that I have absolutely no idea what I'm talking about.
 
-If you're reading this, welcome.
+Honestly, both are useful.
+
+## No guru energy, please.
+
+I don't want this to become one of those places where every ordinary experience turns into a lesson about success, discipline, or becoming the best version of yourself.
+
+Sometimes a walk is just a walk.
+
+Sometimes a thought is just a thought.
+
+Sometimes you learn something interesting, and the only reasonable response is, *huh, that's pretty cool.*
+
+Not everything needs a five-step framework.
+
+Not every question needs an answer.
+
+And I definitely don't want to pretend that I've mastered life when I'm still figuring out how to use my own mind without getting dragged into every thought it produces.
+
+I'd rather be honest about what I know, curious about what I don't, and willing to change my mind when I find a good reason.
+
+Seems like a decent place to start.
+
+## So, what will I write about?
+
+Honestly, whatever feels worth exploring.
+
+- **Philosophy** — reality, consciousness, knowledge, and questions that refuse to leave me alone.
+- **Life** — experiences, relationships, happiness, and things I'm slowly learning about myself.
+- **Building things** — coding, technology, experiments, ideas, and the occasional frustrating bug.
+- **Books and ideas** — things I read, what I think about them, and where my mind wanders afterward.
+- **Random stuff** — little discoveries, observations, and thoughts that don't fit neatly anywhere else.
+
+No strict schedule. No pressure to turn every thought into a masterpiece.
+
+Just a growing collection of things I've found interesting enough to write down.
+
+## Anyway, here we go.
+
+This is the first one.
+
+No grand announcement. No life-changing revelation. Just a small beginning.
+
+Maybe some of these writings will be worth revisiting years from now. Maybe I'll disagree with half of what I write. Maybe I'll discover that putting thoughts into words is a much harder business than it looks.
+
+That's part of the fun.
+
+If you've found your way here, welcome.
+
+Make yourself comfortable. Bring your curiosity. Questions are encouraged; pretending to know everything is optional.
 
 Let's see where this goes.
 
-— Chandrashekhar
+— CS
