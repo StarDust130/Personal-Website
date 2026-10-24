@@ -28,7 +28,7 @@ export function postPath(slug: string): string {
     .map((segment) => encodeURIComponent(segment))
     .join("/");
 
-  return `/blog/${encoded}`;
+  return `/thoughts/${encoded}`;
 }
 
 export function imageUrl(src: string): string {
