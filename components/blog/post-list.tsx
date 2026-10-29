@@ -9,20 +9,19 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
-import { LayoutGrid, List, Search, X } from "lucide-react";
+import { ArrowUpRight, LayoutGrid, List, Search, X } from "lucide-react";
 import PostCardMedia from "@/components/blog/post-card-media";
-import { formatShortDate } from "@/lib/format";
+import { formatShortDate, isNewPost } from "@/lib/format";
 import { postPath } from "@/lib/site";
 import { filterPosts, normalizeQuery } from "@/lib/search";
 import type { BlogIndexEntry } from "@/lib/blog";
 
 type BlogView = "cards" | "list";
-type CardVariant = "featured" | "standard" | "compact";
 
 const VIEW_STORAGE_KEY = "blog-view-v1";
 
 const cardShell =
-  "group flex flex-col overflow-hidden rounded-lg border border-line bg-white/[0.015] transition-[border-color,background-color] duration-200 hover:border-accent/30 hover:bg-white/[0.028] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent";
+  "group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white/[0.018] transition-[border-color,background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent/35 hover:bg-white/[0.032] hover:shadow-[0_24px_60px_-34px_rgba(0,0,0,0.95)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent motion-reduce:transform-none motion-reduce:transition-none";
 
 function syncUrl(query: string) {
   if (typeof window === "undefined") return;
@@ -62,54 +61,54 @@ function PostDate({ post }: { post: BlogIndexEntry }) {
   );
 }
 
-function PostMeta({
-  post,
-  className = "",
-}: {
-  post: BlogIndexEntry;
-  className?: string;
-}) {
-  const hasDate = Boolean(post.date ?? post.updatedDate);
-
+function NewBadge({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-[0.13em] text-muted ${className}`}
+    <span
+      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent/30 bg-accent/[0.12] px-2 py-1 font-mono text-[9px] font-medium uppercase leading-none tracking-[0.14em] text-accent ${className}`}
     >
-      {hasDate && (
-        <>
-          <PostDate post={post} />
-          <span aria-hidden="true" className="text-faint">
-            /
-          </span>
-        </>
-      )}
-      <span>{post.readMinutes} min read</span>
-    </div>
+      <span
+        aria-hidden="true"
+        className="size-1 animate-breathe rounded-full bg-accent"
+      />
+      New
+    </span>
   );
 }
 
-function PostCopy({
-  post,
-  variant,
-}: {
-  post: BlogIndexEntry;
-  variant: CardVariant;
-}) {
-  const titleClass =
-    variant === "featured"
-      ? "text-[1.9rem] leading-[1.08] sm:text-[2.2rem] lg:text-[2.55rem]"
-      : variant === "compact"
-        ? "text-[1.65rem] leading-[1.1] sm:text-[1.85rem]"
-        : "text-[1.5rem] leading-[1.12] sm:text-[1.7rem]";
-
-  const padding =
-    variant === "featured" ? "p-5 sm:p-6 lg:p-7" : "p-5 sm:p-6";
+function PostTags({ tags }: { tags: string[] }) {
+  if (tags.length === 0) return null;
 
   return (
-    <div className={`flex flex-col ${padding}`}>
-      <h3
-        className={`text-balance font-display tracking-[-0.02em] text-paper transition-colors duration-200 group-hover:text-accent ${titleClass}`}
-      >
+    <ul aria-label="Tags" className="mt-4 flex flex-wrap gap-1.5">
+      {tags.slice(0, 3).map((tag) => (
+        <li
+          key={tag}
+          className="rounded-full border border-line bg-white/[0.02] px-2 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint"
+        >
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function PostCardContent({
+  post,
+  isNew,
+}: {
+  post: BlogIndexEntry;
+  isNew: boolean;
+}) {
+  return (
+    <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="flex min-h-5 items-center justify-between gap-3">
+        <div>{isNew && <NewBadge />}</div>
+        <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-muted">
+          {post.readMinutes} min read
+        </span>
+      </div>
+
+      <h3 className="mt-3 text-balance font-display text-[1.45rem] leading-[1.14] tracking-[-0.015em] text-paper transition-colors duration-200 group-hover:text-accent sm:text-[1.6rem]">
         {post.title}
       </h3>
 
@@ -119,179 +118,90 @@ function PostCopy({
         </p>
       )}
 
-      <PostMeta post={post} className="mt-5" />
+      <PostTags tags={post.tags} />
+
+      <div className="mt-auto flex items-end justify-between gap-3 pt-6">
+        <div className="font-mono text-[9px] uppercase tracking-[0.13em] text-muted">
+          <PostDate post={post} />
+        </div>
+
+        <span
+          aria-hidden="true"
+          className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors duration-200 group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent"
+        >
+          <ArrowUpRight
+            aria-hidden="true"
+            className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            strokeWidth={1.5}
+          />
+        </span>
+      </div>
     </div>
   );
 }
 
-function FeaturedPost({
+function PostCard({
   post,
   priority,
+  isNew,
 }: {
   post: BlogIndexEntry;
   priority: boolean;
+  isNew: boolean;
 }) {
   return (
-    <article className="min-w-0 self-start">
+    <article className="h-full min-w-0">
       <Link href={postPath(post.slug)} className={cardShell}>
         {post.previewImage && (
           <PostCardMedia
             src={post.previewImage}
             alt={post.previewImageAlt ?? ""}
             priority={priority}
-            className="aspect-[4/3]"
+            className="aspect-[16/10] shrink-0"
           />
         )}
-        <PostCopy
-          post={post}
-          variant={post.previewImage ? "featured" : "compact"}
-        />
+        <PostCardContent post={post} isNew={isNew} />
       </Link>
     </article>
   );
 }
 
-function TallPost({
-  post,
-  priority,
+function gridClasses(postCount: number): string {
+  if (postCount === 1) return "max-w-[34rem]";
+  if (postCount === 3) return "sm:grid-cols-2 lg:grid-cols-3";
+  if (postCount === 2 || postCount === 4) return "sm:grid-cols-2";
+  return "sm:grid-cols-2 xl:grid-cols-3";
+}
+
+function PostGrid({
+  posts,
+  now,
 }: {
-  post: BlogIndexEntry;
-  priority: boolean;
+  posts: BlogIndexEntry[];
+  now: number;
 }) {
-  return (
-    <article className="min-w-0 self-start">
-      <Link href={postPath(post.slug)} className={cardShell}>
-        {post.previewImage && (
-          <PostCardMedia
-            src={post.previewImage}
-            alt={post.previewImageAlt ?? ""}
-            priority={priority}
-            className="aspect-[16/10]"
-          />
-        )}
-        <PostCopy post={post} variant="standard" />
-      </Link>
-    </article>
-  );
-}
-
-function CompactPost({ post }: { post: BlogIndexEntry }) {
-  return (
-    <article className="min-w-0 self-start">
-      <Link href={postPath(post.slug)} className={cardShell}>
-        {post.previewImage && (
-          <PostCardMedia
-            src={post.previewImage}
-            alt={post.previewImageAlt ?? ""}
-            className="aspect-[16/9]"
-          />
-        )}
-        <PostCopy post={post} variant="compact" />
-      </Link>
-    </article>
-  );
-}
-
-function StandardPost({
-  post,
-  priority,
-  className = "",
-}: {
-  post: BlogIndexEntry;
-  priority: boolean;
-  className?: string;
-}) {
-  return (
-    <article className={`min-w-0 self-start ${className}`}>
-      <Link href={postPath(post.slug)} className={cardShell}>
-        {post.previewImage && (
-          <PostCardMedia
-            src={post.previewImage}
-            alt={post.previewImageAlt ?? ""}
-            priority={priority}
-            className="aspect-[16/10]"
-          />
-        )}
-        <PostCopy post={post} variant="standard" />
-      </Link>
-    </article>
-  );
-}
-
-function MorePosts({ posts }: { posts: BlogIndexEntry[] }) {
-  return (
-    <section
-      aria-label="More thoughts"
-      className="mt-5 columns-1 gap-5 md:columns-2"
-    >
-      {posts.map((post) => (
-        <StandardPost
-          key={post.slug}
-          post={post}
-          priority={false}
-          className="mb-5 break-inside-avoid"
-        />
-      ))}
-    </section>
-  );
-}
-
-function BentoPosts({ posts }: { posts: BlogIndexEntry[] }) {
-  const [featured, second, third, ...rest] = posts;
-
-  return (
-    <>
-      <section
-        aria-label="Featured thoughts"
-        className="mt-6 grid items-start gap-5 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
-      >
-        <FeaturedPost post={featured} priority />
-        <div className="grid content-start gap-5">
-          <TallPost post={second} priority={false} />
-          <CompactPost post={third} />
-        </div>
-      </section>
-
-      {rest.length > 0 && <MorePosts posts={rest} />}
-    </>
-  );
-}
-
-function ResultPosts({ posts }: { posts: BlogIndexEntry[] }) {
-  if (posts.length === 1) {
-    return (
-      <section aria-label="Thoughts" className="mt-6 max-w-[42rem]">
-        <StandardPost post={posts[0]} priority />
-      </section>
-    );
-  }
-
   return (
     <section
       aria-label="Thoughts"
-      className="mt-6 grid items-start gap-5 md:grid-cols-2"
+      className={`mt-6 grid items-stretch gap-5 ${gridClasses(posts.length)}`}
     >
       {posts.map((post, index) => (
-        <StandardPost
+        <PostCard
           key={post.slug}
           post={post}
           priority={index === 0}
+          isNew={isNewPost(post.date ?? post.updatedDate, now)}
         />
       ))}
     </section>
   );
-}
-
-function CardsView({ posts }: { posts: BlogIndexEntry[] }) {
-  if (posts.length >= 3) return <BentoPosts posts={posts} />;
-  return <ResultPosts posts={posts} />;
 }
 
 function ListHeader() {
   return (
     <div
       aria-hidden="true"
-      className="hidden border-b border-line pb-3 font-mono text-[9px] uppercase tracking-[0.15em] text-faint md:grid md:grid-cols-[minmax(0,1fr)_9rem_5rem] md:gap-6"
+      className="-mx-3 hidden border-b border-line px-3 pb-3 font-mono text-[9px] uppercase tracking-[0.15em] text-faint md:grid md:grid-cols-[minmax(0,1fr)_9rem_5rem] md:gap-6"
     >
       <span>Thoughts</span>
       <span className="text-right">Date</span>
@@ -300,17 +210,20 @@ function ListHeader() {
   );
 }
 
-function ListPost({ post }: { post: BlogIndexEntry }) {
+function ListPost({ post, isNew }: { post: BlogIndexEntry; isNew: boolean }) {
   return (
     <li className="border-b border-line">
       <Link
         href={postPath(post.slug)}
-        className="group grid gap-2.5 py-5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent md:grid-cols-[minmax(0,1fr)_9rem_5rem] md:items-start md:gap-6"
+        className="group -mx-3 grid gap-2.5 rounded-lg px-3 py-5 transition-colors hover:bg-white/[0.022] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent md:grid-cols-[minmax(0,1fr)_9rem_5rem] md:items-start md:gap-6"
       >
         <div className="min-w-0">
-          <h3 className="text-balance font-display text-[1.3rem] leading-snug tracking-[-0.01em] text-paper transition-colors duration-200 group-hover:text-accent sm:text-[1.4rem]">
-            {post.title}
-          </h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-balance font-display text-[1.3rem] leading-snug tracking-[-0.01em] text-paper transition-colors duration-200 group-hover:text-accent sm:text-[1.4rem]">
+              {post.title}
+            </h3>
+            {isNew && <NewBadge />}
+          </div>
 
           {post.description && (
             <p className="mt-1.5 line-clamp-2 text-[13px] leading-[1.65] text-muted">
@@ -378,6 +291,7 @@ function ViewToggle({
 export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
   const [query, setQuery] = useState("");
   const [view, setView] = useState<BlogView>("cards");
+  const [now, setNow] = useState(0);
   const searchRef = useRef<HTMLInputElement>(null);
   const deferredQuery = useDeferredValue(query);
 
@@ -388,6 +302,10 @@ export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
 
   const normalizedQuery = normalizeQuery(query);
   const hasQuery = Boolean(normalizedQuery);
+
+  useEffect(() => {
+    queueMicrotask(() => setNow(Date.now()));
+  }, []);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -565,13 +483,17 @@ export default function PostList({ posts }: { posts: BlogIndexEntry[] }) {
             </button>
           </div>
         ) : view === "cards" ? (
-          <CardsView posts={filteredPosts} />
+          <PostGrid posts={filteredPosts} now={now} />
         ) : (
           <div className="mt-4">
             <ListHeader />
             <ol>
               {filteredPosts.map((post) => (
-                <ListPost key={post.slug} post={post} />
+                <ListPost
+                  key={post.slug}
+                  post={post}
+                  isNew={isNewPost(post.date ?? post.updatedDate, now)}
+                />
               ))}
             </ol>
           </div>
