@@ -5,7 +5,6 @@ date: 2026-10-29
 tags:
   - Books
   - Fiction
-  - Philosophy
   - Personal Thoughts
 ---
 
@@ -108,6 +107,11 @@ I don't need every book to teach me a lesson.
 Sometimes, experiencing a story might be enough.
 
 And perhaps that's another way of experiencing life: not always trying to explain everything, but allowing myself to feel, imagine, and explore.
+
+## Something that inspired me
+
+I also watched [this conversation](https://youtu.be/o04AhUs9R5o), and it gave me a real push to read more. There are so many writers and stories I haven't explored yet. I don't want to keep reading the same kinds of books, so I thought, why not start somewhere new?
+
 
 ## My first two books
 
